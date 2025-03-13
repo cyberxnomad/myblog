@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://kcode.cc/post/2022/12/annotation-of-linux-termios-structure.html'>
 
-<link rel="stylesheet" href="/scss/style.min.e8c7fca7d1c9294aa7a4f3426c225ee26540f7d94e39be0b5a4a5c8a49ca5a25.css"><meta property='og:title' content="Linux termios 结构体注解">
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="Linux termios 结构体注解">
 <meta property='og:description' content="1. 结构体定义\r该结构体定义在头文件 &lt;termios.h&gt; 中，至少包含以下成员： 1 2 3 4 5 tcflag_t c_iflag; /* input modes */ tcflag_t c_oflag; /* output modes */ tcflag_t c_cflag; /* control modes */ tcflag_t c_lflag; /* local modes */ cc_t c_cc[NCCS]; /* special characters */ 2. 结构体成员注解\r2.1. 输入模式标志 c_iflag\rc_iflag 用于设置终端 I/O 的输入参数，标志宏定义如下： IGNBRK 忽略输入时的中断（BREAK）条件 BRKINT 如果设置了 IGNBRK ，则忽略中断； 如果没有设置 IGNBRK ，但设置了 BRKINT ，那么中断（BREAK）会导致输入输出队列被冲洗（flush）；如果终端是前台进程组，中断（BREAK）将会向该终端发送 SIGINT 信号； 如果 IGNBRK 和 BRKINT 都未设置，中断（BREAK）字符将被读取为空字节（&rsquo;\\0&rsquo;）；如果设置了 PARMAR 标志，那么它将被读取为序列 \\377 \\0 \\0。 IGNPAR">
 <meta property='og:url' content='https://kcode.cc/post/2022/12/annotation-of-linux-termios-structure.html'>
 <meta property='og:site_name' content='K CODE'>
@@ -626,8 +626,32 @@
         <div class="flex article-list--tile">
             
                 
+<article class="has-image">
+    <a href="/post/2025/03/automated-installation-of-debian.html">
+        
+        
+            <div class="article-image">
+                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu7733576786418193243.webp" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 无人值守安装 Debian"
+                        
+                        data-hash="md5-oWBj0eg8UL3bM&#43;6pz9dKaQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">无人值守安装 Debian</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
 <article class="">
-    <a href="/post/2024/04/cross-compile-openocd-to-windows/">
+    <a href="/post/2024/04/cross-compile-openocd-to-windows.html">
         
         
 
@@ -699,19 +723,6 @@
 </article>
 
             
-                
-<article class="">
-    <a href="/post/2021/07/porting-paho-mqtt.html">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">移植 Paho MQTT</h2>
-        </div>
-    </a>
-</article>
-
-            
         </div>
     </div>
 </aside>
@@ -727,12 +738,12 @@
         
             2017 - 
         
-        2024 K CODE
+        2025 K CODE
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -821,7 +832,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
