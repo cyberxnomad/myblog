@@ -6,12 +6,12 @@
         <description>Recent content in OpenOCD on K CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cmn-Hans</language>
-        <lastBuildDate>Mon, 02 Sep 2024 18:20:00 +0800</lastBuildDate><atom:link href="https://kcode.cc/tags/openocd/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 02 Sep 2024 18:30:39 +0800</lastBuildDate><atom:link href="https://kcode.cc/tags/openocd/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>交叉编译 OpenOCD 到 Windows 使用</title>
-        <link>https://kcode.cc/post/2024/04/cross-compile-openocd-to-windows/</link>
+        <link>https://kcode.cc/post/2024/04/cross-compile-openocd-to-windows.html</link>
         <pubDate>Mon, 02 Sep 2024 18:20:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2024/04/cross-compile-openocd-to-windows/</guid>
+        <guid>https://kcode.cc/post/2024/04/cross-compile-openocd-to-windows.html</guid>
         <description>&lt;h2 id=&#34;1-准备工作&#34;&gt;1. 准备工作
 &lt;/h2&gt;&lt;p&gt;本文基于 &lt;code&gt;openocd-0.12.0&lt;/code&gt; 进行撰写，在 Linux 中使用 &lt;code&gt;mingw32&lt;/code&gt; 将 &lt;code&gt;OpenOCD&lt;/code&gt; 编译成 Win32 应用。&lt;/p&gt;
 &lt;p&gt;OpenOCD 依赖以下项目：&lt;/p&gt;

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://kcode.cc/post/2023/06/erpnext-14-manual-installation.html'>
 
-<link rel="stylesheet" href="/scss/style.min.e8c7fca7d1c9294aa7a4f3426c225ee26540f7d94e39be0b5a4a5c8a49ca5a25.css"><meta property='og:title' content="ERPNext 14 常规安装流程记录">
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="ERPNext 14 常规安装流程记录">
 <meta property='og:description' content="1. 安装基础依赖\r1 2 3 sudo apt update sudo apt upgrade sudo apt dist-upgrade 1 2 3 4 5 6 sudo apt install git python3 python3-pip \\ python3-venv software-properties-common \\ mariadb-server mariadb-client \\ redis-server curl nodejs npm xvfb \\ libfontconfig wkhtmltopdf \\ default-libmysqlclient-dev supervisor 2. 配置 Mariadb Server\r2.1. 初始化 Mariadb\r1 sudo mysql_secure_installation 2.2. 编辑配置文件\r1 sudo vim /etc/mysql/mariadb.conf.d/50-server.cnf 1 2 3 4 5 6 [mysqld] bind-address = 0.0.0.0 # 此处根据需要修改 character-set-client-handshake = FALSE character-set-server = utf8mb4 collation-server = utf8mb4_unicode_ci 2.">
 <meta property='og:url' content='https://kcode.cc/post/2023/06/erpnext-14-manual-installation.html'>
 <meta property='og:site_name' content='K CODE'>
@@ -657,8 +657,32 @@
         <div class="flex article-list--tile">
             
                 
+<article class="has-image">
+    <a href="/post/2025/03/automated-installation-of-debian.html">
+        
+        
+            <div class="article-image">
+                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu7733576786418193243.webp" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 无人值守安装 Debian"
+                        
+                        data-hash="md5-oWBj0eg8UL3bM&#43;6pz9dKaQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">无人值守安装 Debian</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
 <article class="">
-    <a href="/post/2024/04/cross-compile-openocd-to-windows/">
+    <a href="/post/2024/04/cross-compile-openocd-to-windows.html">
         
         
 
@@ -719,19 +743,6 @@
 </article>
 
             
-                
-<article class="">
-    <a href="/post/2021/07/porting-paho-mqtt.html">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">移植 Paho MQTT</h2>
-        </div>
-    </a>
-</article>
-
-            
         </div>
     </div>
 </aside>
@@ -747,12 +758,12 @@
         
             2017 - 
         
-        2024 K CODE
+        2025 K CODE
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -841,7 +852,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

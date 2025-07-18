@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://kcode.cc/post/2019/06/memo-of-raspberry-pi.html'>
 
-<link rel="stylesheet" href="/scss/style.min.e8c7fca7d1c9294aa7a4f3426c225ee26540f7d94e39be0b5a4a5c8a49ca5a25.css"><meta property='og:title' content="树莓派备忘">
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="树莓派备忘">
 <meta property='og:description' content="1. 无显示器/键鼠初始化配置\r1.1. 开启 sshd\r在 PC 上部署完 Raspbian 系统至 TF 卡上后，在 boot 分区根目录新建一个名为 ssh 的空文件即可在树莓派启动后开启 Raspbian 的 sshd 服务。 树莓派默认账户：pi，默认密码：raspberry。 1.2. 配置 WLAN\r在 PC 上部署完 Raspbian 系统至 TF 卡后，在 boot 分区根目录新建一个名为 wpa_supplicant.conf 的文本文件，在文件中输入一下内容： 1 2 3 4 5 6 7 8 9 10 11 country=CN # 国家/地区 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev update_config=1 network={ ssid=&#34;WiFi-Name&#34; # WiFi 名称 psk=&#34;12345678&#34; # WiFi 密码 key_mgmt=WPA-PSK # 加密方式 priority=1 # 优先级，数字越大优先级越高 scan_ssid=1 # 连接隐藏 WiFi 加上此行，否则不加或设为 0 } 2.">
 <meta property='og:url' content='https://kcode.cc/post/2019/06/memo-of-raspberry-pi.html'>
 <meta property='og:site_name' content='K CODE'>
@@ -420,12 +420,12 @@
         
             2017 - 
         
-        2024 K CODE
+        2025 K CODE
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -514,7 +514,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

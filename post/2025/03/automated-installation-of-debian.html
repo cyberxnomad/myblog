@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Debian 的自动化安装主要通过 Preseed 技术实现，它允许用户在安装过程中自动填写配置参数，从而实现无人值守的全自动安装。Preseed 文件是一个包含安装选项的配置文件，适用于大规模部署或需要重复安装的场景（如服务器、虚拟机等）。">
+<title>无人值守安装 Debian</title>
+
+<link rel='canonical' href='https://kcode.cc/post/2025/03/automated-installation-of-debian.html'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="无人值守安装 Debian">
+<meta property='og:description' content="Debian 的自动化安装主要通过 Preseed 技术实现，它允许用户在安装过程中自动填写配置参数，从而实现无人值守的全自动安装。Preseed 文件是一个包含安装选项的配置文件，适用于大规模部署或需要重复安装的场景（如服务器、虚拟机等）。">
+<meta property='og:url' content='https://kcode.cc/post/2025/03/automated-installation-of-debian.html'>
+<meta property='og:site_name' content='K CODE'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Debian' /><meta property='article:published_time' content='2025-03-13T15:00:00&#43;08:00'/><meta property='article:modified_time' content='2025-03-13T16:49:21&#43;08:00'/><meta property='og:image' content='https://kcode.cc/post/2025/03/automated-installation-of-debian/cover.webp' />
+<meta name="twitter:title" content="无人值守安装 Debian">
+<meta name="twitter:description" content="Debian 的自动化安装主要通过 Preseed 技术实现，它允许用户在安装过程中自动填写配置参数，从而实现无人值守的全自动安装。Preseed 文件是一个包含安装选项的配置文件，适用于大规模部署或需要重复安装的场景（如服务器、虚拟机等）。"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://kcode.cc/post/2025/03/automated-installation-of-debian/cover.webp' />
+    <link rel="shortcut icon" href="/favicon.png" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/images/avatar_hu3079210101010666945.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌀</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">K CODE</a></h1>
+            <h2 class="site-description">A Simple Blog</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives.html' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about.html' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-hexagon" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M19.875 6.27c.7 .398 1.13 1.143 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
+  <path d="M12 9h.01" />
+  <path d="M11 12h1v4h1" />
+</svg>
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-前言">1. 前言</a></li>
+    <li><a href="#2-定制-preseed-文件">2. 定制 preseed 文件</a>
+      <ul>
+        <li><a href="#21-语言国家本地化">2.1. 语言、国家、本地化</a></li>
+        <li><a href="#22-hostname">2.2. hostname</a></li>
+        <li><a href="#23-硬盘分区">2.3. 硬盘分区</a></li>
+        <li><a href="#24-软件包选择">2.4. 软件包选择</a></li>
+        <li><a href="#25-遥测数据收集">2.5. 遥测数据收集</a></li>
+        <li><a href="#26-安装前命令">2.6. 安装前命令</a></li>
+        <li><a href="#27-安装后命令">2.7. 安装后命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-执行无人值守安装">3. 执行无人值守安装</a>
+      <ul>
+        <li><a href="#31-额外的配置">3.1. 额外的配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-参考链接">4. 参考链接</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/post/2025/03/automated-installation-of-debian.html">
+                <img src="/post/2025/03/automated-installation-of-debian/cover_hu9765280002356914253.webp"
+                        srcset="/post/2025/03/automated-installation-of-debian/cover_hu9765280002356914253.webp 800w, /post/2025/03/automated-installation-of-debian/cover_hu2242313793987636080.webp 1600w"
+                        width="800" 
+                        height="800" 
+                        loading="lazy"
+                        alt="Featured image of post 无人值守安装 Debian" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" style="background-color: #FFD133; color: #000;">
+                Linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/2025/03/automated-installation-of-debian.html">无人值守安装 Debian</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Debian 的自动化安装主要通过 Preseed 技术实现，它允许用户在安装过程中自动填写配置参数，从而实现无人值守的全自动安装。Preseed 文件是一个包含安装选项的配置文件，适用于大规模部署或需要重复安装的场景（如服务器、虚拟机等）。
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025/03/13</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="1-前言">1. 前言
+</h2><p>Debian 的自动化安装主要通过 Preseed 技术实现，它允许用户在安装过程中自动填写配置参数，从而实现无人值守的全自动安装。Preseed 文件是一个包含安装选项的配置文件，适用于大规模部署或需要重复安装的场景（如服务器、虚拟机等）。</p>
+<p>当前稳定版本的 Preseed 示例文件可从官方网站下载：https://www.debian.org/releases/stable/example-preseed.txt</p>
+<p>其他版本示例文件可将链接中的 &lsquo;stable&rsquo; 替换成目标版本代号即可，如 Debian 11 的版本代号为 bullseye，则链接为：https://www.debian.org/releases/bullseye/example-preseed.txt</p>
+<h2 id="2-定制-preseed-文件">2. 定制 preseed 文件
+</h2><p>Preseed 示例文件中有完整的注释，本文不会一一说明，只说明一些在使用的时候需要注意的问题。</p>
+<h3 id="21-语言国家本地化">2.1. 语言、国家、本地化
+</h3><p>示例文件的开头，有这样一段配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Preseeding only locale sets language, country and locale.</span>
+</span></span><span class="line"><span class="cl">d-i debian-installer/locale string en_US
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># The values can also be preseeded individually for greater flexibility.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#d-i debian-installer/language string en</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#d-i debian-installer/country string NL</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#d-i debian-installer/locale string en_GB.UTF-8</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Optionally specify additional locales to be generated.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#d-i localechooser/supported-locales multiselect en_US.UTF-8, nl_NL.UTF-8</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Keyboard selection.</span>
+</span></span><span class="line"><span class="cl">d-i keyboard-configuration/xkb-keymap <span class="k">select</span> us
+</span></span><span class="line"><span class="cl"><span class="c1"># d-i keyboard-configuration/toggle select No toggling</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在实际使用的过程中发现，该配置并不会生效，在启动自动安装时，依然会询问并让用户选择语言、国家、本地化这些信息。</p>
+<p>解决方法是在命令行参数中修改这些值，<a class="link" href="#3-%e6%89%a7%e8%a1%8c%e6%97%a0%e4%ba%ba%e5%80%bc%e5%ae%88%e5%ae%89%e8%a3%85" >后文</a>会具体说。</p>
+<h3 id="22-hostname">2.2. hostname
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Any hostname and domain names assigned from dhcp take precedence over</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># values set here. However, setting the values still prevents the questions</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># from being shown, even if values come from dhcp.</span>
+</span></span><span class="line"><span class="cl">d-i netcfg/get_hostname string unassigned-hostname
+</span></span><span class="line"><span class="cl">d-i netcfg/get_domain string unassigned-domain
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># If you want to force a hostname, regardless of what either the DHCP</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># server returns or what the reverse DNS entry for the IP is, uncomment</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># and adjust the following line.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#d-i netcfg/hostname string somehost</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>一开始我将 <code>d-i netcfg/get_hostname string unassigned-hostname</code> 这一行注释了，使用最好一行中的 <code>d-i netcfg/hostname string somehost</code> 设置 hostname。但实际安装时，依然会询问并让用户输入 hostname。</p>
+<p>实际上只要使用 <code>d-i netcfg/get_hostname string unassigned-hostname</code> 这一行的配置设置 hostname 即可。</p>
+<h3 id="23-硬盘分区">2.3. 硬盘分区
+</h3><p>如果有多块硬盘（包括U盘），需要手动指定要分区的硬盘，我这边是选择第一块 NVMe 硬盘：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">d-i partman-auto/disk string /dev/nvme0n1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>分区方案配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">d-i partman-auto/expert_recipe string                          <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    boot-root ::                                               <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="m">525</span> <span class="m">525</span> <span class="m">525</span> free                                       <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            <span class="nv">$iflabel</span><span class="o">{</span> gpt <span class="o">}</span>                                    <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            <span class="nv">$primary</span><span class="o">{</span> <span class="o">}</span> <span class="nv">$bootable</span><span class="o">{</span> <span class="o">}</span>                           <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            method<span class="o">{</span> efi <span class="o">}</span> format<span class="o">{</span> <span class="o">}</span>                            <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        .                                                      <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="m">500</span> <span class="m">1024000</span> -1 ext4                                    <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            <span class="nv">$primary</span><span class="o">{</span> <span class="o">}</span>                                        <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            method<span class="o">{</span> format <span class="o">}</span> format<span class="o">{</span> <span class="o">}</span>                         <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            use_filesystem<span class="o">{</span> <span class="o">}</span> filesystem<span class="o">{</span> ext4 <span class="o">}</span>               <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            mountpoint<span class="o">{</span> / <span class="o">}</span>                                    <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        .                                                      <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="m">8590</span> <span class="m">8590</span> <span class="m">8590</span> linux-swap                              <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            <span class="nv">$primary</span><span class="o">{</span> <span class="o">}</span>                                        <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            method<span class="o">{</span> swap <span class="o">}</span> format<span class="o">{</span> <span class="o">}</span>                           <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        .
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此处配置的分区方案为：500MiB EFI 分区，8GiB Swap 分区，剩余空间为根文件系统。<br>
+配置中的数字为 MB 单位，如 500 表示 500MB。3个数字分别表示最小大小、优先级大小、最大大小。负数表示剩余空间。安装程序会根据磁盘空间和优先级大小来决定分区的实际大小。</p>
+<p>此处说明一下，为什么 500MiB 的分区大小要写成 525，这里涉及到单位转换的问题。1MB = 10^6 Byte，1MiB = 2^20 Byte，所以 525 ≈ 500 * 2^20 / 10^6。</p>
+<h3 id="24-软件包选择">2.4. 软件包选择
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">### Package selection</span>
+</span></span><span class="line"><span class="cl">tasksel tasksel/first multiselect standard, web-server, kde-desktop
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Or choose to not get the tasksel dialog displayed at all (and don&#39;t install</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># any packages):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#d-i pkgsel/run_tasksel boolean false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此处选择需要安装的其他软件包，如 web-server、kde-desktop 等等。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Individual additional packages to install</span>
+</span></span><span class="line"><span class="cl">d-i pkgsel/include string vim curl wget
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此处选择需要额外安装的软件包，如 vim、curl、wget 等等。</p>
+<h3 id="25-遥测数据收集">2.5. 遥测数据收集
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># You can choose, if your system will report back on what software you have</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># installed, and what software you use. The default is not to report back,</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># but sending reports helps the project determine what software is most</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># popular and should be included on the first CD/DVD.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#popularity-contest popularity-contest/participate boolean false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里默认是注释掉的，可以将最后一行的注释符号去掉，不然在安装过程中会提示用户选择是否愿意收集遥测数据。</p>
+<h3 id="26-安装前命令">2.6. 安装前命令
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># This first command is run as early as possible, just after</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># preseeding is read.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#d-i preseed/early_command string anna-install some-udeb</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>该配置是在安装前(在 preseed 文件读取后)将要执行的命令。</p>
+<p>在实际使用过程中，发现如果待安装的硬盘中已经存在 EFI 分区，安装系统会自动将 EFI 分区挂载到 <code>/media</code>，导致在执行分区操作时会出现分区失败的情况，此处可以使用以下安装前命令来解决：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">d-i preseed/early_command string umount /media <span class="o">||</span> true<span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>命令中 <code>|| true</code> 是为了解决执行命令时，如果没有挂载 EFI 分区，会报错，所以加上 <code>|| true</code> 是为了忽略报错，防止自动安装中断。</p>
+<h3 id="27-安装后命令">2.7. 安装后命令
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># This command is run immediately before the partitioner starts. It may be</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># useful to apply dynamic partitioner preseeding that depends on the state</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># of the disks (which may not be visible when preseed/early_command runs).</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#d-i partman/early_command \</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#       string debconf-set partman-auto/disk &#34;$(list-devices disk | head -n1)&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># This command is run just before the install finishes, but when there is</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># still a usable /target directory. You can chroot to /target and use it</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># directly, or use the apt-install and in-target commands to easily install</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># packages and run commands in the target system.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#d-i preseed/late_command string apt-install zsh; in-target chsh -s /bin/zsh</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>该配置是在安装结束前将要执行的命令。此时 /target 目录是可用的，可以使用 chroot 命令进入 /target 目录，使用 apt-install 和 in-target 命令来安装软件和运行命令。</p>
+<p>例如可以预先设置 apt 的源（因为安装结束后，源可能是 CDROM），使用以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">d-i preseed/late_command string <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    in-target bash -c <span class="s1">&#39;echo &#34;deb https://mirrors.tuna.tsinghua.edu.cn/debian bookworm main contrib non-free non-free-firmware&#34; &gt; /etc/apt/sources.list&#39;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    in-target bash -c <span class="s1">&#39;echo &#34;deb https://mirrors.tuna.tsinghua.edu.cn/debian bookworm-updates main contrib non-free non-free-firmware&#34; &gt;&gt; /etc/apt/sources.list&#39;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    in-target bash -c <span class="s1">&#39;echo &#34;deb https://mirrors.tuna.tsinghua.edu.cn/debian bookworm-backports main contrib non-free non-free-firmware&#34; &gt;&gt; /etc/apt/sources.list&#39;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    in-target bash -c <span class="s1">&#39;echo &#34;deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware&#34; &gt;&gt; /etc/apt/sources.list&#39;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    in-target bash -c <span class="s1">&#39;echo &#34;deb-src https://mirrors.tuna.tsinghua.edu.cn/debian bookworm main contrib non-free non-free-firmware&#34; &gt;&gt; /etc/apt/sources.list&#39;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    in-target bash -c <span class="s1">&#39;echo &#34;deb-src https://mirrors.tuna.tsinghua.edu.cn/debian bookworm-updates main contrib non-free non-free-firmware&#34; &gt;&gt; /etc/apt/sources.list&#39;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    in-target bash -c <span class="s1">&#39;echo &#34;deb-src https://mirrors.tuna.tsinghua.edu.cn/debian bookworm-backports main contrib non-free non-free-firmware&#34; &gt;&gt; /etc/apt/sources.list&#39;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    in-target bash -c <span class="s1">&#39;echo &#34;deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware&#34; &gt;&gt; /etc/apt/sources.list&#39;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="3-执行无人值守安装">3. 执行无人值守安装
+</h2><p>进行无人值守安装时，Preseed 文件可以从 http 服务获取，也可以从文件系统中获取，也可以放在 <code>initrd.gz</code>中。<br>
+如果放在 <code>initrd.gz</code> 中，则每次修改 preseed 文件后，都要重新制作 <code>initrd.gz</code>，比较麻烦。</p>
+<p>本人将 Debian 12 的 ISO 文件解压到 U 盘进行无人值守安装，所以将 preseed 文件放在 U 盘的根目录下。</p>
+<p>安装引导启动时，会将 U 盘挂载到 <code>/cdrom</code>。在首屏安装方式选择时，按 <code>C</code> 快捷键，编辑启动参数，原始的启动参数可能为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/install.amd/vmlinuz <span class="nv">vga</span><span class="o">=</span><span class="m">788</span> <span class="nv">initrd</span><span class="o">=</span>/install.amd/gtk/initrd.gz --- quiet
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改为如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/install.amd/vmlinuz <span class="nv">vga</span><span class="o">=</span><span class="m">788</span> <span class="nv">initrd</span><span class="o">=</span>/install.amd/gtk/initrd.gz auto <span class="nv">file</span><span class="o">=</span>/cdrom/preseed.cfg --- quiet
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果使用 http 服务器获取 preseed 文件，则修改为如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/install.amd/vmlinuz <span class="nv">vga</span><span class="o">=</span><span class="m">788</span> <span class="nv">initrd</span><span class="o">=</span>/install.amd/gtk/initrd.gz auto <span class="nv">url</span><span class="o">=</span>/cdrom/preseed.cfg --- quiet
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中 <code>auto</code> 为 <code>auto-install/enable</code> 的别名，<code>file</code> 为 <code>preseed/file</code> 的别名，<code>url</code> 为 <code>preseed/url</code> 的别名。</p>
+<p>但此时还不够，会出现 <a class="link" href="#21-%e8%af%ad%e8%a8%80%e5%9b%bd%e5%ae%b6%e6%9c%ac%e5%9c%b0%e5%8c%96" >2.1. 语言、国家、本地化</a> 中说明的问题，会询问用户选择语言、国家、本地化这些，此时需要在启动参数中增加额外的参数，完整的启动参数为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">linux    /install.amd/vmlinuz <span class="nv">vga</span><span class="o">=</span><span class="m">788</span> <span class="nv">language</span><span class="o">=</span>en <span class="nv">country</span><span class="o">=</span>CN <span class="nv">locale</span><span class="o">=</span>en_US.UTF-8 <span class="nv">keymap</span><span class="o">=</span>us <span class="nv">priority</span><span class="o">=</span>critical auto <span class="nv">file</span><span class="o">=</span>/cdrom/preseed.cfg --- quiet 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后按照提示，按下快捷键 <code>CTRL+X</code> 使用修改的参数进行启动，即可开始无人值守安装。</p>
+<h3 id="31-额外的配置">3.1. 额外的配置
+</h3><p>每次执行无人值守安装时，都需要手动修改启动参数，甚是麻烦，所以我们可以修改 grub 的配置文件，增加一个安装菜单选项。</p>
+<p>grub 配置文件位于 <code>[ISO 镜像文件根目录]/boot/grub/grub.cfg</code>，在其中增加一个拥有子菜单的菜单项，这样我们可以通过子菜单，选择不同的 preseed 无人值守安装配置，示例如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">submenu --hotkey<span class="o">=</span>m <span class="s1">&#39;Automated install ...&#39;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> <span class="nv">menu_color_normal</span><span class="o">=</span>cyan/blue
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> <span class="nv">menu_color_highlight</span><span class="o">=</span>white/blue
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> <span class="nv">theme</span><span class="o">=</span>/boot/grub/theme/1-1
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> <span class="nv">gfxpayload</span><span class="o">=</span>keep
+</span></span><span class="line"><span class="cl">    menuentry <span class="s1">&#39;Configuration 1&#39;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">set</span> <span class="nv">background_color</span><span class="o">=</span>black
+</span></span><span class="line"><span class="cl">        linux    /install.amd/vmlinuz <span class="nv">vga</span><span class="o">=</span><span class="m">788</span> <span class="nv">language</span><span class="o">=</span>en <span class="nv">country</span><span class="o">=</span>CN <span class="nv">locale</span><span class="o">=</span>en_US.UTF-8 <span class="nv">keymap</span><span class="o">=</span>us <span class="nv">priority</span><span class="o">=</span>critical auto <span class="nv">file</span><span class="o">=</span>/cdrom/preseed/conf1.cfg --- quiet 
+</span></span><span class="line"><span class="cl">        initrd   /install.amd/initrd.gz
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    menuentry <span class="s1">&#39;Configuration 2&#39;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">set</span> <span class="nv">background_color</span><span class="o">=</span>black
+</span></span><span class="line"><span class="cl">        linux    /install.amd/vmlinuz <span class="nv">vga</span><span class="o">=</span><span class="m">788</span> <span class="nv">language</span><span class="o">=</span>en <span class="nv">country</span><span class="o">=</span>CN <span class="nv">locale</span><span class="o">=</span>en_US.UTF-8 <span class="nv">keymap</span><span class="o">=</span>us <span class="nv">priority</span><span class="o">=</span>critical auto <span class="nv">file</span><span class="o">=</span>/cdrom/preseed/conf2.cfg --- quiet 
+</span></span><span class="line"><span class="cl">        initrd   /install.amd/initrd.gz
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样在安装引导启动时，就可以直接进入子菜单进行选择，而无需每次手动修改启动参数。</p>
+<h2 id="4-参考链接">4. 参考链接
+</h2><ol>
+<li><a class="link" href="https://wiki.debian.org/DebianInstaller/Preseed"  target="_blank" rel="noopener"
+    >https://wiki.debian.org/DebianInstaller/Preseed</a></li>
+<li><a class="link" href="https://www.debian.org/releases/stable/amd64/apbs02.zh-cn.html"  target="_blank" rel="noopener"
+    >https://www.debian.org/releases/stable/amd64/apbs02.zh-cn.html</a></li>
+<li><a class="link" href="https://www.debian.org/releases/stable/example-preseed.txt"  target="_blank" rel="noopener"
+    >https://www.debian.org/releases/stable/example-preseed.txt</a></li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/debian/">Debian</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>本博客所有文章除特别声明外，均采用 BY-NC-SA 4.0 许可协议。转载请注明出处！</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 2025/03/13 16:49 CST
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/post/2024/04/cross-compile-openocd-to-windows.html">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">交叉编译 OpenOCD 到 Windows 使用</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/post/2023/06/buildroot-note-1.html">
+        
+        
+            <div class="article-image">
+                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu8467303290478934340.webp" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Buildroot 注解 1"
+                        
+                        data-hash="md5-aCPR3MeVfxF22hsntgzQCw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Buildroot 注解 1</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/post/2023/06/erpnext-14-manual-installation.html">
+        
+        
+            <div class="article-image">
+                <img src="/post/2023/06/erpnext-14-manual-installation/cover.7fc08f1553469c0d3f33dfb0bbcf1cfd_hu10977772892428621247.webp" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post ERPNext 14 常规安装流程记录"
+                        
+                        data-hash="md5-f8CPFVNGnA0/M9&#43;wu88c/Q==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ERPNext 14 常规安装流程记录</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/2022/12/annotation-of-linux-termios-structure.html">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux termios 结构体注解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/2021/07/porting-openssh.html">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">移植 OpenSSH</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2017 - 
+        
+        2025 K CODE
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

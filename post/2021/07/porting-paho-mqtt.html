@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://kcode.cc/post/2021/07/porting-paho-mqtt.html'>
 
-<link rel="stylesheet" href="/scss/style.min.e8c7fca7d1c9294aa7a4f3426c225ee26540f7d94e39be0b5a4a5c8a49ca5a25.css"><meta property='og:title' content="移植 Paho MQTT">
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="移植 Paho MQTT">
 <meta property='og:description' content="1. 准备工作\r1.1. 下载源码\r两种方式下载源码: git clone 直接下载指定 tag 源码 对于第 1 种方式，会把历史 commit 都 clone 下来，对于立项久远、社区活跃的项目来说，体积较大，加之 github 在国内访问不稳定，而且只是使用不是开发，所以这里选择第 2 种方式。 在其项目 Release 页找到最新的 Release Tag，下载 Source code。 1.2. 安装依赖\r1 apt install build-essential gcc make cmake cmake-gui cmake-curses-gui 如果需要使用 SSL 功能，则还需要预先交叉编译 OpenSSL，可参考之前的文章 移植 OpenSSL。 如果需要生成文档，还需要安装 doxygen 和 graphhviz： 1 apt install doxygen graphviz 2. 配置 Makefile\r2.1. 修改交叉编译工具链\r新建一个目录作为编译用目录，拷贝 paho.mqtt 源码目录下 cmake 目录内的 toolchain.linux-arm11.cmake 至编译用目录，修改以下内容为自己的交叉编译工具链： 1 SET(CMAKE_C_COMPILER arm-linux-gnueabihf-gcc) 2.2. 生成 Makefile\r1 2 3 4 5 6 7 8 cmake \\ -DPAHO_WITH_SSL=TRUE \\ -DPAHO_BUILD_SAMPLES=TRUE \\ -DPAHO_BUILD_DOCUMENTATION=TRUE \\ -DPAHO_HIGH_PERFORMANCE=TRUE \\ -DOPENSSL_ROOT_DIR=/path/to/openssl/install/root \\ -DCMAKE_TOOLCHAIN_FILE=/path/to/toolchain.">
 <meta property='og:url' content='https://kcode.cc/post/2021/07/porting-paho-mqtt.html'>
 <meta property='og:site_name' content='K CODE'>
@@ -484,7 +484,7 @@
             
                 
 <article class="">
-    <a href="/post/2024/04/cross-compile-openocd-to-windows/">
+    <a href="/post/2024/04/cross-compile-openocd-to-windows.html">
         
         
 
@@ -523,6 +523,30 @@
             
                 
 <article class="has-image">
+    <a href="/post/2025/03/automated-installation-of-debian.html">
+        
+        
+            <div class="article-image">
+                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu7733576786418193243.webp" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 无人值守安装 Debian"
+                        
+                        data-hash="md5-oWBj0eg8UL3bM&#43;6pz9dKaQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">无人值守安装 Debian</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
     <a href="/post/2023/06/buildroot-note-1.html">
         
         
@@ -545,30 +569,6 @@
 </article>
 
             
-                
-<article class="has-image">
-    <a href="/post/2023/06/erpnext-14-manual-installation.html">
-        
-        
-            <div class="article-image">
-                <img src="/post/2023/06/erpnext-14-manual-installation/cover.7fc08f1553469c0d3f33dfb0bbcf1cfd_hu10977772892428621247.webp" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post ERPNext 14 常规安装流程记录"
-                        
-                        data-hash="md5-f8CPFVNGnA0/M9&#43;wu88c/Q==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">ERPNext 14 常规安装流程记录</h2>
-        </div>
-    </a>
-</article>
-
-            
         </div>
     </div>
 </aside>
@@ -584,12 +584,12 @@
         
             2017 - 
         
-        2024 K CODE
+        2025 K CODE
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -678,7 +678,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

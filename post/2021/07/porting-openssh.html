@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://kcode.cc/post/2021/07/porting-openssh.html'>
 
-<link rel="stylesheet" href="/scss/style.min.e8c7fca7d1c9294aa7a4f3426c225ee26540f7d94e39be0b5a4a5c8a49ca5a25.css"><meta property='og:title' content="移植 OpenSSH">
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="移植 OpenSSH">
 <meta property='og:description' content="1. 准备工作\rOpenSSH 依赖 zlib、OpenSSL。 源码下载： zlib zlib.net OpenSSL openssl.org OpenSSH mirrors.aliyun.com 本文基于 zlib-1.2.11、openssl-1.1.1k、openssh-8.6p1 撰写。 2. 交叉编译\r2.1. zlib\r2.1.1. 配置 Makefile\r1 2 3 CHOST=arm-linux \\ ./configure \\ --prefix=/path/to/install CHOST zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按上述配置，即自动将交叉编译工具名称设为 arm-linux-gcc、arm-linux-ld 等。 2.1.2. 编译与安装\r1 make &amp;&amp; make install 将安装在 --prefix 所指定的目录。 2.2. OpenSSL\r参考之前的文章 移植 OpenSSL。 2.3. OpenSSH\r2.3.1. 配置 Makefile\r1 2 3 4 5 6 7 CC=arm-linux-gcc \\ ./configure \\ --host=arm-linux \\ --with-libs \\ --with-zlib=/path/to/zlib/install \\ --with-ssl-dir=/path/to/openssl/install \\ --disable-etc-default-login CC">
 <meta property='og:url' content='https://kcode.cc/post/2021/07/porting-openssh.html'>
 <meta property='og:site_name' content='K CODE'>
@@ -700,7 +700,7 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
             
                 
 <article class="">
-    <a href="/post/2024/04/cross-compile-openocd-to-windows/">
+    <a href="/post/2024/04/cross-compile-openocd-to-windows.html">
         
         
 
@@ -719,6 +719,30 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
 
         <div class="article-details">
             <h2 class="article-title">移植 Paho MQTT</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/post/2025/03/automated-installation-of-debian.html">
+        
+        
+            <div class="article-image">
+                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu7733576786418193243.webp" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 无人值守安装 Debian"
+                        
+                        data-hash="md5-oWBj0eg8UL3bM&#43;6pz9dKaQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">无人值守安装 Debian</h2>
         </div>
     </a>
 </article>
@@ -748,30 +772,6 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
 </article>
 
             
-                
-<article class="has-image">
-    <a href="/post/2023/06/erpnext-14-manual-installation.html">
-        
-        
-            <div class="article-image">
-                <img src="/post/2023/06/erpnext-14-manual-installation/cover.7fc08f1553469c0d3f33dfb0bbcf1cfd_hu10977772892428621247.webp" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post ERPNext 14 常规安装流程记录"
-                        
-                        data-hash="md5-f8CPFVNGnA0/M9&#43;wu88c/Q==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">ERPNext 14 常规安装流程记录</h2>
-        </div>
-    </a>
-</article>
-
-            
         </div>
     </div>
 </aside>
@@ -787,12 +787,12 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
         
             2017 - 
         
-        2024 K CODE
+        2025 K CODE
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -881,7 +881,7 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

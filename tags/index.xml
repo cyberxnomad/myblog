@@ -6,7 +6,15 @@
         <description>Recent content in Tags on K CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cmn-Hans</language>
-        <lastBuildDate>Mon, 02 Sep 2024 18:20:00 +0800</lastBuildDate><atom:link href="https://kcode.cc/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 13 Mar 2025 16:49:21 +0800</lastBuildDate><atom:link href="https://kcode.cc/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Debian</title>
+        <link>https://kcode.cc/tags/debian/</link>
+        <pubDate>Thu, 13 Mar 2025 15:00:00 +0800</pubDate>
+        
+        <guid>https://kcode.cc/tags/debian/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>OpenOCD</title>
         <link>https://kcode.cc/tags/openocd/</link>
         <pubDate>Mon, 02 Sep 2024 18:20:00 +0800</pubDate>
