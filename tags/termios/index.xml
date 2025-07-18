@@ -30,8 +30,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;cc_t&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;c_cc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;NCCS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;   &lt;span class=&#34;cm&#34;&gt;/* special characters */&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;2-结构体成员注解&#34;&gt;2. 结构体成员注解
+&lt;/div&gt;&lt;h2 id=&#34;2-结构体成员注解&#34;&gt;2. 结构体成员注解
 &lt;/h2&gt;&lt;h3 id=&#34;21-输入模式标志-c_iflag&#34;&gt;2.1. 输入模式标志 &lt;code&gt;c_iflag&lt;/code&gt;
 &lt;/h3&gt;&lt;p&gt;&lt;code&gt;c_iflag&lt;/code&gt; 用于设置终端 I/O 的输入参数，标志宏定义如下：&lt;/p&gt;
 &lt;ul&gt;

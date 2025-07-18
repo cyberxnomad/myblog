@@ -6,7 +6,7 @@
         <description>Recent content in Buildroot on K CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cmn-Hans</language>
-        <lastBuildDate>Thu, 20 Jul 2023 19:44:11 +0800</lastBuildDate><atom:link href="https://kcode.cc/tags/buildroot/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 18 Jul 2025 14:00:27 +0800</lastBuildDate><atom:link href="https://kcode.cc/tags/buildroot/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Buildroot 注解 1</title>
         <link>https://kcode.cc/post/2023/06/buildroot-note-1.html</link>
         <pubDate>Thu, 29 Jun 2023 15:35:00 +0800</pubDate>
@@ -220,12 +220,12 @@ Buildroot 在执行这些脚本时，会传递一些参数进去：&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;附1文章修订记录&#34;&gt;附1：文章修订记录
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;2023/06/29 15:35 CST
+&lt;li&gt;2023-06-29
 &lt;ul&gt;
 &lt;li&gt;文章初次发表&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;2023/07/20 19:44 CST
+&lt;li&gt;2023-07-20
 &lt;ul&gt;
 &lt;li&gt;修正 &lt;a class=&#34;link&#34; href=&#34;#4-%e4%bf%9d%e5%ad%98%e5%85%b6%e4%bb%96%e7%bb%84%e4%bb%b6%e7%9a%84%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6&#34; &gt;4. 保存其他组件的配置文件&lt;/a&gt; 中的描述错误&lt;/li&gt;
 &lt;/ul&gt;

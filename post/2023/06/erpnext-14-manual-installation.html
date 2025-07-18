@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 安装基础依赖\r1 2 3 sudo apt update sudo apt upgrade sudo apt dist-upgrade 1 2 3 4 5 6 sudo apt install git python3 python3-pip \\ python3-venv software-properties-common \\ mariadb-server mariadb-client \\ redis-server curl nodejs npm xvfb \\ libfontconfig wkhtmltopdf \\ default-libmysqlclient-dev supervisor 2. 配置 Mariadb Server\r2.1. 初始化 Mariadb\r1 sudo mysql_secure_installation 2.2. 编辑配置文件\r1 sudo vim /etc/mysql/mariadb.conf.d/50-server.cnf 1 2 3 4 5 6 [mysqld] bind-address = 0.0.0.0 # 此处根据需要修改 character-set-client-handshake = FALSE character-set-server = utf8mb4 collation-server = utf8mb4_unicode_ci 2.">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 安装基础依赖\r1 2 3 sudo apt update sudo apt upgrade sudo apt dist-upgrade 1 2 3 4 5 6 sudo apt install git python3 python3-pip \\ python3-venv software-properties-common \\ mariadb-server mariadb-client \\ redis-server curl nodejs npm xvfb \\ libfontconfig wkhtmltopdf \\ default-libmysqlclient-dev supervisor 2. 配置 Mariadb Server\r2.1. 初始化 Mariadb\r1 sudo mysql_secure_installation 2.2. 编辑配置文件\r1 sudo vim /etc/mysql/mariadb.conf.d/50-server.cnf 1 2 3 4 5 6 [mysqld] bind-address = 0.0.0.0 # 此处根据需要修改 character-set-client-handshake = FALSE character-set-server = utf8mb4 collation-server = utf8mb4_unicode_ci 2.3. 重启 Mariadb 服务\r重启服务，使配置文件生效。\n">
 <title>ERPNext 14 常规安装流程记录</title>
 
 <link rel='canonical' href='https://kcode.cc/post/2023/06/erpnext-14-manual-installation.html'>
 
-<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="ERPNext 14 常规安装流程记录">
-<meta property='og:description' content="1. 安装基础依赖\r1 2 3 sudo apt update sudo apt upgrade sudo apt dist-upgrade 1 2 3 4 5 6 sudo apt install git python3 python3-pip \\ python3-venv software-properties-common \\ mariadb-server mariadb-client \\ redis-server curl nodejs npm xvfb \\ libfontconfig wkhtmltopdf \\ default-libmysqlclient-dev supervisor 2. 配置 Mariadb Server\r2.1. 初始化 Mariadb\r1 sudo mysql_secure_installation 2.2. 编辑配置文件\r1 sudo vim /etc/mysql/mariadb.conf.d/50-server.cnf 1 2 3 4 5 6 [mysqld] bind-address = 0.0.0.0 # 此处根据需要修改 character-set-client-handshake = FALSE character-set-server = utf8mb4 collation-server = utf8mb4_unicode_ci 2.">
+<link rel="stylesheet" href="/scss/style.min.cfa5b1b0e78d61c00a14173992a1f3fa3b5c1b9fa34d023de959af564e7b19dd.css"><meta property='og:title' content="ERPNext 14 常规安装流程记录">
+<meta property='og:description' content="1. 安装基础依赖\r1 2 3 sudo apt update sudo apt upgrade sudo apt dist-upgrade 1 2 3 4 5 6 sudo apt install git python3 python3-pip \\ python3-venv software-properties-common \\ mariadb-server mariadb-client \\ redis-server curl nodejs npm xvfb \\ libfontconfig wkhtmltopdf \\ default-libmysqlclient-dev supervisor 2. 配置 Mariadb Server\r2.1. 初始化 Mariadb\r1 sudo mysql_secure_installation 2.2. 编辑配置文件\r1 sudo vim /etc/mysql/mariadb.conf.d/50-server.cnf 1 2 3 4 5 6 [mysqld] bind-address = 0.0.0.0 # 此处根据需要修改 character-set-client-handshake = FALSE character-set-server = utf8mb4 collation-server = utf8mb4_unicode_ci 2.3. 重启 Mariadb 服务\r重启服务，使配置文件生效。\n">
 <meta property='og:url' content='https://kcode.cc/post/2023/06/erpnext-14-manual-installation.html'>
 <meta property='og:site_name' content='K CODE'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='erp' /><meta property='article:tag' content='erpnext' /><meta property='article:published_time' content='2023-06-21T11:58:37&#43;08:00'/><meta property='article:modified_time' content='2023-09-28T10:41:18&#43;08:00'/><meta property='og:image' content='https://kcode.cc/post/2023/06/erpnext-14-manual-installation/cover.webp' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='erp' /><meta property='article:tag' content='erpnext' /><meta property='article:published_time' content='2023-06-21T11:58:37&#43;08:00'/><meta property='article:modified_time' content='2025-07-18T14:00:27&#43;08:00'/><meta property='og:image' content='https://kcode.cc/post/2023/06/erpnext-14-manual-installation/cover.webp' />
 <meta name="twitter:title" content="ERPNext 14 常规安装流程记录">
-<meta name="twitter:description" content="1. 安装基础依赖\r1 2 3 sudo apt update sudo apt upgrade sudo apt dist-upgrade 1 2 3 4 5 6 sudo apt install git python3 python3-pip \\ python3-venv software-properties-common \\ mariadb-server mariadb-client \\ redis-server curl nodejs npm xvfb \\ libfontconfig wkhtmltopdf \\ default-libmysqlclient-dev supervisor 2. 配置 Mariadb Server\r2.1. 初始化 Mariadb\r1 sudo mysql_secure_installation 2.2. 编辑配置文件\r1 sudo vim /etc/mysql/mariadb.conf.d/50-server.cnf 1 2 3 4 5 6 [mysqld] bind-address = 0.0.0.0 # 此处根据需要修改 character-set-client-handshake = FALSE character-set-server = utf8mb4 collation-server = utf8mb4_unicode_ci 2."><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="1. 安装基础依赖\r1 2 3 sudo apt update sudo apt upgrade sudo apt dist-upgrade 1 2 3 4 5 6 sudo apt install git python3 python3-pip \\ python3-venv software-properties-common \\ mariadb-server mariadb-client \\ redis-server curl nodejs npm xvfb \\ libfontconfig wkhtmltopdf \\ default-libmysqlclient-dev supervisor 2. 配置 Mariadb Server\r2.1. 初始化 Mariadb\r1 sudo mysql_secure_installation 2.2. 编辑配置文件\r1 sudo vim /etc/mysql/mariadb.conf.d/50-server.cnf 1 2 3 4 5 6 [mysqld] bind-address = 0.0.0.0 # 此处根据需要修改 character-set-client-handshake = FALSE character-set-server = utf8mb4 collation-server = utf8mb4_unicode_ci 2.3. 重启 Mariadb 服务\r重启服务，使配置文件生效。\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://kcode.cc/post/2023/06/erpnext-14-manual-installation/cover.webp' />
     <link rel="shortcut icon" href="/favicon.png" />
-
-  
-
 
     </head>
     <body class="
@@ -62,7 +59,7 @@
                     
                     
                         
-                        <img src="/images/avatar_hu3079210101010666945.jpg" width="300"
+                        <img src="/images/avatar_hu_74b419752b138555.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -246,8 +243,8 @@
     <header class="article-header">
         <div class="article-image">
             <a href="/post/2023/06/erpnext-14-manual-installation.html">
-                <img src="/post/2023/06/erpnext-14-manual-installation/cover_hu5684158381766702505.webp"
-                        srcset="/post/2023/06/erpnext-14-manual-installation/cover_hu5684158381766702505.webp 800w, /post/2023/06/erpnext-14-manual-installation/cover_hu17737292691082051394.webp 1600w"
+                <img src="/post/2023/06/erpnext-14-manual-installation/cover_hu_c36dafdb5d609f2c.webp"
+                        srcset="/post/2023/06/erpnext-14-manual-installation/cover_hu_c36dafdb5d609f2c.webp 800w, /post/2023/06/erpnext-14-manual-installation/cover_hu_4430d5445b0015f3.webp 1600w"
                         width="800" 
                         height="552" 
                         loading="lazy"
@@ -591,12 +588,12 @@
 </h2><p>浏览器输入服务器IP即可访问，初始用户名为：Administrator，初始密码为安装 Frappe 时的密码。</p>
 <h2 id="附1文章修订记录">附1：文章修订记录
 </h2><ul>
-<li>2023/06/21 11:58 CST
+<li>2023-06-21
 <ul>
 <li>文章初次发表</li>
 </ul>
 </li>
-<li>2023/09/28 10:40 CST
+<li>2023-09-28
 <ul>
 <li>修正文中多处错误</li>
 </ul>
@@ -639,7 +636,7 @@
 
 
         <span>
-            最后更新于 2023/09/28 10:41 CST
+            最后更新于 2025/07/18 14:00 CST
         </span>
     </section></footer>
 
@@ -662,7 +659,7 @@
         
         
             <div class="article-image">
-                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu7733576786418193243.webp" 
+                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu_a4fc2f4024051a8e.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -699,7 +696,7 @@
         
         
             <div class="article-image">
-                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu8467303290478934340.webp" 
+                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu_7f73d41cc11b6faa.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"

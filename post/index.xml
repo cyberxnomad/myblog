@@ -6,7 +6,7 @@
         <description>Recent content in Posts on K CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cmn-Hans</language>
-        <lastBuildDate>Thu, 13 Mar 2025 16:49:21 +0800</lastBuildDate><atom:link href="https://kcode.cc/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 18 Jul 2025 14:00:50 +0800</lastBuildDate><atom:link href="https://kcode.cc/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>无人值守安装 Debian</title>
         <link>https://kcode.cc/post/2025/03/automated-installation-of-debian.html</link>
         <pubDate>Thu, 13 Mar 2025 15:00:00 +0800</pubDate>
@@ -365,7 +365,9 @@
         
         <guid>https://kcode.cc/post/2024/04/cross-compile-openocd-to-windows.html</guid>
         <description>&lt;h2 id=&#34;1-准备工作&#34;&gt;1. 准备工作
-&lt;/h2&gt;&lt;p&gt;本文基于 &lt;code&gt;openocd-0.12.0&lt;/code&gt; 进行撰写，在 Linux 中使用 &lt;code&gt;mingw32&lt;/code&gt; 将 &lt;code&gt;OpenOCD&lt;/code&gt; 编译成 Win32 应用。&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;本文基于 &lt;a class=&#34;link&#34; href=&#34;https://github.com/openocd-org/openocd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;openocd&lt;/a&gt; (commit: &lt;a class=&#34;link&#34; href=&#34;https://github.com/openocd-org/openocd/commit/cbc32c3831e39fd07f5fe0dc1cfb9a7be77ffa86&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;cbc32c3&lt;/a&gt;) 进行撰写，在 Linux 中使用 &lt;code&gt;mingw32&lt;/code&gt; 将 &lt;code&gt;OpenOCD&lt;/code&gt; 编译成 Win32 应用。&lt;/p&gt;
 &lt;p&gt;OpenOCD 依赖以下项目：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -392,6 +394,11 @@
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gitlab.zapb.de/libjaylink/libjaylink&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;libjaylink&lt;/a&gt;&lt;br&gt;
 本文使用版本：0.3.1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/msteveb/jimtcl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;jimtcl&lt;/a&gt;&lt;br&gt;
+本文使用版本：0.83&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;上述依赖下载源码后解压备用。&lt;/p&gt;
@@ -517,11 +524,13 @@ OpenOCD 的编译选项可参考该项目下的 &lt;code&gt;configure&lt;/code&g
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;114
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;115
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;116
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;117
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;118
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;BUILD_DIR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/openocd-build/build
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;BUILD_DIR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/openocd/build/dir
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# set source env&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;OPENOCD_SRC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/openocd
@@ -530,6 +539,7 @@ OpenOCD 的编译选项可参考该项目下的 &lt;code&gt;configure&lt;/code&g
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;LIBFTDI_SRC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/libftdi1-1.5
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;CAPSTONE_SRC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/capstone-4.0.2
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;LIBJAYLINK_SRC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/libjaylink-0.3.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;JIMTCL_SRC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/jimtcl-0.83
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# configure openocd&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /path/to/openocd
@@ -543,12 +553,9 @@ OpenOCD 的编译选项可参考该项目下的 &lt;code&gt;configure&lt;/code&g
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--disable-doxygen-html&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--disable-doxygen-pdf&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-am335xgpio&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-amtjtagaccel&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-angie&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-armjtagew&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-at91rm9200&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-bcm2835gpio&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-cmsis-dap&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-cmsis-dap-v2&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-dummy&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
@@ -556,7 +563,6 @@ OpenOCD 的编译选项可参考该项目下的 &lt;code&gt;configure&lt;/code&g
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-ft232r&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-ftdi&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-gw16012&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-imx_gpio&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-jlink&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-jtag_dpi&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-jtag_vpi&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
@@ -580,6 +586,10 @@ OpenOCD 的编译选项可参考该项目下的 &lt;code&gt;configure&lt;/code&g
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-vsllink&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-xds110&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--disable-am335xgpio&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;# only available on linux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--disable-at91rm9200&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;# only available on linux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--disable-bcm2835gpio&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;         &lt;span class=&#34;c1&#34;&gt;# only available on linux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--disable-imx_gpio&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;            &lt;span class=&#34;c1&#34;&gt;# only available on linux&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--disable-buspirate&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;           &lt;span class=&#34;c1&#34;&gt;# not support by MinGW&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--disable-dmem&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;                &lt;span class=&#34;c1&#34;&gt;# only available on linux&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--disable-parport-ppdev&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;# only available on linux or freebsd&lt;/span&gt;
@@ -603,6 +613,7 @@ OpenOCD 的编译选项可参考该项目下的 &lt;code&gt;configure&lt;/code&g
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;LIBFTDI_CONFIG&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;-DSTATICLIBS=OFF -DEXAMPLES=OFF -DFTDI_EEPROM=OFF&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;CAPSTONE_CONFIG&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;CAPSTONE_BUILD_CORE_ONLY=yes CAPSTONE_STATIC=yes CAPSTONE_SHARED=no&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;LIBJAYLINK_CONFIG&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--enable-shared --disable-static&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;JIMTCL_CONFIG&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--with-ext=json --minimal --disable-ssl&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;OPENOCD_CONFIG&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;config_opts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[@]&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$OPENOCD_SRC&lt;/span&gt;
@@ -638,7 +649,20 @@ OpenOCD 的编译选项可参考该项目下的 &lt;code&gt;configure&lt;/code&g
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;3-使用&#34;&gt;3. 使用
-&lt;/h2&gt;&lt;p&gt;将 &lt;code&gt;/path/to/openocd-build/build/i686-w64-mingw32-root/usr/&lt;/code&gt; 目录下的文件，拷贝至 Windows (x64) 中即可使用。&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;将 &lt;code&gt;/path/to/openocd/build/dir/i686-w64-mingw32-root/usr/&lt;/code&gt; 目录下的文件，拷贝至 Windows 中即可使用。&lt;/p&gt;
+&lt;h2 id=&#34;附1-文章修订记录&#34;&gt;附1. 文章修订记录
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;2024-09-02
+&lt;ul&gt;
+&lt;li&gt;初次发表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;2025-07-18
+&lt;ul&gt;
+&lt;li&gt;根据最新的 openocd 源码更新编译流程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -897,12 +921,12 @@ Buildroot 在执行这些脚本时，会传递一些参数进去：&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;附1文章修订记录&#34;&gt;附1：文章修订记录
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;2023/06/29 15:35 CST
+&lt;li&gt;2023-06-29
 &lt;ul&gt;
 &lt;li&gt;文章初次发表&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;2023/07/20 19:44 CST
+&lt;li&gt;2023-07-20
 &lt;ul&gt;
 &lt;li&gt;修正 &lt;a class=&#34;link&#34; href=&#34;#4-%e4%bf%9d%e5%ad%98%e5%85%b6%e4%bb%96%e7%bb%84%e4%bb%b6%e7%9a%84%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6&#34; &gt;4. 保存其他组件的配置文件&lt;/a&gt; 中的描述错误&lt;/li&gt;
 &lt;/ul&gt;
@@ -1185,12 +1209,12 @@ Buildroot 在执行这些脚本时，会传递一些参数进去：&lt;/p&gt;
 &lt;/h2&gt;&lt;p&gt;浏览器输入服务器IP即可访问，初始用户名为：Administrator，初始密码为安装 Frappe 时的密码。&lt;/p&gt;
 &lt;h2 id=&#34;附1文章修订记录&#34;&gt;附1：文章修订记录
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;2023/06/21 11:58 CST
+&lt;li&gt;2023-06-21
 &lt;ul&gt;
 &lt;li&gt;文章初次发表&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;2023/09/28 10:40 CST
+&lt;li&gt;2023-09-28
 &lt;ul&gt;
 &lt;li&gt;修正文中多处错误&lt;/li&gt;
 &lt;/ul&gt;
@@ -1243,8 +1267,7 @@ Buildroot 在执行这些脚本时，会传递一些参数进去：&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;cc_t&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;c_cc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;NCCS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;   &lt;span class=&#34;cm&#34;&gt;/* special characters */&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;2-结构体成员注解&#34;&gt;2. 结构体成员注解
+&lt;/div&gt;&lt;h2 id=&#34;2-结构体成员注解&#34;&gt;2. 结构体成员注解
 &lt;/h2&gt;&lt;h3 id=&#34;21-输入模式标志-c_iflag&#34;&gt;2.1. 输入模式标志 &lt;code&gt;c_iflag&lt;/code&gt;
 &lt;/h3&gt;&lt;p&gt;&lt;code&gt;c_iflag&lt;/code&gt; 用于设置终端 I/O 的输入参数，标志宏定义如下：&lt;/p&gt;
 &lt;ul&gt;
@@ -1670,62 +1693,62 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
 &lt;li&gt;
 &lt;p&gt;将 OpenSSH 交叉编译后的文件（在 &lt;code&gt;openssh-8.6p1&lt;/code&gt; 根目录）拷贝至目标板相应目录&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;文件名&lt;/th&gt;
-&lt;th&gt;目标板目录&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;sftp-server&lt;/td&gt;
-&lt;td&gt;/usr/libexec&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ssh-keysign&lt;/td&gt;
-&lt;td&gt;/usr/libexec&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;sshd&lt;/td&gt;
-&lt;td&gt;/usr/local/bin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ssh&lt;/td&gt;
-&lt;td&gt;/usr/local/bin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;scp&lt;/td&gt;
-&lt;td&gt;/usr/local/bin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;sftp&lt;/td&gt;
-&lt;td&gt;/usr/local/bin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ssh-add&lt;/td&gt;
-&lt;td&gt;/usr/local/bin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ssh-agent&lt;/td&gt;
-&lt;td&gt;/usr/local/bin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ssh-keygen&lt;/td&gt;
-&lt;td&gt;/usr/local/bin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ssh-keyscan&lt;/td&gt;
-&lt;td&gt;/usr/local/bin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;sshd_config&lt;/td&gt;
-&lt;td&gt;/usr/local/etc&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ssh_config&lt;/td&gt;
-&lt;td&gt;/usr/local/etc&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;文件名&lt;/th&gt;
+          &lt;th&gt;目标板目录&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;sftp-server&lt;/td&gt;
+          &lt;td&gt;/usr/libexec&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ssh-keysign&lt;/td&gt;
+          &lt;td&gt;/usr/libexec&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;sshd&lt;/td&gt;
+          &lt;td&gt;/usr/local/bin&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ssh&lt;/td&gt;
+          &lt;td&gt;/usr/local/bin&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;scp&lt;/td&gt;
+          &lt;td&gt;/usr/local/bin&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;sftp&lt;/td&gt;
+          &lt;td&gt;/usr/local/bin&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ssh-add&lt;/td&gt;
+          &lt;td&gt;/usr/local/bin&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ssh-agent&lt;/td&gt;
+          &lt;td&gt;/usr/local/bin&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ssh-keygen&lt;/td&gt;
+          &lt;td&gt;/usr/local/bin&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ssh-keyscan&lt;/td&gt;
+          &lt;td&gt;/usr/local/bin&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;sshd_config&lt;/td&gt;
+          &lt;td&gt;/usr/local/etc&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ssh_config&lt;/td&gt;
+          &lt;td&gt;/usr/local/etc&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;em&gt;此为默认路径，若在配置时设定了相关目录，则按设定修改。&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -1928,50 +1951,50 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;参数&lt;/th&gt;
-&lt;th&gt;默认值&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;PAHO_BUILD_SHARED&lt;/td&gt;
-&lt;td&gt;TRUE&lt;/td&gt;
-&lt;td&gt;编译成共享库&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PAHO_BUILD_STATIC&lt;/td&gt;
-&lt;td&gt;FALSE&lt;/td&gt;
-&lt;td&gt;编译成静态库&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PAHO_HIGH_PERFORMANCE&lt;/td&gt;
-&lt;td&gt;FALSE&lt;/td&gt;
-&lt;td&gt;高性能模式，如果设为 TRUE 则编译时 debug 追踪等功能将会被排除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PAHO_WITH_SSL&lt;/td&gt;
-&lt;td&gt;FALSE&lt;/td&gt;
-&lt;td&gt;开启 SSL 功能&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OPENSSL_ROOT_DIR&lt;/td&gt;
-&lt;td&gt;“”&lt;/td&gt;
-&lt;td&gt;OpenSSL 安装目录&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PAHO_BUILD_DOCUMENTATION&lt;/td&gt;
-&lt;td&gt;FALSE&lt;/td&gt;
-&lt;td&gt;生成文档&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PAHO_BUILD_SAMPLES&lt;/td&gt;
-&lt;td&gt;FALSE&lt;/td&gt;
-&lt;td&gt;编译示例&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;参数&lt;/th&gt;
+          &lt;th&gt;默认值&lt;/th&gt;
+          &lt;th&gt;描述&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;PAHO_BUILD_SHARED&lt;/td&gt;
+          &lt;td&gt;TRUE&lt;/td&gt;
+          &lt;td&gt;编译成共享库&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;PAHO_BUILD_STATIC&lt;/td&gt;
+          &lt;td&gt;FALSE&lt;/td&gt;
+          &lt;td&gt;编译成静态库&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;PAHO_HIGH_PERFORMANCE&lt;/td&gt;
+          &lt;td&gt;FALSE&lt;/td&gt;
+          &lt;td&gt;高性能模式，如果设为 TRUE 则编译时 debug 追踪等功能将会被排除&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;PAHO_WITH_SSL&lt;/td&gt;
+          &lt;td&gt;FALSE&lt;/td&gt;
+          &lt;td&gt;开启 SSL 功能&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;OPENSSL_ROOT_DIR&lt;/td&gt;
+          &lt;td&gt;“”&lt;/td&gt;
+          &lt;td&gt;OpenSSL 安装目录&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;PAHO_BUILD_DOCUMENTATION&lt;/td&gt;
+          &lt;td&gt;FALSE&lt;/td&gt;
+          &lt;td&gt;生成文档&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;PAHO_BUILD_SAMPLES&lt;/td&gt;
+          &lt;td&gt;FALSE&lt;/td&gt;
+          &lt;td&gt;编译示例&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;em&gt;如果 OPENSSL_ROOT_DIR 目录内含有共享库，那么编译完成的 paho.mqtt 共享库需要依赖 OpenSSL 的共享库。&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;3-编译&#34;&gt;3. 编译
@@ -2566,8 +2589,7 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;li&gt;Beanstalkd&lt;/li&gt;
 &lt;li&gt;Mailhog&lt;/li&gt;
 &lt;li&gt;ngrok&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
 &lt;p&gt;引用自&lt;a class=&#34;link&#34; href=&#34;http://laravelacademy.org/post/7658.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;[ Laravel 5.5 文档 ] 快速入门  重量级开发环境：Homestead 安装使用详细教程&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;2-准备工作&#34;&gt;2. 准备工作
@@ -2866,46 +2888,46 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;p&gt;&lt;em&gt;Office 的 GVLKs 只能用于 VOL 版!&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;windows-10&#34;&gt;Windows 10
 &lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;产品&lt;/th&gt;
-&lt;th&gt;GVLK&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Windows 10 Professional&lt;/td&gt;
-&lt;td&gt;W269N-WFGWX-YVC9B-4J6C9-T83GX&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Windows 10 Professional N&lt;/td&gt;
-&lt;td&gt;MH37W-N47XK-V7XM9-C7227-GCQG9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Windows 10 Enterprise&lt;/td&gt;
-&lt;td&gt;NPPR9-FWDCX-D2C8J-H872K-2YT43&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Windows 10 Enterprise N&lt;/td&gt;
-&lt;td&gt;DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Windows 10 Education&lt;/td&gt;
-&lt;td&gt;NW6C2-QMPVW-D7KKK-3GKT6-VCFB2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Windows 10 Education N&lt;/td&gt;
-&lt;td&gt;2WH4N-8QGBV-H22JP-CT43Q-MDWWJ&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Windows 10 Enterprise 2015 LTSB&lt;/td&gt;
-&lt;td&gt;WNMTR-4C88C-JK8YV-HQ7T2-76DF9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Windows 10 Enterprise 2015 LTSB N&lt;/td&gt;
-&lt;td&gt;2F77B-TNFGY-69QQF-B8YKP-D69TJ&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;产品&lt;/th&gt;
+          &lt;th&gt;GVLK&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Windows 10 Professional&lt;/td&gt;
+          &lt;td&gt;W269N-WFGWX-YVC9B-4J6C9-T83GX&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Windows 10 Professional N&lt;/td&gt;
+          &lt;td&gt;MH37W-N47XK-V7XM9-C7227-GCQG9&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Windows 10 Enterprise&lt;/td&gt;
+          &lt;td&gt;NPPR9-FWDCX-D2C8J-H872K-2YT43&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Windows 10 Enterprise N&lt;/td&gt;
+          &lt;td&gt;DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Windows 10 Education&lt;/td&gt;
+          &lt;td&gt;NW6C2-QMPVW-D7KKK-3GKT6-VCFB2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Windows 10 Education N&lt;/td&gt;
+          &lt;td&gt;2WH4N-8QGBV-H22JP-CT43Q-MDWWJ&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Windows 10 Enterprise 2015 LTSB&lt;/td&gt;
+          &lt;td&gt;WNMTR-4C88C-JK8YV-HQ7T2-76DF9&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Windows 10 Enterprise 2015 LTSB N&lt;/td&gt;
+          &lt;td&gt;2F77B-TNFGY-69QQF-B8YKP-D69TJ&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ul&gt;
 &lt;li&gt;注意：带 N 的版本去掉了 Windows Media Player 播放器&lt;/li&gt;
@@ -2913,200 +2935,200 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;/ul&gt;
 &lt;h2 id=&#34;office-2013&#34;&gt;Office 2013
 &lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;产品&lt;/th&gt;
-&lt;th&gt;GVLK&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Office 2013 Professional Plus&lt;/td&gt;
-&lt;td&gt;YC7DK-G2NP3-2QQC3-J6H88-GVGXT&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Office 2013 Standard&lt;/td&gt;
-&lt;td&gt;KBKQT-2NMXY-JJWGP-M62JB-92CD4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Project 2013 Professional&lt;/td&gt;
-&lt;td&gt;FN8TT-7WMH6-2D4X9-M337T-2342K&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Project 2013 Standard&lt;/td&gt;
-&lt;td&gt;6NTH3-CW976-3G3Y2-JK3TX-8QHTT&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Visio 2013 Professional&lt;/td&gt;
-&lt;td&gt;C2FG9-N6J68-H8BTJ-BW3QX-RM3B3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Visio 2013 Standard&lt;/td&gt;
-&lt;td&gt;J484Y-4NKBF-W2HMG-DBMJC-PGWR7&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Access 2013&lt;/td&gt;
-&lt;td&gt;NG2JY-H4JBT-HQXYP-78QH9-4JM2D&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Excel 2013&lt;/td&gt;
-&lt;td&gt;VGPNG-Y7HQW-9RHP7-TKPV3-BG7GB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;InfoPath 2013&lt;/td&gt;
-&lt;td&gt;DKT8B-N7VXH-D963P-Q4PHY-F8894&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Lync 2013&lt;/td&gt;
-&lt;td&gt;2MG3G-3BNTT-3MFW9-KDQW3-TCK7R&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OneNote 2013&lt;/td&gt;
-&lt;td&gt;TGN6P-8MMBC-37P2F-XHXXK-P34VW&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Outlook 2013&lt;/td&gt;
-&lt;td&gt;QPN8Q-BJBTJ-334K3-93TGY-2PMBT&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PowerPoint 2013&lt;/td&gt;
-&lt;td&gt;4NT99-8RJFH-Q2VDH-KYG2C-4RD4F&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Publisher 2013&lt;/td&gt;
-&lt;td&gt;PN2WF-29XG2-T9HJ7-JQPJR-FCXK4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Word 2013&lt;/td&gt;
-&lt;td&gt;6Q7VD-NX8JD-WJ2VH-88V73-4GBJ7&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;产品&lt;/th&gt;
+          &lt;th&gt;GVLK&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Office 2013 Professional Plus&lt;/td&gt;
+          &lt;td&gt;YC7DK-G2NP3-2QQC3-J6H88-GVGXT&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Office 2013 Standard&lt;/td&gt;
+          &lt;td&gt;KBKQT-2NMXY-JJWGP-M62JB-92CD4&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Project 2013 Professional&lt;/td&gt;
+          &lt;td&gt;FN8TT-7WMH6-2D4X9-M337T-2342K&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Project 2013 Standard&lt;/td&gt;
+          &lt;td&gt;6NTH3-CW976-3G3Y2-JK3TX-8QHTT&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Visio 2013 Professional&lt;/td&gt;
+          &lt;td&gt;C2FG9-N6J68-H8BTJ-BW3QX-RM3B3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Visio 2013 Standard&lt;/td&gt;
+          &lt;td&gt;J484Y-4NKBF-W2HMG-DBMJC-PGWR7&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Access 2013&lt;/td&gt;
+          &lt;td&gt;NG2JY-H4JBT-HQXYP-78QH9-4JM2D&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Excel 2013&lt;/td&gt;
+          &lt;td&gt;VGPNG-Y7HQW-9RHP7-TKPV3-BG7GB&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;InfoPath 2013&lt;/td&gt;
+          &lt;td&gt;DKT8B-N7VXH-D963P-Q4PHY-F8894&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Lync 2013&lt;/td&gt;
+          &lt;td&gt;2MG3G-3BNTT-3MFW9-KDQW3-TCK7R&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;OneNote 2013&lt;/td&gt;
+          &lt;td&gt;TGN6P-8MMBC-37P2F-XHXXK-P34VW&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Outlook 2013&lt;/td&gt;
+          &lt;td&gt;QPN8Q-BJBTJ-334K3-93TGY-2PMBT&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;PowerPoint 2013&lt;/td&gt;
+          &lt;td&gt;4NT99-8RJFH-Q2VDH-KYG2C-4RD4F&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Publisher 2013&lt;/td&gt;
+          &lt;td&gt;PN2WF-29XG2-T9HJ7-JQPJR-FCXK4&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Word 2013&lt;/td&gt;
+          &lt;td&gt;6Q7VD-NX8JD-WJ2VH-88V73-4GBJ7&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;office-2016&#34;&gt;Office 2016
 &lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;产品&lt;/th&gt;
-&lt;th&gt;GVLK&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Office Professional Plus 2016&lt;/td&gt;
-&lt;td&gt;XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Office Standard 2016&lt;/td&gt;
-&lt;td&gt;JNRGM-WHDWX-FJJG3-K47QV-DRTFM&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Project Professional 2016&lt;/td&gt;
-&lt;td&gt;YG9NW-3K39V-2T3HJ-93F3Q-G83KT&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Project Standard 2016&lt;/td&gt;
-&lt;td&gt;GNFHQ-F6YQM-KQDGJ-327XX-KQBVC&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Visio Professional 2016&lt;/td&gt;
-&lt;td&gt;PD3-PC-RHNGV-FXJ29-8JK7D-RJRJK&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Visio Standard 2016&lt;/td&gt;
-&lt;td&gt;7WHWM-4T7MP-G96JF-G33KR-W8GF4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Access 2016&lt;/td&gt;
-&lt;td&gt;GNH9Y-D2J4T-FJHGG-QRVH7-QPFDW&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Excel 2016&lt;/td&gt;
-&lt;td&gt;9C2PK-NWTVB-JMPW8-BFT28-7FTBF&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OneNote 2016&lt;/td&gt;
-&lt;td&gt;DR92N-9HTF2-97XKM-XW2WJ-XW3J6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Outlook 2016&lt;/td&gt;
-&lt;td&gt;R69KK-NTPKF-7M3Q4-QYBHW-6MT9B&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PowerPoint 2016&lt;/td&gt;
-&lt;td&gt;J7MQP-HNJ4Y-WJ7YM-PFYGF-BY6C6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Publisher 2016&lt;/td&gt;
-&lt;td&gt;F47MM-N3XJP-TQXJ9-BP99D-8K837&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SKype for Business 2016&lt;/td&gt;
-&lt;td&gt;869NQ-FJ69K-466HW-QYCP2-DDBV6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Word 2016&lt;/td&gt;
-&lt;td&gt;WXY84-JN2Q9-RBCCQ-3Q3J3-3PFJ6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;产品&lt;/th&gt;
+          &lt;th&gt;GVLK&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Office Professional Plus 2016&lt;/td&gt;
+          &lt;td&gt;XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Office Standard 2016&lt;/td&gt;
+          &lt;td&gt;JNRGM-WHDWX-FJJG3-K47QV-DRTFM&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Project Professional 2016&lt;/td&gt;
+          &lt;td&gt;YG9NW-3K39V-2T3HJ-93F3Q-G83KT&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Project Standard 2016&lt;/td&gt;
+          &lt;td&gt;GNFHQ-F6YQM-KQDGJ-327XX-KQBVC&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Visio Professional 2016&lt;/td&gt;
+          &lt;td&gt;PD3-PC-RHNGV-FXJ29-8JK7D-RJRJK&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Visio Standard 2016&lt;/td&gt;
+          &lt;td&gt;7WHWM-4T7MP-G96JF-G33KR-W8GF4&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Access 2016&lt;/td&gt;
+          &lt;td&gt;GNH9Y-D2J4T-FJHGG-QRVH7-QPFDW&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Excel 2016&lt;/td&gt;
+          &lt;td&gt;9C2PK-NWTVB-JMPW8-BFT28-7FTBF&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;OneNote 2016&lt;/td&gt;
+          &lt;td&gt;DR92N-9HTF2-97XKM-XW2WJ-XW3J6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Outlook 2016&lt;/td&gt;
+          &lt;td&gt;R69KK-NTPKF-7M3Q4-QYBHW-6MT9B&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;PowerPoint 2016&lt;/td&gt;
+          &lt;td&gt;J7MQP-HNJ4Y-WJ7YM-PFYGF-BY6C6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Publisher 2016&lt;/td&gt;
+          &lt;td&gt;F47MM-N3XJP-TQXJ9-BP99D-8K837&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;SKype for Business 2016&lt;/td&gt;
+          &lt;td&gt;869NQ-FJ69K-466HW-QYCP2-DDBV6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Word 2016&lt;/td&gt;
+          &lt;td&gt;WXY84-JN2Q9-RBCCQ-3Q3J3-3PFJ6&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;office-2019&#34;&gt;Office 2019
 &lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;产品&lt;/th&gt;
-&lt;th&gt;GVLK&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Office Professional Plus 2019&lt;/td&gt;
-&lt;td&gt;NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Office Standard 2019&lt;/td&gt;
-&lt;td&gt;6NWWJ-YQWMR-QKGCB-6TMB3-9D9HK&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Project Professional 2019&lt;/td&gt;
-&lt;td&gt;B4NPR-3FKK7-T2MBV-FRQ4W-PKD2B&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Project Standard 2019&lt;/td&gt;
-&lt;td&gt;C4F7P-NCP8C-6CQPT-MQHV9-JXD2M&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Visio Professional 2019&lt;/td&gt;
-&lt;td&gt;7TQNQ-K3YQQ-3PFH7-CCPPM-X4VQ2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Access 2019&lt;/td&gt;
-&lt;td&gt;9N9PT-27V4Y-VJ2PD-YXFMF-YTFQT&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Excel 2019&lt;/td&gt;
-&lt;td&gt;TMJWT-YYNMB-3BKTF-644 FC-RVXBD&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Outlook 2019&lt;/td&gt;
-&lt;td&gt;7HD7K-N4PVK-BHBCQ-YWQRW-XW4VK&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PowerPoint 2019&lt;/td&gt;
-&lt;td&gt;RRNCX-C64HY-W2MM7-MCH9G-TJHMQ&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Publisher 2019&lt;/td&gt;
-&lt;td&gt;G2KWX-3NW6P-PY93R-JXK2T-C9Y9V&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Skype for Business 2019&lt;/td&gt;
-&lt;td&gt;NCJ33-JHBBY-HTK98-MYCV8-HMKHJ&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Word 2019&lt;/td&gt;
-&lt;td&gt;PBX3G-NWMT6-Q7XBW-PYJGG-WXD33&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;产品&lt;/th&gt;
+          &lt;th&gt;GVLK&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Office Professional Plus 2019&lt;/td&gt;
+          &lt;td&gt;NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Office Standard 2019&lt;/td&gt;
+          &lt;td&gt;6NWWJ-YQWMR-QKGCB-6TMB3-9D9HK&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Project Professional 2019&lt;/td&gt;
+          &lt;td&gt;B4NPR-3FKK7-T2MBV-FRQ4W-PKD2B&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Project Standard 2019&lt;/td&gt;
+          &lt;td&gt;C4F7P-NCP8C-6CQPT-MQHV9-JXD2M&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Visio Professional 2019&lt;/td&gt;
+          &lt;td&gt;7TQNQ-K3YQQ-3PFH7-CCPPM-X4VQ2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Access 2019&lt;/td&gt;
+          &lt;td&gt;9N9PT-27V4Y-VJ2PD-YXFMF-YTFQT&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Excel 2019&lt;/td&gt;
+          &lt;td&gt;TMJWT-YYNMB-3BKTF-644 FC-RVXBD&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Outlook 2019&lt;/td&gt;
+          &lt;td&gt;7HD7K-N4PVK-BHBCQ-YWQRW-XW4VK&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;PowerPoint 2019&lt;/td&gt;
+          &lt;td&gt;RRNCX-C64HY-W2MM7-MCH9G-TJHMQ&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Publisher 2019&lt;/td&gt;
+          &lt;td&gt;G2KWX-3NW6P-PY93R-JXK2T-C9Y9V&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Skype for Business 2019&lt;/td&gt;
+          &lt;td&gt;NCJ33-JHBBY-HTK98-MYCV8-HMKHJ&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Word 2019&lt;/td&gt;
+          &lt;td&gt;PBX3G-NWMT6-Q7XBW-PYJGG-WXD33&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;附部分-office2016-vol-下载地址&#34;&gt;附部分 Office2016 VOL 下载地址
 &lt;/h2&gt;&lt;h3 id=&#34;office-2016-pro-plus-64位&#34;&gt;Office 2016 Pro Plus 64位
@@ -3116,8 +3138,7 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;strong&gt;MD5:&lt;/strong&gt; 60DC8B1892F611E41140DD3631F39793&lt;br&gt;
 &lt;strong&gt;SHA1:&lt;/strong&gt; AEB58DE1BC97685F8BC6BFB0A614A8EF6903E318&lt;br&gt;
 &lt;strong&gt;CRC32:&lt;/strong&gt; 8D8AC6D1&lt;br&gt;
-&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Office_Professional_Plus_2016_64Bit_ChnSimp_MLF_X20-42426.ISO%7c1123452928%7c31087A00FF67D4F5B4CBF4AA07C3433B%7c/&#34; &gt;ed2k://|file|SW_DVD5_Office_Professional_Plus_2016_64Bit_ChnSimp_MLF_X20-42426.ISO|1123452928|31087A00FF67D4F5B4CBF4AA07C3433B|/&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Office_Professional_Plus_2016_64Bit_ChnSimp_MLF_X20-42426.ISO%7c1123452928%7c31087A00FF67D4F5B4CBF4AA07C3433B%7c/&#34; &gt;ed2k://|file|SW_DVD5_Office_Professional_Plus_2016_64Bit_ChnSimp_MLF_X20-42426.ISO|1123452928|31087A00FF67D4F5B4CBF4AA07C3433B|/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;office-2016-pro-plus-32位&#34;&gt;Office 2016 Pro Plus 32位
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;文件名:&lt;/strong&gt; SW_DVD5_Office_Professional_Plus_2016_W32_ChnSimp_MLF_X20-41351.ISO
@@ -3125,8 +3146,7 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;strong&gt;MD5:&lt;/strong&gt; 49D97BD1B4DFEAAA6B45E3DD3803DAC1
 &lt;strong&gt;SHA1:&lt;/strong&gt; 0218F50774AAB63AF7755B0986CDB9972B853E44
 &lt;strong&gt;CRC32:&lt;/strong&gt; FF96B0B5
-&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Office_Professional_Plus_2016_W32_ChnSimp_MLF_X20-41351.ISO%7c986441728%7c2DE74581C10096137481873B3AD57D43%7c/&#34; &gt;ed2k://|file|SW_DVD5_Office_Professional_Plus_2016_W32_ChnSimp_MLF_X20-41351.ISO|986441728|2DE74581C10096137481873B3AD57D43|/&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Office_Professional_Plus_2016_W32_ChnSimp_MLF_X20-41351.ISO%7c986441728%7c2DE74581C10096137481873B3AD57D43%7c/&#34; &gt;ed2k://|file|SW_DVD5_Office_Professional_Plus_2016_W32_ChnSimp_MLF_X20-41351.ISO|986441728|2DE74581C10096137481873B3AD57D43|/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;office-2016-project-pro-64位&#34;&gt;Office 2016 Project Pro 64位
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;文件名:&lt;/strong&gt; SW_DVD5_Project_Pro_2016_64Bit_ChnSimp_MLF_X20-42676.ISO
@@ -3134,8 +3154,7 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;strong&gt;MD5:&lt;/strong&gt; B872E55B8F4A8791D65BCF1DB46D1DCB
 &lt;strong&gt;SHA1:&lt;/strong&gt; 3C180FDAF91DBD0CB767BD040B42B0599FC53438
 &lt;strong&gt;CRC32:&lt;/strong&gt; 6AB6A570
-&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Project_Pro_2016_64Bit_ChnSimp_MLF_X20-42676.ISO%7c647157760%7c0BBBF20CA3A5F61A819586ADCE6E4DCB%7c/&#34; &gt;ed2k://|file|SW_DVD5_Project_Pro_2016_64Bit_ChnSimp_MLF_X20-42676.ISO|647157760|0BBBF20CA3A5F61A819586ADCE6E4DCB|/&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Project_Pro_2016_64Bit_ChnSimp_MLF_X20-42676.ISO%7c647157760%7c0BBBF20CA3A5F61A819586ADCE6E4DCB%7c/&#34; &gt;ed2k://|file|SW_DVD5_Project_Pro_2016_64Bit_ChnSimp_MLF_X20-42676.ISO|647157760|0BBBF20CA3A5F61A819586ADCE6E4DCB|/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;office-2016-project-pro-32位&#34;&gt;Office 2016 Project Pro 32位
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;文件名:&lt;/strong&gt; SW_DVD5_Visio_Pro_2016_64Bit_ChnSimp_MLF_X20-42759.ISO
@@ -3143,8 +3162,7 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;strong&gt;MD5:&lt;/strong&gt; 93BEB874F5A5870D5854519856047103
 &lt;strong&gt;SHA1:&lt;/strong&gt; 71E082174812F748AB1A70CA33E6004E1E1AACA8
 &lt;strong&gt;CRC32:&lt;/strong&gt; F813794B
-&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Project_Pro_2016_W32_ChnSimp_MLF_X20-41511.ISO%7c555210752%7cCA3BD5F8C7B3E263105B041DDD4104AB%7c/&#34; &gt;ed2k://|file|SW_DVD5_Project_Pro_2016_W32_ChnSimp_MLF_X20-41511.ISO|555210752|CA3BD5F8C7B3E263105B041DDD4104AB|/&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Project_Pro_2016_W32_ChnSimp_MLF_X20-41511.ISO%7c555210752%7cCA3BD5F8C7B3E263105B041DDD4104AB%7c/&#34; &gt;ed2k://|file|SW_DVD5_Project_Pro_2016_W32_ChnSimp_MLF_X20-41511.ISO|555210752|CA3BD5F8C7B3E263105B041DDD4104AB|/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;office-2016-visio-pro-64位&#34;&gt;Office 2016 Visio Pro 64位
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;文件名:&lt;/strong&gt; SW_DVD5_Visio_Pro_2016_64Bit_ChnSimp_MLF_X20-42759.ISO
@@ -3152,8 +3170,7 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;strong&gt;MD5:&lt;/strong&gt; 93BEB874F5A5870D5854519856047103
 &lt;strong&gt;SHA1:&lt;/strong&gt; 71E082174812F748AB1A70CA33E6004E1E1AACA8
 &lt;strong&gt;CRC32:&lt;/strong&gt; F813794B
-&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Visio_Pro_2016_64Bit_ChnSimp_MLF_X20-42759.ISO%7c714913792%7cFC930AB97B366B3595FC2F28ABAC2A6F%7c/&#34; &gt;ed2k://|file|SW_DVD5_Visio_Pro_2016_64Bit_ChnSimp_MLF_X20-42759.ISO|714913792|FC930AB97B366B3595FC2F28ABAC2A6F|/&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Visio_Pro_2016_64Bit_ChnSimp_MLF_X20-42759.ISO%7c714913792%7cFC930AB97B366B3595FC2F28ABAC2A6F%7c/&#34; &gt;ed2k://|file|SW_DVD5_Visio_Pro_2016_64Bit_ChnSimp_MLF_X20-42759.ISO|714913792|FC930AB97B366B3595FC2F28ABAC2A6F|/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;office-2016-visio-pro-32位&#34;&gt;Office 2016 Visio Pro 32位
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;文件名:&lt;/strong&gt; SW_DVD5_Visio_Pro_2016_W32_ChnSimp_MLF_X20-41580.ISO
@@ -3161,8 +3178,7 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;strong&gt;MD5:&lt;/strong&gt; 96E008B110F308F1E424D11964D82CE0
 &lt;strong&gt;SHA1:&lt;/strong&gt; 780046411EB18874AA2DA7E4A11322557EB00D92
 &lt;strong&gt;CRC32:&lt;/strong&gt; 42E1653D
-&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Visio_Pro_2016_W32_ChnSimp_MLF_X20-41580.ISO%7c609447936%7c91EB248558F236AA66D234EA03FAD9A9%7c/&#34; &gt;ed2k://|file|SW_DVD5_Visio_Pro_2016_W32_ChnSimp_MLF_X20-41580.ISO|609447936|91EB248558F236AA66D234EA03FAD9A9|/&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Visio_Pro_2016_W32_ChnSimp_MLF_X20-41580.ISO%7c609447936%7c91EB248558F236AA66D234EA03FAD9A9%7c/&#34; &gt;ed2k://|file|SW_DVD5_Visio_Pro_2016_W32_ChnSimp_MLF_X20-41580.ISO|609447936|91EB248558F236AA66D234EA03FAD9A9|/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 </description>
         </item>
         

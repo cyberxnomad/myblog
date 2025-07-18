@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 源码\r官网：https://www.openssl.org/source/ 2. 配置 Makefile\r1 2 3 4 ./Configure linux-armv4 \\ --cross-compile-prefix=arm-linux- \\ --prefix=/path/to/install \\ no-asm shared no-async linux-armv4 从 config 文件来看，armv[1-3] 使用 linux-generic32，armv[7-9] 使用 linux-armv4。 no-asm 不使用汇编代码；从 INSTALL 文件得知，建议 debug 期间使用，生产环境不使用。 shared 生成共享库。 no-async uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作。 此配置是基于 openssl-1.1.1k 所写，不同版本可能会有差异，具体查看源码目录下的 INSTALL 文件。 3. 编译与安装\r1 make &amp;&amp; make install 最终程序将安装在 --prefix 所指定的目录中。">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 源码\r官网：https://www.openssl.org/source/\n2. 配置 Makefile\r1 2 3 4 ./Configure linux-armv4 \\ --cross-compile-prefix=arm-linux- \\ --prefix=/path/to/install \\ no-asm shared no-async linux-armv4\n从 config 文件来看，armv[1-3] 使用 linux-generic32，armv[7-9] 使用 linux-armv4。\nno-asm\n不使用汇编代码；从 INSTALL 文件得知，建议 debug 期间使用，生产环境不使用。\nshared\n生成共享库。\nno-async\nuclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作。\n此配置是基于 openssl-1.1.1k 所写，不同版本可能会有差异，具体查看源码目录下的 INSTALL 文件。\n3. 编译与安装\r1 make &amp;&amp; make install 最终程序将安装在 --prefix 所指定的目录中。\n">
 <title>移植 OpenSSL</title>
 
 <link rel='canonical' href='https://kcode.cc/post/2021/07/porting-openssl.html'>
 
-<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="移植 OpenSSL">
-<meta property='og:description' content="1. 源码\r官网：https://www.openssl.org/source/ 2. 配置 Makefile\r1 2 3 4 ./Configure linux-armv4 \\ --cross-compile-prefix=arm-linux- \\ --prefix=/path/to/install \\ no-asm shared no-async linux-armv4 从 config 文件来看，armv[1-3] 使用 linux-generic32，armv[7-9] 使用 linux-armv4。 no-asm 不使用汇编代码；从 INSTALL 文件得知，建议 debug 期间使用，生产环境不使用。 shared 生成共享库。 no-async uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作。 此配置是基于 openssl-1.1.1k 所写，不同版本可能会有差异，具体查看源码目录下的 INSTALL 文件。 3. 编译与安装\r1 make &amp;&amp; make install 最终程序将安装在 --prefix 所指定的目录中。">
+<link rel="stylesheet" href="/scss/style.min.cfa5b1b0e78d61c00a14173992a1f3fa3b5c1b9fa34d023de959af564e7b19dd.css"><meta property='og:title' content="移植 OpenSSL">
+<meta property='og:description' content="1. 源码\r官网：https://www.openssl.org/source/\n2. 配置 Makefile\r1 2 3 4 ./Configure linux-armv4 \\ --cross-compile-prefix=arm-linux- \\ --prefix=/path/to/install \\ no-asm shared no-async linux-armv4\n从 config 文件来看，armv[1-3] 使用 linux-generic32，armv[7-9] 使用 linux-armv4。\nno-asm\n不使用汇编代码；从 INSTALL 文件得知，建议 debug 期间使用，生产环境不使用。\nshared\n生成共享库。\nno-async\nuclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作。\n此配置是基于 openssl-1.1.1k 所写，不同版本可能会有差异，具体查看源码目录下的 INSTALL 文件。\n3. 编译与安装\r1 make &amp;&amp; make install 最终程序将安装在 --prefix 所指定的目录中。\n">
 <meta property='og:url' content='https://kcode.cc/post/2021/07/porting-openssl.html'>
 <meta property='og:site_name' content='K CODE'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ssl' /><meta property='article:tag' content='移植' /><meta property='article:published_time' content='2021-07-13T10:11:05&#43;08:00'/><meta property='article:modified_time' content='2023-06-21T14:42:16&#43;08:00'/>
 <meta name="twitter:title" content="移植 OpenSSL">
-<meta name="twitter:description" content="1. 源码\r官网：https://www.openssl.org/source/ 2. 配置 Makefile\r1 2 3 4 ./Configure linux-armv4 \\ --cross-compile-prefix=arm-linux- \\ --prefix=/path/to/install \\ no-asm shared no-async linux-armv4 从 config 文件来看，armv[1-3] 使用 linux-generic32，armv[7-9] 使用 linux-armv4。 no-asm 不使用汇编代码；从 INSTALL 文件得知，建议 debug 期间使用，生产环境不使用。 shared 生成共享库。 no-async uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作。 此配置是基于 openssl-1.1.1k 所写，不同版本可能会有差异，具体查看源码目录下的 INSTALL 文件。 3. 编译与安装\r1 make &amp;&amp; make install 最终程序将安装在 --prefix 所指定的目录中。">
+<meta name="twitter:description" content="1. 源码\r官网：https://www.openssl.org/source/\n2. 配置 Makefile\r1 2 3 4 ./Configure linux-armv4 \\ --cross-compile-prefix=arm-linux- \\ --prefix=/path/to/install \\ no-asm shared no-async linux-armv4\n从 config 文件来看，armv[1-3] 使用 linux-generic32，armv[7-9] 使用 linux-armv4。\nno-asm\n不使用汇编代码；从 INSTALL 文件得知，建议 debug 期间使用，生产环境不使用。\nshared\n生成共享库。\nno-async\nuclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作。\n此配置是基于 openssl-1.1.1k 所写，不同版本可能会有差异，具体查看源码目录下的 INSTALL 文件。\n3. 编译与安装\r1 make &amp;&amp; make install 最终程序将安装在 --prefix 所指定的目录中。\n">
     <link rel="shortcut icon" href="/favicon.png" />
-
-  
-
 
     </head>
     <body class="
@@ -61,7 +58,7 @@
                     
                     
                         
-                        <img src="/images/avatar_hu3079210101010666945.jpg" width="300"
+                        <img src="/images/avatar_hu_74b419752b138555.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -416,7 +413,7 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
         
         
             <div class="article-image">
-                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu7733576786418193243.webp" 
+                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu_a4fc2f4024051a8e.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -440,7 +437,7 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
         
         
             <div class="article-image">
-                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu8467303290478934340.webp" 
+                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu_7f73d41cc11b6faa.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"

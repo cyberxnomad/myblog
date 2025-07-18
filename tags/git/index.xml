@@ -6,7 +6,7 @@
         <description>Recent content in Git on K CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cmn-Hans</language>
-        <lastBuildDate>Wed, 10 Apr 2024 21:39:33 +0800</lastBuildDate><atom:link href="https://kcode.cc/tags/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 18 Jul 2025 11:56:42 +0800</lastBuildDate><atom:link href="https://kcode.cc/tags/git/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>大型项目使用 git merge 导致多文件混乱问题及解决</title>
         <link>https://kcode.cc/post/2024/04/git-merge-and-patch.html</link>
         <pubDate>Wed, 10 Apr 2024 20:57:00 +0800</pubDate>

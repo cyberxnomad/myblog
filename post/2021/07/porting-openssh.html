@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 准备工作\rOpenSSH 依赖 zlib、OpenSSL。 源码下载： zlib zlib.net OpenSSL openssl.org OpenSSH mirrors.aliyun.com 本文基于 zlib-1.2.11、openssl-1.1.1k、openssh-8.6p1 撰写。 2. 交叉编译\r2.1. zlib\r2.1.1. 配置 Makefile\r1 2 3 CHOST=arm-linux \\ ./configure \\ --prefix=/path/to/install CHOST zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按上述配置，即自动将交叉编译工具名称设为 arm-linux-gcc、arm-linux-ld 等。 2.1.2. 编译与安装\r1 make &amp;&amp; make install 将安装在 --prefix 所指定的目录。 2.2. OpenSSL\r参考之前的文章 移植 OpenSSL。 2.3. OpenSSH\r2.3.1. 配置 Makefile\r1 2 3 4 5 6 7 CC=arm-linux-gcc \\ ./configure \\ --host=arm-linux \\ --with-libs \\ --with-zlib=/path/to/zlib/install \\ --with-ssl-dir=/path/to/openssl/install \\ --disable-etc-default-login CC">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 准备工作\rOpenSSH 依赖 zlib、OpenSSL。\n源码下载：\nzlib\nzlib.net\nOpenSSL\nopenssl.org\nOpenSSH\nmirrors.aliyun.com\n本文基于 zlib-1.2.11、openssl-1.1.1k、openssh-8.6p1 撰写。\n2. 交叉编译\r2.1. zlib\r2.1.1. 配置 Makefile\r1 2 3 CHOST=arm-linux \\ ./configure \\ --prefix=/path/to/install CHOST\nzlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按上述配置，即自动将交叉编译工具名称设为 arm-linux-gcc、arm-linux-ld 等。 2.1.2. 编译与安装\r1 make &amp;&amp; make install 将安装在 --prefix 所指定的目录。\n2.2. OpenSSL\r参考之前的文章 移植 OpenSSL。\n2.3. OpenSSH\r2.3.1. 配置 Makefile\r1 2 3 4 5 6 7 CC=arm-linux-gcc \\ ./configure \\ --host=arm-linux \\ --with-libs \\ --with-zlib=/path/to/zlib/install \\ --with-ssl-dir=/path/to/openssl/install \\ --disable-etc-default-login CC\n指定交叉编译工具。\n">
 <title>移植 OpenSSH</title>
 
 <link rel='canonical' href='https://kcode.cc/post/2021/07/porting-openssh.html'>
 
-<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="移植 OpenSSH">
-<meta property='og:description' content="1. 准备工作\rOpenSSH 依赖 zlib、OpenSSL。 源码下载： zlib zlib.net OpenSSL openssl.org OpenSSH mirrors.aliyun.com 本文基于 zlib-1.2.11、openssl-1.1.1k、openssh-8.6p1 撰写。 2. 交叉编译\r2.1. zlib\r2.1.1. 配置 Makefile\r1 2 3 CHOST=arm-linux \\ ./configure \\ --prefix=/path/to/install CHOST zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按上述配置，即自动将交叉编译工具名称设为 arm-linux-gcc、arm-linux-ld 等。 2.1.2. 编译与安装\r1 make &amp;&amp; make install 将安装在 --prefix 所指定的目录。 2.2. OpenSSL\r参考之前的文章 移植 OpenSSL。 2.3. OpenSSH\r2.3.1. 配置 Makefile\r1 2 3 4 5 6 7 CC=arm-linux-gcc \\ ./configure \\ --host=arm-linux \\ --with-libs \\ --with-zlib=/path/to/zlib/install \\ --with-ssl-dir=/path/to/openssl/install \\ --disable-etc-default-login CC">
+<link rel="stylesheet" href="/scss/style.min.cfa5b1b0e78d61c00a14173992a1f3fa3b5c1b9fa34d023de959af564e7b19dd.css"><meta property='og:title' content="移植 OpenSSH">
+<meta property='og:description' content="1. 准备工作\rOpenSSH 依赖 zlib、OpenSSL。\n源码下载：\nzlib\nzlib.net\nOpenSSL\nopenssl.org\nOpenSSH\nmirrors.aliyun.com\n本文基于 zlib-1.2.11、openssl-1.1.1k、openssh-8.6p1 撰写。\n2. 交叉编译\r2.1. zlib\r2.1.1. 配置 Makefile\r1 2 3 CHOST=arm-linux \\ ./configure \\ --prefix=/path/to/install CHOST\nzlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按上述配置，即自动将交叉编译工具名称设为 arm-linux-gcc、arm-linux-ld 等。 2.1.2. 编译与安装\r1 make &amp;&amp; make install 将安装在 --prefix 所指定的目录。\n2.2. OpenSSL\r参考之前的文章 移植 OpenSSL。\n2.3. OpenSSH\r2.3.1. 配置 Makefile\r1 2 3 4 5 6 7 CC=arm-linux-gcc \\ ./configure \\ --host=arm-linux \\ --with-libs \\ --with-zlib=/path/to/zlib/install \\ --with-ssl-dir=/path/to/openssl/install \\ --disable-etc-default-login CC\n指定交叉编译工具。\n">
 <meta property='og:url' content='https://kcode.cc/post/2021/07/porting-openssh.html'>
 <meta property='og:site_name' content='K CODE'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ssl' /><meta property='article:tag' content='ssh' /><meta property='article:tag' content='zlib' /><meta property='article:tag' content='移植' /><meta property='article:published_time' content='2021-07-30T19:08:55&#43;08:00'/><meta property='article:modified_time' content='2023-06-21T14:42:16&#43;08:00'/>
 <meta name="twitter:title" content="移植 OpenSSH">
-<meta name="twitter:description" content="1. 准备工作\rOpenSSH 依赖 zlib、OpenSSL。 源码下载： zlib zlib.net OpenSSL openssl.org OpenSSH mirrors.aliyun.com 本文基于 zlib-1.2.11、openssl-1.1.1k、openssh-8.6p1 撰写。 2. 交叉编译\r2.1. zlib\r2.1.1. 配置 Makefile\r1 2 3 CHOST=arm-linux \\ ./configure \\ --prefix=/path/to/install CHOST zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按上述配置，即自动将交叉编译工具名称设为 arm-linux-gcc、arm-linux-ld 等。 2.1.2. 编译与安装\r1 make &amp;&amp; make install 将安装在 --prefix 所指定的目录。 2.2. OpenSSL\r参考之前的文章 移植 OpenSSL。 2.3. OpenSSH\r2.3.1. 配置 Makefile\r1 2 3 4 5 6 7 CC=arm-linux-gcc \\ ./configure \\ --host=arm-linux \\ --with-libs \\ --with-zlib=/path/to/zlib/install \\ --with-ssl-dir=/path/to/openssl/install \\ --disable-etc-default-login CC">
+<meta name="twitter:description" content="1. 准备工作\rOpenSSH 依赖 zlib、OpenSSL。\n源码下载：\nzlib\nzlib.net\nOpenSSL\nopenssl.org\nOpenSSH\nmirrors.aliyun.com\n本文基于 zlib-1.2.11、openssl-1.1.1k、openssh-8.6p1 撰写。\n2. 交叉编译\r2.1. zlib\r2.1.1. 配置 Makefile\r1 2 3 CHOST=arm-linux \\ ./configure \\ --prefix=/path/to/install CHOST\nzlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按上述配置，即自动将交叉编译工具名称设为 arm-linux-gcc、arm-linux-ld 等。 2.1.2. 编译与安装\r1 make &amp;&amp; make install 将安装在 --prefix 所指定的目录。\n2.2. OpenSSL\r参考之前的文章 移植 OpenSSL。\n2.3. OpenSSH\r2.3.1. 配置 Makefile\r1 2 3 4 5 6 7 CC=arm-linux-gcc \\ ./configure \\ --host=arm-linux \\ --with-libs \\ --with-zlib=/path/to/zlib/install \\ --with-ssl-dir=/path/to/openssl/install \\ --disable-etc-default-login CC\n指定交叉编译工具。\n">
     <link rel="shortcut icon" href="/favicon.png" />
-
-  
-
 
     </head>
     <body class="
@@ -61,7 +58,7 @@
                     
                     
                         
-                        <img src="/images/avatar_hu3079210101010666945.jpg" width="300"
+                        <img src="/images/avatar_hu_74b419752b138555.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -441,62 +438,62 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
 <li>
 <p>将 OpenSSH 交叉编译后的文件（在 <code>openssh-8.6p1</code> 根目录）拷贝至目标板相应目录</p>
 <div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>文件名</th>
-<th>目标板目录</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>sftp-server</td>
-<td>/usr/libexec</td>
-</tr>
-<tr>
-<td>ssh-keysign</td>
-<td>/usr/libexec</td>
-</tr>
-<tr>
-<td>sshd</td>
-<td>/usr/local/bin</td>
-</tr>
-<tr>
-<td>ssh</td>
-<td>/usr/local/bin</td>
-</tr>
-<tr>
-<td>scp</td>
-<td>/usr/local/bin</td>
-</tr>
-<tr>
-<td>sftp</td>
-<td>/usr/local/bin</td>
-</tr>
-<tr>
-<td>ssh-add</td>
-<td>/usr/local/bin</td>
-</tr>
-<tr>
-<td>ssh-agent</td>
-<td>/usr/local/bin</td>
-</tr>
-<tr>
-<td>ssh-keygen</td>
-<td>/usr/local/bin</td>
-</tr>
-<tr>
-<td>ssh-keyscan</td>
-<td>/usr/local/bin</td>
-</tr>
-<tr>
-<td>sshd_config</td>
-<td>/usr/local/etc</td>
-</tr>
-<tr>
-<td>ssh_config</td>
-<td>/usr/local/etc</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>文件名</th>
+          <th>目标板目录</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>sftp-server</td>
+          <td>/usr/libexec</td>
+      </tr>
+      <tr>
+          <td>ssh-keysign</td>
+          <td>/usr/libexec</td>
+      </tr>
+      <tr>
+          <td>sshd</td>
+          <td>/usr/local/bin</td>
+      </tr>
+      <tr>
+          <td>ssh</td>
+          <td>/usr/local/bin</td>
+      </tr>
+      <tr>
+          <td>scp</td>
+          <td>/usr/local/bin</td>
+      </tr>
+      <tr>
+          <td>sftp</td>
+          <td>/usr/local/bin</td>
+      </tr>
+      <tr>
+          <td>ssh-add</td>
+          <td>/usr/local/bin</td>
+      </tr>
+      <tr>
+          <td>ssh-agent</td>
+          <td>/usr/local/bin</td>
+      </tr>
+      <tr>
+          <td>ssh-keygen</td>
+          <td>/usr/local/bin</td>
+      </tr>
+      <tr>
+          <td>ssh-keyscan</td>
+          <td>/usr/local/bin</td>
+      </tr>
+      <tr>
+          <td>sshd_config</td>
+          <td>/usr/local/etc</td>
+      </tr>
+      <tr>
+          <td>ssh_config</td>
+          <td>/usr/local/etc</td>
+      </tr>
+  </tbody>
 </table></div>
 <p><em>此为默认路径，若在配置时设定了相关目录，则按设定修改。</em></p>
 </li>
@@ -730,7 +727,7 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
         
         
             <div class="article-image">
-                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu7733576786418193243.webp" 
+                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu_a4fc2f4024051a8e.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -754,7 +751,7 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
         
         
             <div class="article-image">
-                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu8467303290478934340.webp" 
+                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu_7f73d41cc11b6faa.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"

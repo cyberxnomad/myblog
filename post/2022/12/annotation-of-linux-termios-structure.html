@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 结构体定义\r该结构体定义在头文件 &lt;termios.h&gt; 中，至少包含以下成员： 1 2 3 4 5 tcflag_t c_iflag; /* input modes */ tcflag_t c_oflag; /* output modes */ tcflag_t c_cflag; /* control modes */ tcflag_t c_lflag; /* local modes */ cc_t c_cc[NCCS]; /* special characters */ 2. 结构体成员注解\r2.1. 输入模式标志 c_iflag\rc_iflag 用于设置终端 I/O 的输入参数，标志宏定义如下： IGNBRK 忽略输入时的中断（BREAK）条件 BRKINT 如果设置了 IGNBRK ，则忽略中断； 如果没有设置 IGNBRK ，但设置了 BRKINT ，那么中断（BREAK）会导致输入输出队列被冲洗（flush）；如果终端是前台进程组，中断（BREAK）将会向该终端发送 SIGINT 信号； 如果 IGNBRK 和 BRKINT 都未设置，中断（BREAK）字符将被读取为空字节（&rsquo;\\0&rsquo;）；如果设置了 PARMAR 标志，那么它将被读取为序列 \\377 \\0 \\0。 IGNPAR">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 结构体定义\r该结构体定义在头文件 &lt;termios.h&gt; 中，至少包含以下成员：\n1 2 3 4 5 tcflag_t c_iflag; /* input modes */ tcflag_t c_oflag; /* output modes */ tcflag_t c_cflag; /* control modes */ tcflag_t c_lflag; /* local modes */ cc_t c_cc[NCCS]; /* special characters */ 2. 结构体成员注解\r2.1. 输入模式标志 c_iflag\rc_iflag 用于设置终端 I/O 的输入参数，标志宏定义如下：\nIGNBRK\n忽略输入时的中断（BREAK）条件\nBRKINT\n如果设置了 IGNBRK ，则忽略中断； 如果没有设置 IGNBRK ，但设置了 BRKINT ，那么中断（BREAK）会导致输入输出队列被冲洗（flush）；如果终端是前台进程组，中断（BREAK）将会向该终端发送 SIGINT 信号； 如果 IGNBRK 和 BRKINT 都未设置，中断（BREAK）字符将被读取为空字节（&rsquo;\\0&rsquo;）；如果设置了 PARMAR 标志，那么它将被读取为序列 \\377 \\0 \\0。 IGNPAR\n忽略帧错误和校验错误\nPARMRK\n（待补充）\nINPCK\n使能输入奇偶校验\nISTRIP\n有效输入字节被剥离为 7 位\n">
 <title>Linux termios 结构体注解</title>
 
 <link rel='canonical' href='https://kcode.cc/post/2022/12/annotation-of-linux-termios-structure.html'>
 
-<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="Linux termios 结构体注解">
-<meta property='og:description' content="1. 结构体定义\r该结构体定义在头文件 &lt;termios.h&gt; 中，至少包含以下成员： 1 2 3 4 5 tcflag_t c_iflag; /* input modes */ tcflag_t c_oflag; /* output modes */ tcflag_t c_cflag; /* control modes */ tcflag_t c_lflag; /* local modes */ cc_t c_cc[NCCS]; /* special characters */ 2. 结构体成员注解\r2.1. 输入模式标志 c_iflag\rc_iflag 用于设置终端 I/O 的输入参数，标志宏定义如下： IGNBRK 忽略输入时的中断（BREAK）条件 BRKINT 如果设置了 IGNBRK ，则忽略中断； 如果没有设置 IGNBRK ，但设置了 BRKINT ，那么中断（BREAK）会导致输入输出队列被冲洗（flush）；如果终端是前台进程组，中断（BREAK）将会向该终端发送 SIGINT 信号； 如果 IGNBRK 和 BRKINT 都未设置，中断（BREAK）字符将被读取为空字节（&rsquo;\\0&rsquo;）；如果设置了 PARMAR 标志，那么它将被读取为序列 \\377 \\0 \\0。 IGNPAR">
+<link rel="stylesheet" href="/scss/style.min.cfa5b1b0e78d61c00a14173992a1f3fa3b5c1b9fa34d023de959af564e7b19dd.css"><meta property='og:title' content="Linux termios 结构体注解">
+<meta property='og:description' content="1. 结构体定义\r该结构体定义在头文件 &lt;termios.h&gt; 中，至少包含以下成员：\n1 2 3 4 5 tcflag_t c_iflag; /* input modes */ tcflag_t c_oflag; /* output modes */ tcflag_t c_cflag; /* control modes */ tcflag_t c_lflag; /* local modes */ cc_t c_cc[NCCS]; /* special characters */ 2. 结构体成员注解\r2.1. 输入模式标志 c_iflag\rc_iflag 用于设置终端 I/O 的输入参数，标志宏定义如下：\nIGNBRK\n忽略输入时的中断（BREAK）条件\nBRKINT\n如果设置了 IGNBRK ，则忽略中断； 如果没有设置 IGNBRK ，但设置了 BRKINT ，那么中断（BREAK）会导致输入输出队列被冲洗（flush）；如果终端是前台进程组，中断（BREAK）将会向该终端发送 SIGINT 信号； 如果 IGNBRK 和 BRKINT 都未设置，中断（BREAK）字符将被读取为空字节（&rsquo;\\0&rsquo;）；如果设置了 PARMAR 标志，那么它将被读取为序列 \\377 \\0 \\0。 IGNPAR\n忽略帧错误和校验错误\nPARMRK\n（待补充）\nINPCK\n使能输入奇偶校验\nISTRIP\n有效输入字节被剥离为 7 位\n">
 <meta property='og:url' content='https://kcode.cc/post/2022/12/annotation-of-linux-termios-structure.html'>
 <meta property='og:site_name' content='K CODE'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='内核' /><meta property='article:tag' content='termios' /><meta property='article:published_time' content='2022-12-05T19:17:40&#43;08:00'/><meta property='article:modified_time' content='2023-06-21T14:42:16&#43;08:00'/>
 <meta name="twitter:title" content="Linux termios 结构体注解">
-<meta name="twitter:description" content="1. 结构体定义\r该结构体定义在头文件 &lt;termios.h&gt; 中，至少包含以下成员： 1 2 3 4 5 tcflag_t c_iflag; /* input modes */ tcflag_t c_oflag; /* output modes */ tcflag_t c_cflag; /* control modes */ tcflag_t c_lflag; /* local modes */ cc_t c_cc[NCCS]; /* special characters */ 2. 结构体成员注解\r2.1. 输入模式标志 c_iflag\rc_iflag 用于设置终端 I/O 的输入参数，标志宏定义如下： IGNBRK 忽略输入时的中断（BREAK）条件 BRKINT 如果设置了 IGNBRK ，则忽略中断； 如果没有设置 IGNBRK ，但设置了 BRKINT ，那么中断（BREAK）会导致输入输出队列被冲洗（flush）；如果终端是前台进程组，中断（BREAK）将会向该终端发送 SIGINT 信号； 如果 IGNBRK 和 BRKINT 都未设置，中断（BREAK）字符将被读取为空字节（&rsquo;\\0&rsquo;）；如果设置了 PARMAR 标志，那么它将被读取为序列 \\377 \\0 \\0。 IGNPAR">
+<meta name="twitter:description" content="1. 结构体定义\r该结构体定义在头文件 &lt;termios.h&gt; 中，至少包含以下成员：\n1 2 3 4 5 tcflag_t c_iflag; /* input modes */ tcflag_t c_oflag; /* output modes */ tcflag_t c_cflag; /* control modes */ tcflag_t c_lflag; /* local modes */ cc_t c_cc[NCCS]; /* special characters */ 2. 结构体成员注解\r2.1. 输入模式标志 c_iflag\rc_iflag 用于设置终端 I/O 的输入参数，标志宏定义如下：\nIGNBRK\n忽略输入时的中断（BREAK）条件\nBRKINT\n如果设置了 IGNBRK ，则忽略中断； 如果没有设置 IGNBRK ，但设置了 BRKINT ，那么中断（BREAK）会导致输入输出队列被冲洗（flush）；如果终端是前台进程组，中断（BREAK）将会向该终端发送 SIGINT 信号； 如果 IGNBRK 和 BRKINT 都未设置，中断（BREAK）字符将被读取为空字节（&rsquo;\\0&rsquo;）；如果设置了 PARMAR 标志，那么它将被读取为序列 \\377 \\0 \\0。 IGNPAR\n忽略帧错误和校验错误\nPARMRK\n（待补充）\nINPCK\n使能输入奇偶校验\nISTRIP\n有效输入字节被剥离为 7 位\n">
     <link rel="shortcut icon" href="/favicon.png" />
-
-  
-
 
     </head>
     <body class="
@@ -61,7 +58,7 @@
                     
                     
                         
-                        <img src="/images/avatar_hu3079210101010666945.jpg" width="300"
+                        <img src="/images/avatar_hu_74b419752b138555.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -295,8 +292,7 @@
 </span></span><span class="line"><span class="cl"><span class="kt">cc_t</span>     <span class="n">c_cc</span><span class="p">[</span><span class="n">NCCS</span><span class="p">];</span>   <span class="cm">/* special characters */</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><!-- raw HTML omitted -->
-<h2 id="2-结构体成员注解">2. 结构体成员注解
+</div><h2 id="2-结构体成员注解">2. 结构体成员注解
 </h2><h3 id="21-输入模式标志-c_iflag">2.1. 输入模式标志 <code>c_iflag</code>
 </h3><p><code>c_iflag</code> 用于设置终端 I/O 的输入参数，标志宏定义如下：</p>
 <ul>
@@ -631,7 +627,7 @@
         
         
             <div class="article-image">
-                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu7733576786418193243.webp" 
+                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu_a4fc2f4024051a8e.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -668,7 +664,7 @@
         
         
             <div class="article-image">
-                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu8467303290478934340.webp" 
+                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu_7f73d41cc11b6faa.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -692,7 +688,7 @@
         
         
             <div class="article-image">
-                <img src="/post/2023/06/erpnext-14-manual-installation/cover.7fc08f1553469c0d3f33dfb0bbcf1cfd_hu10977772892428621247.webp" 
+                <img src="/post/2023/06/erpnext-14-manual-installation/cover.7fc08f1553469c0d3f33dfb0bbcf1cfd_hu_1cedd0781d9745e0.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"
