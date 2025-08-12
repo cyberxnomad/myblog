@@ -6,7 +6,7 @@
         <description>Recent content in Posts on K CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cmn-Hans</language>
-        <lastBuildDate>Fri, 18 Jul 2025 14:00:50 +0800</lastBuildDate><atom:link href="https://kcode.cc/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 12 Aug 2025 20:11:00 +0800</lastBuildDate><atom:link href="https://kcode.cc/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>无人值守安装 Debian</title>
         <link>https://kcode.cc/post/2025/03/automated-installation-of-debian.html</link>
         <pubDate>Thu, 13 Mar 2025 15:00:00 +0800</pubDate>
@@ -2884,7 +2884,7 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
         
         <guid>https://kcode.cc/post/2017/03/gvlks-of-windows-and-office.html</guid>
         <description>&lt;p&gt;GVLK (Generic Volume License Key) 是用于 KMS 客户端的通用序列号。
-这里提供部分微软官方公布的 Windows 10 / Office 2013 / Office 2016 / Office 2019 的 GVLKs ，可用于 KMS 激活。&lt;/p&gt;
+这里提供部分微软官方公布的 Windows 10 / Windows 11 / Office 2013 / Office 2016 / Office 2019 / Office LTSC 2021 / Office LTSC 2024 的 GVLKs ，可用于 KMS 激活。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Office 的 GVLKs 只能用于 VOL 版!&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;windows-1011&#34;&gt;Windows 10/11
 &lt;/h2&gt;&lt;table&gt;

@@ -6,7 +6,7 @@
         <description>Recent content in Kms on K CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cmn-Hans</language>
-        <lastBuildDate>Wed, 21 Jun 2023 14:42:16 +0800</lastBuildDate><atom:link href="https://kcode.cc/tags/kms/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 12 Aug 2025 20:11:00 +0800</lastBuildDate><atom:link href="https://kcode.cc/tags/kms/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>通过 KMS 激活 Windows 和 Office</title>
         <link>https://kcode.cc/post/2019/06/activate-windows-and-office-by-kms.html</link>
         <pubDate>Sun, 30 Jun 2019 22:52:13 +0800</pubDate>
@@ -133,7 +133,7 @@
         
         <guid>https://kcode.cc/post/2017/03/gvlks-of-windows-and-office.html</guid>
         <description>&lt;p&gt;GVLK (Generic Volume License Key) 是用于 KMS 客户端的通用序列号。
-这里提供部分微软官方公布的 Windows 10 / Office 2013 / Office 2016 / Office 2019 的 GVLKs ，可用于 KMS 激活。&lt;/p&gt;
+这里提供部分微软官方公布的 Windows 10 / Windows 11 / Office 2013 / Office 2016 / Office 2019 / Office LTSC 2021 / Office LTSC 2024 的 GVLKs ，可用于 KMS 激活。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Office 的 GVLKs 只能用于 VOL 版!&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;windows-1011&#34;&gt;Windows 10/11
 &lt;/h2&gt;&lt;table&gt;
