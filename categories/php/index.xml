@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>PHP on K CODE</title>
-        <link>https://kcode.cc/categories/php/</link>
-        <description>Recent content in PHP on K CODE</description>
+        <title>PHP on Void Fox</title>
+        <link>https://voidfox.cc/categories/php/</link>
+        <description>Recent content in PHP on Void Fox</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cmn-Hans</language><atom:link href="https://kcode.cc/categories/php/index.xml" rel="self" type="application/rss+xml" /><item>
+        <language>zh-cmn-Hans</language><atom:link href="https://voidfox.cc/categories/php/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Windows 环境下通过 Vagrant 安装 Homestead</title>
-        <link>https://kcode.cc/post/2017/10/install-homestead-through-vagrant-in-windows.html</link>
+        <link>https://voidfox.cc/post/2017/10/install-homestead-through-vagrant-in-windows.html</link>
         <pubDate>Thu, 12 Oct 2017 12:00:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2017/10/install-homestead-through-vagrant-in-windows.html</guid>
+        <guid>https://voidfox.cc/post/2017/10/install-homestead-through-vagrant-in-windows.html</guid>
         <description>&lt;h2 id=&#34;1-简介&#34;&gt;1. 简介
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;Laravel 为开发者提供了一套完善的重量级本地开发环境  Laravel Homestead。&lt;/p&gt;
@@ -33,7 +33,8 @@
 &lt;li&gt;Beanstalkd&lt;/li&gt;
 &lt;li&gt;Mailhog&lt;/li&gt;
 &lt;li&gt;ngrok&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;引用自&lt;a class=&#34;link&#34; href=&#34;http://laravelacademy.org/post/7658.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;[ Laravel 5.5 文档 ] 快速入门  重量级开发环境：Homestead 安装使用详细教程&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;2-准备工作&#34;&gt;2. 准备工作
@@ -202,9 +203,9 @@
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;ip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;192.168.10.10&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2048&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;cpus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;provider&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;virtualbox&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2048&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;cpus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;provider&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;virtualbox&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这几行配置的是：虚拟机 IP 、虚拟机可使用的内存大小、虚拟机可使用的 CPU 数量、使用的虚拟机环境。可根据实际情况修改。&lt;/p&gt;

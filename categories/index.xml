@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Categories on K CODE</title>
-        <link>https://kcode.cc/categories/</link>
-        <description>Recent content in Categories on K CODE</description>
+        <title>Categories on Void Fox</title>
+        <link>https://voidfox.cc/categories/</link>
+        <description>Recent content in Categories on Void Fox</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cmn-Hans</language>
-        <lastBuildDate>Wed, 10 Apr 2024 21:39:21 +0800</lastBuildDate><atom:link href="https://kcode.cc/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 10 Apr 2024 21:39:21 +0800</lastBuildDate><atom:link href="https://voidfox.cc/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Git</title>
-        <link>https://kcode.cc/categories/git/</link>
+        <link>https://voidfox.cc/categories/git/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://kcode.cc/categories/git/</guid>
-        <description>&lt;img src="https://kcode.cc/categories/git/git.webp" alt="Featured image of post Git" /&gt;</description>
+        <guid>https://voidfox.cc/categories/git/</guid>
+        <description>&lt;img src="https://voidfox.cc/categories/git/git.webp" alt="Featured image of post Git" /&gt;</description>
         </item>
         <item>
         <title>Linux</title>
-        <link>https://kcode.cc/categories/linux/</link>
+        <link>https://voidfox.cc/categories/linux/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://kcode.cc/categories/linux/</guid>
-        <description>&lt;img src="https://kcode.cc/categories/linux/linux.webp" alt="Featured image of post Linux" /&gt;</description>
+        <guid>https://voidfox.cc/categories/linux/</guid>
+        <description>&lt;img src="https://voidfox.cc/categories/linux/linux.webp" alt="Featured image of post Linux" /&gt;</description>
         </item>
         <item>
         <title>PHP</title>
-        <link>https://kcode.cc/categories/php/</link>
+        <link>https://voidfox.cc/categories/php/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://kcode.cc/categories/php/</guid>
-        <description>&lt;img src="https://kcode.cc/categories/php/php.webp" alt="Featured image of post PHP" /&gt;</description>
+        <guid>https://voidfox.cc/categories/php/</guid>
+        <description>&lt;img src="https://voidfox.cc/categories/php/php.webp" alt="Featured image of post PHP" /&gt;</description>
         </item>
         <item>
         <title>RaspberryPi</title>
-        <link>https://kcode.cc/categories/raspberrypi/</link>
+        <link>https://voidfox.cc/categories/raspberrypi/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://kcode.cc/categories/raspberrypi/</guid>
-        <description>&lt;img src="https://kcode.cc/categories/raspberrypi/raspberry-pi.webp" alt="Featured image of post RaspberryPi" /&gt;</description>
+        <guid>https://voidfox.cc/categories/raspberrypi/</guid>
+        <description>&lt;img src="https://voidfox.cc/categories/raspberrypi/raspberry-pi.webp" alt="Featured image of post RaspberryPi" /&gt;</description>
         </item>
         <item>
         <title>Windows</title>
-        <link>https://kcode.cc/categories/windows/</link>
+        <link>https://voidfox.cc/categories/windows/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://kcode.cc/categories/windows/</guid>
-        <description>&lt;img src="https://kcode.cc/categories/windows/windows.webp" alt="Featured image of post Windows" /&gt;</description>
+        <guid>https://voidfox.cc/categories/windows/</guid>
+        <description>&lt;img src="https://voidfox.cc/categories/windows/windows.webp" alt="Featured image of post Windows" /&gt;</description>
         </item>
         
     </channel>

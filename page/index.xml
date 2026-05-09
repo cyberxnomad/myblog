@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Pages on K CODE</title>
-        <link>https://kcode.cc/page/</link>
-        <description>Recent content in Pages on K CODE</description>
+        <title>Pages on Void Fox</title>
+        <link>https://voidfox.cc/page/</link>
+        <description>Recent content in Pages on Void Fox</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cmn-Hans</language><atom:link href="https://kcode.cc/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <language>zh-cmn-Hans</language><atom:link href="https://voidfox.cc/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Links</title>
-        <link>https://kcode.cc/page/links/</link>
+        <link>https://voidfox.cc/page/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://kcode.cc/page/links/</guid>
+        <guid>https://voidfox.cc/page/links/</guid>
         <description></description>
         </item>
         <item>
         <title>关于</title>
-        <link>https://kcode.cc/about.html</link>
+        <link>https://voidfox.cc/about.html</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://kcode.cc/about.html</guid>
+        <guid>https://voidfox.cc/about.html</guid>
         <description>&lt;p&gt;于 2023/06/21 从 hexo 迁移至 hugo 。&lt;br&gt;
 暂无开通评论系统的计划，交流可联系163邮箱：&lt;code&gt;uuidxx&lt;/code&gt;。&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>归档</title>
-        <link>https://kcode.cc/archives.html</link>
+        <link>https://voidfox.cc/archives.html</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://kcode.cc/archives.html</guid>
+        <guid>https://voidfox.cc/archives.html</guid>
         <description></description>
         </item>
         <item>
         <title>搜索</title>
-        <link>https://kcode.cc/search/</link>
+        <link>https://voidfox.cc/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://kcode.cc/search/</guid>
+        <guid>https://voidfox.cc/search/</guid>
         <description></description>
         </item>
         

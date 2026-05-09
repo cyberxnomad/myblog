@@ -1,145 +1,145 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Tags on K CODE</title>
-        <link>https://kcode.cc/tags/</link>
-        <description>Recent content in Tags on K CODE</description>
+        <title>Tags on Void Fox</title>
+        <link>https://voidfox.cc/tags/</link>
+        <description>Recent content in Tags on Void Fox</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cmn-Hans</language>
-        <lastBuildDate>Tue, 12 Aug 2025 20:11:00 +0800</lastBuildDate><atom:link href="https://kcode.cc/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 12 Aug 2025 20:17:24 +0800</lastBuildDate><atom:link href="https://voidfox.cc/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Debian</title>
-        <link>https://kcode.cc/tags/debian/</link>
+        <link>https://voidfox.cc/tags/debian/</link>
         <pubDate>Thu, 13 Mar 2025 15:00:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/debian/</guid>
+        <guid>https://voidfox.cc/tags/debian/</guid>
         <description></description>
         </item>
         <item>
         <title>OpenOCD</title>
-        <link>https://kcode.cc/tags/openocd/</link>
+        <link>https://voidfox.cc/tags/openocd/</link>
         <pubDate>Mon, 02 Sep 2024 18:20:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/openocd/</guid>
+        <guid>https://voidfox.cc/tags/openocd/</guid>
         <description></description>
         </item>
         <item>
         <title>移植</title>
-        <link>https://kcode.cc/tags/%E7%A7%BB%E6%A4%8D/</link>
+        <link>https://voidfox.cc/tags/%E7%A7%BB%E6%A4%8D/</link>
         <pubDate>Mon, 02 Sep 2024 18:20:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/%E7%A7%BB%E6%A4%8D/</guid>
+        <guid>https://voidfox.cc/tags/%E7%A7%BB%E6%A4%8D/</guid>
         <description></description>
         </item>
         <item>
         <title>Git</title>
-        <link>https://kcode.cc/tags/git/</link>
+        <link>https://voidfox.cc/tags/git/</link>
         <pubDate>Wed, 10 Apr 2024 20:57:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/git/</guid>
+        <guid>https://voidfox.cc/tags/git/</guid>
         <description></description>
         </item>
         <item>
         <title>Buildroot</title>
-        <link>https://kcode.cc/tags/buildroot/</link>
+        <link>https://voidfox.cc/tags/buildroot/</link>
         <pubDate>Thu, 29 Jun 2023 15:35:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/buildroot/</guid>
+        <guid>https://voidfox.cc/tags/buildroot/</guid>
         <description></description>
         </item>
         <item>
         <title>Erp</title>
-        <link>https://kcode.cc/tags/erp/</link>
+        <link>https://voidfox.cc/tags/erp/</link>
         <pubDate>Wed, 21 Jun 2023 11:58:37 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/erp/</guid>
+        <guid>https://voidfox.cc/tags/erp/</guid>
         <description></description>
         </item>
         <item>
         <title>Erpnext</title>
-        <link>https://kcode.cc/tags/erpnext/</link>
+        <link>https://voidfox.cc/tags/erpnext/</link>
         <pubDate>Wed, 21 Jun 2023 11:58:37 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/erpnext/</guid>
+        <guid>https://voidfox.cc/tags/erpnext/</guid>
         <description></description>
         </item>
         <item>
         <title>输入法</title>
-        <link>https://kcode.cc/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</link>
+        <link>https://voidfox.cc/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</link>
         <pubDate>Thu, 29 Dec 2022 17:36:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</guid>
+        <guid>https://voidfox.cc/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</guid>
         <description></description>
         </item>
         <item>
         <title>Termios</title>
-        <link>https://kcode.cc/tags/termios/</link>
+        <link>https://voidfox.cc/tags/termios/</link>
         <pubDate>Mon, 05 Dec 2022 19:17:40 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/termios/</guid>
+        <guid>https://voidfox.cc/tags/termios/</guid>
         <description></description>
         </item>
         <item>
         <title>内核</title>
-        <link>https://kcode.cc/tags/%E5%86%85%E6%A0%B8/</link>
+        <link>https://voidfox.cc/tags/%E5%86%85%E6%A0%B8/</link>
         <pubDate>Mon, 05 Dec 2022 19:17:40 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/%E5%86%85%E6%A0%B8/</guid>
+        <guid>https://voidfox.cc/tags/%E5%86%85%E6%A0%B8/</guid>
         <description></description>
         </item>
         <item>
         <title>Ssh</title>
-        <link>https://kcode.cc/tags/ssh/</link>
+        <link>https://voidfox.cc/tags/ssh/</link>
         <pubDate>Fri, 30 Jul 2021 19:08:55 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/ssh/</guid>
+        <guid>https://voidfox.cc/tags/ssh/</guid>
         <description></description>
         </item>
         <item>
         <title>Ssl</title>
-        <link>https://kcode.cc/tags/ssl/</link>
+        <link>https://voidfox.cc/tags/ssl/</link>
         <pubDate>Fri, 30 Jul 2021 19:08:55 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/ssl/</guid>
+        <guid>https://voidfox.cc/tags/ssl/</guid>
         <description></description>
         </item>
         <item>
         <title>Zlib</title>
-        <link>https://kcode.cc/tags/zlib/</link>
+        <link>https://voidfox.cc/tags/zlib/</link>
         <pubDate>Fri, 30 Jul 2021 19:08:55 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/zlib/</guid>
+        <guid>https://voidfox.cc/tags/zlib/</guid>
         <description></description>
         </item>
         <item>
         <title>MQTT</title>
-        <link>https://kcode.cc/tags/mqtt/</link>
+        <link>https://voidfox.cc/tags/mqtt/</link>
         <pubDate>Tue, 13 Jul 2021 14:24:40 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/mqtt/</guid>
+        <guid>https://voidfox.cc/tags/mqtt/</guid>
         <description></description>
         </item>
         <item>
         <title>Kms</title>
-        <link>https://kcode.cc/tags/kms/</link>
+        <link>https://voidfox.cc/tags/kms/</link>
         <pubDate>Sun, 30 Jun 2019 22:52:13 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/kms/</guid>
+        <guid>https://voidfox.cc/tags/kms/</guid>
         <description></description>
         </item>
         <item>
         <title>Vim</title>
-        <link>https://kcode.cc/tags/vim/</link>
+        <link>https://voidfox.cc/tags/vim/</link>
         <pubDate>Sun, 30 Jun 2019 21:51:18 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/vim/</guid>
+        <guid>https://voidfox.cc/tags/vim/</guid>
         <description></description>
         </item>
         <item>
         <title>Samba</title>
-        <link>https://kcode.cc/tags/samba/</link>
+        <link>https://voidfox.cc/tags/samba/</link>
         <pubDate>Thu, 23 May 2019 21:25:02 +0800</pubDate>
         
-        <guid>https://kcode.cc/tags/samba/</guid>
+        <guid>https://voidfox.cc/tags/samba/</guid>
         <description></description>
         </item>
         

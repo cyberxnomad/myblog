@@ -4,12 +4,12 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 准备工作\r1.1. 下载源码\r两种方式下载源码:\ngit clone 直接下载指定 tag 源码 对于第 1 种方式，会把历史 commit 都 clone 下来，对于立项久远、社区活跃的项目来说，体积较大，加之 github 在国内访问不稳定，而且只是使用不是开发，所以这里选择第 2 种方式。\n在其项目 Release 页找到最新的 Release Tag，下载 Source code。\n1.2. 安装依赖\r1 apt install build-essential gcc make cmake cmake-gui cmake-curses-gui 如果需要使用 SSL 功能，则还需要预先交叉编译 OpenSSL，可参考之前的文章 移植 OpenSSL。\n如果需要生成文档，还需要安装 doxygen 和 graphhviz：\n1 apt install doxygen graphviz 2. 配置 Makefile\r2.1. 修改交叉编译工具链\r新建一个目录作为编译用目录，拷贝 paho.mqtt 源码目录下 cmake 目录内的 toolchain.linux-arm11.cmake 至编译用目录，修改以下内容为自己的交叉编译工具链：\n1 SET(CMAKE_C_COMPILER arm-linux-gnueabihf-gcc) 2.2. 生成 Makefile\r1 2 3 4 5 6 7 8 cmake \\ -DPAHO_WITH_SSL=TRUE \\ -DPAHO_BUILD_SAMPLES=TRUE \\ -DPAHO_BUILD_DOCUMENTATION=TRUE \\ -DPAHO_HIGH_PERFORMANCE=TRUE \\ -DOPENSSL_ROOT_DIR=/path/to/openssl/install/root \\ -DCMAKE_TOOLCHAIN_FILE=/path/to/toolchain.linux-arm11.cmake \\ /path/to/paho.mqtt.c/source 参数 默认值 描述 PAHO_BUILD_SHARED TRUE 编译成共享库 PAHO_BUILD_STATIC FALSE 编译成静态库 PAHO_HIGH_PERFORMANCE FALSE 高性能模式，如果设为 TRUE 则编译时 debug 追踪等功能将会被排除 PAHO_WITH_SSL FALSE 开启 SSL 功能 OPENSSL_ROOT_DIR “” OpenSSL 安装目录 PAHO_BUILD_DOCUMENTATION FALSE 生成文档 PAHO_BUILD_SAMPLES FALSE 编译示例 如果 OPENSSL_ROOT_DIR 目录内含有共享库，那么编译完成的 paho.mqtt 共享库需要依赖 OpenSSL 的共享库。\n">
 <title>移植 Paho MQTT</title>
 
-<link rel='canonical' href='https://kcode.cc/post/2021/07/porting-paho-mqtt.html'>
+<link rel='canonical' href='https://voidfox.cc/post/2021/07/porting-paho-mqtt.html'>
 
-<link rel="stylesheet" href="/scss/style.min.cfa5b1b0e78d61c00a14173992a1f3fa3b5c1b9fa34d023de959af564e7b19dd.css"><meta property='og:title' content="移植 Paho MQTT">
+<link rel="stylesheet" href="/scss/style.min.c141fa7f089dce101a8f37fe2e449c3f3179af78da35bef65eef05d9a75c80ed.css"><meta property='og:title' content="移植 Paho MQTT">
 <meta property='og:description' content="1. 准备工作\r1.1. 下载源码\r两种方式下载源码:\ngit clone 直接下载指定 tag 源码 对于第 1 种方式，会把历史 commit 都 clone 下来，对于立项久远、社区活跃的项目来说，体积较大，加之 github 在国内访问不稳定，而且只是使用不是开发，所以这里选择第 2 种方式。\n在其项目 Release 页找到最新的 Release Tag，下载 Source code。\n1.2. 安装依赖\r1 apt install build-essential gcc make cmake cmake-gui cmake-curses-gui 如果需要使用 SSL 功能，则还需要预先交叉编译 OpenSSL，可参考之前的文章 移植 OpenSSL。\n如果需要生成文档，还需要安装 doxygen 和 graphhviz：\n1 apt install doxygen graphviz 2. 配置 Makefile\r2.1. 修改交叉编译工具链\r新建一个目录作为编译用目录，拷贝 paho.mqtt 源码目录下 cmake 目录内的 toolchain.linux-arm11.cmake 至编译用目录，修改以下内容为自己的交叉编译工具链：\n1 SET(CMAKE_C_COMPILER arm-linux-gnueabihf-gcc) 2.2. 生成 Makefile\r1 2 3 4 5 6 7 8 cmake \\ -DPAHO_WITH_SSL=TRUE \\ -DPAHO_BUILD_SAMPLES=TRUE \\ -DPAHO_BUILD_DOCUMENTATION=TRUE \\ -DPAHO_HIGH_PERFORMANCE=TRUE \\ -DOPENSSL_ROOT_DIR=/path/to/openssl/install/root \\ -DCMAKE_TOOLCHAIN_FILE=/path/to/toolchain.linux-arm11.cmake \\ /path/to/paho.mqtt.c/source 参数 默认值 描述 PAHO_BUILD_SHARED TRUE 编译成共享库 PAHO_BUILD_STATIC FALSE 编译成静态库 PAHO_HIGH_PERFORMANCE FALSE 高性能模式，如果设为 TRUE 则编译时 debug 追踪等功能将会被排除 PAHO_WITH_SSL FALSE 开启 SSL 功能 OPENSSL_ROOT_DIR “” OpenSSL 安装目录 PAHO_BUILD_DOCUMENTATION FALSE 生成文档 PAHO_BUILD_SAMPLES FALSE 编译示例 如果 OPENSSL_ROOT_DIR 目录内含有共享库，那么编译完成的 paho.mqtt 共享库需要依赖 OpenSSL 的共享库。\n">
-<meta property='og:url' content='https://kcode.cc/post/2021/07/porting-paho-mqtt.html'>
-<meta property='og:site_name' content='K CODE'>
+<meta property='og:url' content='https://voidfox.cc/post/2021/07/porting-paho-mqtt.html'>
+<meta property='og:site_name' content='Void Fox'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='MQTT' /><meta property='article:tag' content='移植' /><meta property='article:published_time' content='2021-07-13T14:24:40&#43;08:00'/><meta property='article:modified_time' content='2023-06-21T14:42:16&#43;08:00'/>
 <meta name="twitter:title" content="移植 Paho MQTT">
 <meta name="twitter:description" content="1. 准备工作\r1.1. 下载源码\r两种方式下载源码:\ngit clone 直接下载指定 tag 源码 对于第 1 种方式，会把历史 commit 都 clone 下来，对于立项久远、社区活跃的项目来说，体积较大，加之 github 在国内访问不稳定，而且只是使用不是开发，所以这里选择第 2 种方式。\n在其项目 Release 页找到最新的 Release Tag，下载 Source code。\n1.2. 安装依赖\r1 apt install build-essential gcc make cmake cmake-gui cmake-curses-gui 如果需要使用 SSL 功能，则还需要预先交叉编译 OpenSSL，可参考之前的文章 移植 OpenSSL。\n如果需要生成文档，还需要安装 doxygen 和 graphhviz：\n1 apt install doxygen graphviz 2. 配置 Makefile\r2.1. 修改交叉编译工具链\r新建一个目录作为编译用目录，拷贝 paho.mqtt 源码目录下 cmake 目录内的 toolchain.linux-arm11.cmake 至编译用目录，修改以下内容为自己的交叉编译工具链：\n1 SET(CMAKE_C_COMPILER arm-linux-gnueabihf-gcc) 2.2. 生成 Makefile\r1 2 3 4 5 6 7 8 cmake \\ -DPAHO_WITH_SSL=TRUE \\ -DPAHO_BUILD_SAMPLES=TRUE \\ -DPAHO_BUILD_DOCUMENTATION=TRUE \\ -DPAHO_HIGH_PERFORMANCE=TRUE \\ -DOPENSSL_ROOT_DIR=/path/to/openssl/install/root \\ -DCMAKE_TOOLCHAIN_FILE=/path/to/toolchain.linux-arm11.cmake \\ /path/to/paho.mqtt.c/source 参数 默认值 描述 PAHO_BUILD_SHARED TRUE 编译成共享库 PAHO_BUILD_STATIC FALSE 编译成静态库 PAHO_HIGH_PERFORMANCE FALSE 高性能模式，如果设为 TRUE 则编译时 debug 追踪等功能将会被排除 PAHO_WITH_SSL FALSE 开启 SSL 功能 OPENSSL_ROOT_DIR “” OpenSSL 安装目录 PAHO_BUILD_DOCUMENTATION FALSE 生成文档 PAHO_BUILD_SAMPLES FALSE 编译示例 如果 OPENSSL_ROOT_DIR 目录内含有共享库，那么编译完成的 paho.mqtt 共享库需要依赖 OpenSSL 的共享库。\n">
@@ -58,7 +58,7 @@
                     
                     
                         
-                        <img src="/images/avatar_hu_74b419752b138555.jpg" width="300"
+                        <img src="/images/avatar_hu_6534c7386dde1f7d.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -71,7 +71,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">K CODE</a></h1>
+            <h1 class="site-name"><a href="/">Void Fox</a></h1>
             <h2 class="site-description">A Simple Blog</h2>
         </div>
     </header><ol class="menu" id="main-menu">
@@ -220,6 +220,9 @@
     
     <header class="article-category">
         
+            
+            
+            
             <a href="/categories/linux/" style="background-color: #FFD133; color: #000;">
                 Linux
             </a>
@@ -251,7 +254,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2021/07/13</time>
+                <time class="article-time--published" datetime='2021-07-13T14:24:40&#43;08:00'>2021/07/13</time>
             </div>
         
 
@@ -335,13 +338,13 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cmake <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-DPAHO_WITH_SSL<span class="o">=</span>TRUE <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-DPAHO_BUILD_SAMPLES<span class="o">=</span>TRUE <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-DPAHO_BUILD_DOCUMENTATION<span class="o">=</span>TRUE <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-DPAHO_HIGH_PERFORMANCE<span class="o">=</span>TRUE <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-DOPENSSL_ROOT_DIR<span class="o">=</span>/path/to/openssl/install/root <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>/path/to/toolchain.linux-arm11.cmake <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>/path/to/paho.mqtt.c/source
+</span></span></span><span class="line"><span class="cl">-DPAHO_WITH_SSL<span class="o">=</span>TRUE <span class="se">\
+</span></span></span><span class="line"><span class="cl">-DPAHO_BUILD_SAMPLES<span class="o">=</span>TRUE <span class="se">\
+</span></span></span><span class="line"><span class="cl">-DPAHO_BUILD_DOCUMENTATION<span class="o">=</span>TRUE <span class="se">\
+</span></span></span><span class="line"><span class="cl">-DPAHO_HIGH_PERFORMANCE<span class="o">=</span>TRUE <span class="se">\
+</span></span></span><span class="line"><span class="cl">-DOPENSSL_ROOT_DIR<span class="o">=</span>/path/to/openssl/install/root <span class="se">\
+</span></span></span><span class="line"><span class="cl">-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>/path/to/toolchain.linux-arm11.cmake <span class="se">\
+</span></span></span><span class="line"><span class="cl">/path/to/paho.mqtt.c/source
 </span></span></code></pre></td></tr></table>
 </div>
 </div><div class="table-wrapper"><table>
@@ -410,9 +413,9 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-cmake" data-lang="cmake"><span class="line"><span class="cl"><span class="nb">FIND_LIBRARY</span><span class="p">(</span><span class="s">LIB_ANL</span> <span class="s">anl</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">IF</span><span class="p">(</span><span class="s">LIB_ANL</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="nb">SET</span><span class="p">(</span><span class="s">LIBS_SYSTEM</span> <span class="s2">&#34;${LIBS_SYSTEM}&#34;</span> <span class="s">anl</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">ENDIF</span><span class="p">()</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">IF</span><span class="p">(</span><span class="s">LIB_ANL</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl">    <span class="nb">SET</span><span class="p">(</span><span class="s">LIBS_SYSTEM</span> <span class="s2">&#34;${LIBS_SYSTEM}&#34;</span> <span class="s">anl</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">ENDIF</span><span class="p">()</span><span class="err">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后重新生成一次 Makefile。原因是 <code>libanl</code> 只支持 <code>glibc</code>。</p>
@@ -524,7 +527,7 @@
         
         
             <div class="article-image">
-                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu_a4fc2f4024051a8e.webp" 
+                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu_c2218444860dd5af.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -548,7 +551,7 @@
         
         
             <div class="article-image">
-                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu_7f73d41cc11b6faa.webp" 
+                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu_f76c24458551f76d.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -581,12 +584,12 @@
         
             2017 - 
         
-        2025 K CODE
+        2026 Void Fox
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.34.2">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -668,6 +671,7 @@
                 rel="stylesheet" 
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
+    
 
             </main>
         </div>
@@ -675,7 +679,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

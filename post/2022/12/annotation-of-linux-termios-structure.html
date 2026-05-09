@@ -4,12 +4,12 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 结构体定义\r该结构体定义在头文件 &lt;termios.h&gt; 中，至少包含以下成员：\n1 2 3 4 5 tcflag_t c_iflag; /* input modes */ tcflag_t c_oflag; /* output modes */ tcflag_t c_cflag; /* control modes */ tcflag_t c_lflag; /* local modes */ cc_t c_cc[NCCS]; /* special characters */ 2. 结构体成员注解\r2.1. 输入模式标志 c_iflag\rc_iflag 用于设置终端 I/O 的输入参数，标志宏定义如下：\nIGNBRK\n忽略输入时的中断（BREAK）条件\nBRKINT\n如果设置了 IGNBRK ，则忽略中断； 如果没有设置 IGNBRK ，但设置了 BRKINT ，那么中断（BREAK）会导致输入输出队列被冲洗（flush）；如果终端是前台进程组，中断（BREAK）将会向该终端发送 SIGINT 信号； 如果 IGNBRK 和 BRKINT 都未设置，中断（BREAK）字符将被读取为空字节（&rsquo;\\0&rsquo;）；如果设置了 PARMAR 标志，那么它将被读取为序列 \\377 \\0 \\0。 IGNPAR\n忽略帧错误和校验错误\nPARMRK\n（待补充）\nINPCK\n使能输入奇偶校验\nISTRIP\n有效输入字节被剥离为 7 位\n">
 <title>Linux termios 结构体注解</title>
 
-<link rel='canonical' href='https://kcode.cc/post/2022/12/annotation-of-linux-termios-structure.html'>
+<link rel='canonical' href='https://voidfox.cc/post/2022/12/annotation-of-linux-termios-structure.html'>
 
-<link rel="stylesheet" href="/scss/style.min.cfa5b1b0e78d61c00a14173992a1f3fa3b5c1b9fa34d023de959af564e7b19dd.css"><meta property='og:title' content="Linux termios 结构体注解">
+<link rel="stylesheet" href="/scss/style.min.c141fa7f089dce101a8f37fe2e449c3f3179af78da35bef65eef05d9a75c80ed.css"><meta property='og:title' content="Linux termios 结构体注解">
 <meta property='og:description' content="1. 结构体定义\r该结构体定义在头文件 &lt;termios.h&gt; 中，至少包含以下成员：\n1 2 3 4 5 tcflag_t c_iflag; /* input modes */ tcflag_t c_oflag; /* output modes */ tcflag_t c_cflag; /* control modes */ tcflag_t c_lflag; /* local modes */ cc_t c_cc[NCCS]; /* special characters */ 2. 结构体成员注解\r2.1. 输入模式标志 c_iflag\rc_iflag 用于设置终端 I/O 的输入参数，标志宏定义如下：\nIGNBRK\n忽略输入时的中断（BREAK）条件\nBRKINT\n如果设置了 IGNBRK ，则忽略中断； 如果没有设置 IGNBRK ，但设置了 BRKINT ，那么中断（BREAK）会导致输入输出队列被冲洗（flush）；如果终端是前台进程组，中断（BREAK）将会向该终端发送 SIGINT 信号； 如果 IGNBRK 和 BRKINT 都未设置，中断（BREAK）字符将被读取为空字节（&rsquo;\\0&rsquo;）；如果设置了 PARMAR 标志，那么它将被读取为序列 \\377 \\0 \\0。 IGNPAR\n忽略帧错误和校验错误\nPARMRK\n（待补充）\nINPCK\n使能输入奇偶校验\nISTRIP\n有效输入字节被剥离为 7 位\n">
-<meta property='og:url' content='https://kcode.cc/post/2022/12/annotation-of-linux-termios-structure.html'>
-<meta property='og:site_name' content='K CODE'>
+<meta property='og:url' content='https://voidfox.cc/post/2022/12/annotation-of-linux-termios-structure.html'>
+<meta property='og:site_name' content='Void Fox'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='内核' /><meta property='article:tag' content='termios' /><meta property='article:published_time' content='2022-12-05T19:17:40&#43;08:00'/><meta property='article:modified_time' content='2023-06-21T14:42:16&#43;08:00'/>
 <meta name="twitter:title" content="Linux termios 结构体注解">
 <meta name="twitter:description" content="1. 结构体定义\r该结构体定义在头文件 &lt;termios.h&gt; 中，至少包含以下成员：\n1 2 3 4 5 tcflag_t c_iflag; /* input modes */ tcflag_t c_oflag; /* output modes */ tcflag_t c_cflag; /* control modes */ tcflag_t c_lflag; /* local modes */ cc_t c_cc[NCCS]; /* special characters */ 2. 结构体成员注解\r2.1. 输入模式标志 c_iflag\rc_iflag 用于设置终端 I/O 的输入参数，标志宏定义如下：\nIGNBRK\n忽略输入时的中断（BREAK）条件\nBRKINT\n如果设置了 IGNBRK ，则忽略中断； 如果没有设置 IGNBRK ，但设置了 BRKINT ，那么中断（BREAK）会导致输入输出队列被冲洗（flush）；如果终端是前台进程组，中断（BREAK）将会向该终端发送 SIGINT 信号； 如果 IGNBRK 和 BRKINT 都未设置，中断（BREAK）字符将被读取为空字节（&rsquo;\\0&rsquo;）；如果设置了 PARMAR 标志，那么它将被读取为序列 \\377 \\0 \\0。 IGNPAR\n忽略帧错误和校验错误\nPARMRK\n（待补充）\nINPCK\n使能输入奇偶校验\nISTRIP\n有效输入字节被剥离为 7 位\n">
@@ -58,7 +58,7 @@
                     
                     
                         
-                        <img src="/images/avatar_hu_74b419752b138555.jpg" width="300"
+                        <img src="/images/avatar_hu_6534c7386dde1f7d.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -71,7 +71,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">K CODE</a></h1>
+            <h1 class="site-name"><a href="/">Void Fox</a></h1>
             <h2 class="site-description">A Simple Blog</h2>
         </div>
     </header><ol class="menu" id="main-menu">
@@ -213,6 +213,9 @@
     
     <header class="article-category">
         
+            
+            
+            
             <a href="/categories/linux/" style="background-color: #FFD133; color: #000;">
                 Linux
             </a>
@@ -244,7 +247,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2022/12/05</time>
+                <time class="article-time--published" datetime='2022-12-05T19:17:40&#43;08:00'>2022/12/05</time>
             </div>
         
 
@@ -627,7 +630,7 @@
         
         
             <div class="article-image">
-                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu_a4fc2f4024051a8e.webp" 
+                <img src="/post/2025/03/automated-installation-of-debian/cover.a16063d1e83c50bddb33eea9cfd74a69_hu_c2218444860dd5af.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -664,7 +667,7 @@
         
         
             <div class="article-image">
-                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu_7f73d41cc11b6faa.webp" 
+                <img src="/post/2023/06/buildroot-note-1/cover.6823d1dcc7957f1176da1b27b60cd00b_hu_f76c24458551f76d.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -688,7 +691,7 @@
         
         
             <div class="article-image">
-                <img src="/post/2023/06/erpnext-14-manual-installation/cover.7fc08f1553469c0d3f33dfb0bbcf1cfd_hu_1cedd0781d9745e0.webp" 
+                <img src="/post/2023/06/erpnext-14-manual-installation/cover.7fc08f1553469c0d3f33dfb0bbcf1cfd_hu_c9ebb4e151bde22c.webp" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -734,12 +737,12 @@
         
             2017 - 
         
-        2025 K CODE
+        2026 Void Fox
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.34.2">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -821,6 +824,7 @@
                 rel="stylesheet" 
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
+    
 
             </main>
         </div>
@@ -828,7 +832,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

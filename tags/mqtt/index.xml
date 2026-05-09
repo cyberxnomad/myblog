@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>MQTT on K CODE</title>
-        <link>https://kcode.cc/tags/mqtt/</link>
-        <description>Recent content in MQTT on K CODE</description>
+        <title>MQTT on Void Fox</title>
+        <link>https://voidfox.cc/tags/mqtt/</link>
+        <description>Recent content in MQTT on Void Fox</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cmn-Hans</language>
-        <lastBuildDate>Wed, 21 Jun 2023 14:42:16 +0800</lastBuildDate><atom:link href="https://kcode.cc/tags/mqtt/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 21 Jun 2023 14:42:16 +0800</lastBuildDate><atom:link href="https://voidfox.cc/tags/mqtt/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>移植 Paho MQTT</title>
-        <link>https://kcode.cc/post/2021/07/porting-paho-mqtt.html</link>
+        <link>https://voidfox.cc/post/2021/07/porting-paho-mqtt.html</link>
         <pubDate>Tue, 13 Jul 2021 14:24:40 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2021/07/porting-paho-mqtt.html</guid>
+        <guid>https://voidfox.cc/post/2021/07/porting-paho-mqtt.html</guid>
         <description>&lt;h2 id=&#34;1-准备工作&#34;&gt;1. 准备工作
 &lt;/h2&gt;&lt;h3 id=&#34;11-下载源码&#34;&gt;1.1. 下载源码
 &lt;/h3&gt;&lt;p&gt;两种方式下载源码:&lt;/p&gt;
@@ -66,13 +66,13 @@
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cmake &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-DPAHO_WITH_SSL&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-DPAHO_BUILD_SAMPLES&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-DPAHO_BUILD_DOCUMENTATION&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-DPAHO_HIGH_PERFORMANCE&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-DOPENSSL_ROOT_DIR&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/openssl/install/root &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-DCMAKE_TOOLCHAIN_FILE&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/toolchain.linux-arm11.cmake &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;/path/to/paho.mqtt.c/source
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-DPAHO_WITH_SSL&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-DPAHO_BUILD_SAMPLES&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-DPAHO_BUILD_DOCUMENTATION&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-DPAHO_HIGH_PERFORMANCE&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-DOPENSSL_ROOT_DIR&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/openssl/install/root &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-DCMAKE_TOOLCHAIN_FILE&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/toolchain.linux-arm11.cmake &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/path/to/paho.mqtt.c/source
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;table&gt;
@@ -141,9 +141,9 @@
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmake&#34; data-lang=&#34;cmake&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;FIND_LIBRARY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;LIB_ANL&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;anl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;IF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;LIB_ANL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;LIBS_SYSTEM&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;${LIBS_SYSTEM}&amp;#34;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;anl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ENDIF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;IF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;LIB_ANL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;LIBS_SYSTEM&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;${LIBS_SYSTEM}&amp;#34;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;anl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;ENDIF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;然后重新生成一次 Makefile。原因是 &lt;code&gt;libanl&lt;/code&gt; 只支持 &lt;code&gt;glibc&lt;/code&gt;。&lt;/p&gt;

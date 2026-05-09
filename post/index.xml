@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Posts on K CODE</title>
-        <link>https://kcode.cc/post/</link>
-        <description>Recent content in Posts on K CODE</description>
+        <title>Posts on Void Fox</title>
+        <link>https://voidfox.cc/post/</link>
+        <description>Recent content in Posts on Void Fox</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cmn-Hans</language>
-        <lastBuildDate>Tue, 12 Aug 2025 20:11:00 +0800</lastBuildDate><atom:link href="https://kcode.cc/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 12 Aug 2025 20:17:24 +0800</lastBuildDate><atom:link href="https://voidfox.cc/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>无人值守安装 Debian</title>
-        <link>https://kcode.cc/post/2025/03/automated-installation-of-debian.html</link>
+        <link>https://voidfox.cc/post/2025/03/automated-installation-of-debian.html</link>
         <pubDate>Thu, 13 Mar 2025 15:00:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2025/03/automated-installation-of-debian.html</guid>
-        <description>&lt;img src="https://kcode.cc/post/2025/03/automated-installation-of-debian/cover.webp" alt="Featured image of post 无人值守安装 Debian" /&gt;&lt;h2 id=&#34;1-前言&#34;&gt;1. 前言
+        <guid>https://voidfox.cc/post/2025/03/automated-installation-of-debian.html</guid>
+        <description>&lt;img src="https://voidfox.cc/post/2025/03/automated-installation-of-debian/cover.webp" alt="Featured image of post 无人值守安装 Debian" /&gt;&lt;h2 id=&#34;1-前言&#34;&gt;1. 前言
 &lt;/h2&gt;&lt;p&gt;Debian 的自动化安装主要通过 Preseed 技术实现，它允许用户在安装过程中自动填写配置参数，从而实现无人值守的全自动安装。Preseed 文件是一个包含安装选项的配置文件，适用于大规模部署或需要重复安装的场景（如服务器、虚拟机等）。&lt;/p&gt;
 &lt;p&gt;当前稳定版本的 Preseed 示例文件可从官方网站下载：https://www.debian.org/releases/stable/example-preseed.txt&lt;/p&gt;
 &lt;p&gt;其他版本示例文件可将链接中的 &amp;lsquo;stable&amp;rsquo; 替换成目标版本代号即可，如 Debian 11 的版本代号为 bullseye，则链接为：https://www.debian.org/releases/bullseye/example-preseed.txt&lt;/p&gt;
@@ -116,22 +116,22 @@
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;d-i partman-auto/expert_recipe string                          &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    boot-root ::                                               &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;m&#34;&gt;525&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;525&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;525&lt;/span&gt; free                                       &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;nv&#34;&gt;$iflabel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; gpt &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                                    &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;nv&#34;&gt;$primary&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$bootable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                           &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;            method&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; efi &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; format&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                            &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        .                                                      &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;m&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1024000&lt;/span&gt; -1 ext4                                    &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;nv&#34;&gt;$primary&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                                        &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;            method&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; format &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; format&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                         &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;            use_filesystem&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; filesystem&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; ext4 &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;               &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;            mountpoint&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; / &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                                    &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        .                                                      &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;m&#34;&gt;8590&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8590&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8590&lt;/span&gt; linux-swap                              &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;nv&#34;&gt;$primary&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                                        &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;            method&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; swap &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; format&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                           &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        .
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    boot-root ::                                               &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;m&#34;&gt;525&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;525&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;525&lt;/span&gt; free                                       &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nv&#34;&gt;$iflabel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; gpt &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                                    &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nv&#34;&gt;$primary&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$bootable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                           &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            method&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; efi &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; format&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                            &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        .                                                      &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;m&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1024000&lt;/span&gt; -1 ext4                                    &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nv&#34;&gt;$primary&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                                        &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            method&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; format &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; format&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                         &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            use_filesystem&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; filesystem&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; ext4 &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;               &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            mountpoint&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; / &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                                    &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        .                                                      &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;m&#34;&gt;8590&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8590&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8590&lt;/span&gt; linux-swap                              &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nv&#34;&gt;$primary&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                                        &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            method&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; swap &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; format&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;                           &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        .
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;此处配置的分区方案为：500MiB EFI 分区，8GiB Swap 分区，剩余空间为根文件系统。&lt;br&gt;
@@ -253,14 +253,14 @@
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;d-i preseed/late_command string &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb https://mirrors.tuna.tsinghua.edu.cn/debian bookworm main contrib non-free non-free-firmware&amp;#34; &amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb https://mirrors.tuna.tsinghua.edu.cn/debian bookworm-updates main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb https://mirrors.tuna.tsinghua.edu.cn/debian bookworm-backports main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb-src https://mirrors.tuna.tsinghua.edu.cn/debian bookworm main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb-src https://mirrors.tuna.tsinghua.edu.cn/debian bookworm-updates main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb-src https://mirrors.tuna.tsinghua.edu.cn/debian bookworm-backports main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb https://mirrors.tuna.tsinghua.edu.cn/debian bookworm main contrib non-free non-free-firmware&amp;#34; &amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb https://mirrors.tuna.tsinghua.edu.cn/debian bookworm-updates main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb https://mirrors.tuna.tsinghua.edu.cn/debian bookworm-backports main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb-src https://mirrors.tuna.tsinghua.edu.cn/debian bookworm main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb-src https://mirrors.tuna.tsinghua.edu.cn/debian bookworm-updates main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb-src https://mirrors.tuna.tsinghua.edu.cn/debian bookworm-backports main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    in-target bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;echo &amp;#34;deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;3-执行无人值守安装&#34;&gt;3. 执行无人值守安装
@@ -360,10 +360,10 @@
         </item>
         <item>
         <title>交叉编译 OpenOCD 到 Windows 使用</title>
-        <link>https://kcode.cc/post/2024/04/cross-compile-openocd-to-windows.html</link>
+        <link>https://voidfox.cc/post/2024/04/cross-compile-openocd-to-windows.html</link>
         <pubDate>Mon, 02 Sep 2024 18:20:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2024/04/cross-compile-openocd-to-windows.html</guid>
+        <guid>https://voidfox.cc/post/2024/04/cross-compile-openocd-to-windows.html</guid>
         <description>&lt;h2 id=&#34;1-准备工作&#34;&gt;1. 准备工作
 &lt;/h2&gt;&lt;p&gt;本文基于 &lt;a class=&#34;link&#34; href=&#34;https://github.com/openocd-org/openocd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;openocd&lt;/a&gt; (commit: &lt;a class=&#34;link&#34; href=&#34;https://github.com/openocd-org/openocd/commit/cbc32c3831e39fd07f5fe0dc1cfb9a7be77ffa86&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -529,7 +529,7 @@ OpenOCD 的编译选项可参考该项目下的 &lt;code&gt;configure&lt;/code&g
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;BUILD_DIR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/openocd/build/dir
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# set source env&lt;/span&gt;
@@ -667,11 +667,11 @@ OpenOCD 的编译选项可参考该项目下的 &lt;code&gt;configure&lt;/code&g
         </item>
         <item>
         <title>大型项目使用 git merge 导致多文件混乱问题及解决</title>
-        <link>https://kcode.cc/post/2024/04/git-merge-and-patch.html</link>
+        <link>https://voidfox.cc/post/2024/04/git-merge-and-patch.html</link>
         <pubDate>Wed, 10 Apr 2024 20:57:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2024/04/git-merge-and-patch.html</guid>
-        <description>&lt;img src="https://kcode.cc/post/2024/04/git-merge-and-patch/cover.webp" alt="Featured image of post 大型项目使用 git merge 导致多文件混乱问题及解决" /&gt;&lt;h2 id=&#34;1-原因&#34;&gt;1. 原因
+        <guid>https://voidfox.cc/post/2024/04/git-merge-and-patch.html</guid>
+        <description>&lt;img src="https://voidfox.cc/post/2024/04/git-merge-and-patch/cover.webp" alt="Featured image of post 大型项目使用 git merge 导致多文件混乱问题及解决" /&gt;&lt;h2 id=&#34;1-原因&#34;&gt;1. 原因
 &lt;/h2&gt;&lt;p&gt;之前 clone 可以一个大型开源项目，自己创建了一个分支进行修改。&lt;br&gt;
 随着自己的分支和开源项目自身的迭代，自己每次都使用 merge 将远程的主分支合并到自己分支。最近由于隔了非常多版本没有合并，现在使用 merge 合并出现了大量冲突。&lt;br&gt;
 于是使用 &lt;code&gt;git merge -X theirs [other_branch]&lt;/code&gt; 进行合并，该命令是在合并遇到冲突时，保留 &lt;code&gt;[other_branch]&lt;/code&gt; 的改动，删除自己的改动。&lt;/p&gt;
@@ -709,11 +709,11 @@ OpenOCD 的编译选项可参考该项目下的 &lt;code&gt;configure&lt;/code&g
         </item>
         <item>
         <title>Buildroot 注解 1</title>
-        <link>https://kcode.cc/post/2023/06/buildroot-note-1.html</link>
+        <link>https://voidfox.cc/post/2023/06/buildroot-note-1.html</link>
         <pubDate>Thu, 29 Jun 2023 15:35:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2023/06/buildroot-note-1.html</guid>
-        <description>&lt;img src="https://kcode.cc/post/2023/06/buildroot-note-1/cover.webp" alt="Featured image of post Buildroot 注解 1" /&gt;&lt;h2 id=&#34;1-项目客制化&#34;&gt;1. 项目客制化
+        <guid>https://voidfox.cc/post/2023/06/buildroot-note-1.html</guid>
+        <description>&lt;img src="https://voidfox.cc/post/2023/06/buildroot-note-1/cover.webp" alt="Featured image of post Buildroot 注解 1" /&gt;&lt;h2 id=&#34;1-项目客制化&#34;&gt;1. 项目客制化
 &lt;/h2&gt;&lt;p&gt;用户可以自定义的内容有：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;配置 Buildroot，即 make menuconfig 的内容&lt;/li&gt;
@@ -936,11 +936,11 @@ Buildroot 在执行这些脚本时，会传递一些参数进去：&lt;/p&gt;
         </item>
         <item>
         <title>ERPNext 14 常规安装流程记录</title>
-        <link>https://kcode.cc/post/2023/06/erpnext-14-manual-installation.html</link>
+        <link>https://voidfox.cc/post/2023/06/erpnext-14-manual-installation.html</link>
         <pubDate>Wed, 21 Jun 2023 11:58:37 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2023/06/erpnext-14-manual-installation.html</guid>
-        <description>&lt;img src="https://kcode.cc/post/2023/06/erpnext-14-manual-installation/cover.webp" alt="Featured image of post ERPNext 14 常规安装流程记录" /&gt;&lt;h2 id=&#34;1-安装基础依赖&#34;&gt;1. 安装基础依赖
+        <guid>https://voidfox.cc/post/2023/06/erpnext-14-manual-installation.html</guid>
+        <description>&lt;img src="https://voidfox.cc/post/2023/06/erpnext-14-manual-installation/cover.webp" alt="Featured image of post ERPNext 14 常规安装流程记录" /&gt;&lt;h2 id=&#34;1-安装基础依赖&#34;&gt;1. 安装基础依赖
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -964,11 +964,11 @@ Buildroot 在执行这些脚本时，会传递一些参数进去：&lt;/p&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install git python3 python3-pip &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    python3-venv software-properties-common &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    mariadb-server mariadb-client &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    redis-server curl nodejs npm xvfb &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    libfontconfig wkhtmltopdf &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    default-libmysqlclient-dev supervisor
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    python3-venv software-properties-common &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    mariadb-server mariadb-client &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    redis-server curl nodejs npm xvfb &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    libfontconfig wkhtmltopdf &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    default-libmysqlclient-dev supervisor
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;2-配置-mariadb-server&#34;&gt;2. 配置 Mariadb Server
@@ -1224,10 +1224,10 @@ Buildroot 在执行这些脚本时，会传递一些参数进去：&lt;/p&gt;
         </item>
         <item>
         <title>在 Windows 自带输入法上使用小鹤双拼</title>
-        <link>https://kcode.cc/post/2022/12/set-up-flypy-on-windows.html</link>
+        <link>https://voidfox.cc/post/2022/12/set-up-flypy-on-windows.html</link>
         <pubDate>Thu, 29 Dec 2022 17:36:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2022/12/set-up-flypy-on-windows.html</guid>
+        <guid>https://voidfox.cc/post/2022/12/set-up-flypy-on-windows.html</guid>
         <description>&lt;p&gt;系统自带输入法对我而言已经完全足够了，但是没有内置“小鹤双拼”的方案，每次到新的电脑都要在输入法设置里一个一个按键绑定，较为繁琐。&lt;/p&gt;
 &lt;p&gt;偶然的机会发现可以直接在注册表里添加键值，步骤如下：&lt;/p&gt;
 &lt;ol&gt;
@@ -1245,10 +1245,10 @@ Buildroot 在执行这些脚本时，会传递一些参数进去：&lt;/p&gt;
         </item>
         <item>
         <title>Linux termios 结构体注解</title>
-        <link>https://kcode.cc/post/2022/12/annotation-of-linux-termios-structure.html</link>
+        <link>https://voidfox.cc/post/2022/12/annotation-of-linux-termios-structure.html</link>
         <pubDate>Mon, 05 Dec 2022 19:17:40 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2022/12/annotation-of-linux-termios-structure.html</guid>
+        <guid>https://voidfox.cc/post/2022/12/annotation-of-linux-termios-structure.html</guid>
         <description>&lt;h2 id=&#34;1-结构体定义&#34;&gt;1. 结构体定义
 &lt;/h2&gt;&lt;p&gt;该结构体定义在头文件 &amp;lt;termios.h&amp;gt; 中，至少包含以下成员：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1546,10 +1546,10 @@ Buildroot 在执行这些脚本时，会传递一些参数进去：&lt;/p&gt;
         </item>
         <item>
         <title>移植 OpenSSH</title>
-        <link>https://kcode.cc/post/2021/07/porting-openssh.html</link>
+        <link>https://voidfox.cc/post/2021/07/porting-openssh.html</link>
         <pubDate>Fri, 30 Jul 2021 19:08:55 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2021/07/porting-openssh.html</guid>
+        <guid>https://voidfox.cc/post/2021/07/porting-openssh.html</guid>
         <description>&lt;h2 id=&#34;1-准备工作&#34;&gt;1. 准备工作
 &lt;/h2&gt;&lt;p&gt;&lt;code&gt;OpenSSH&lt;/code&gt; 依赖 &lt;code&gt;zlib&lt;/code&gt;、&lt;code&gt;OpenSSL&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;源码下载：&lt;/p&gt;
@@ -1582,8 +1582,8 @@ Buildroot 在执行这些脚本时，会传递一些参数进去：&lt;/p&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;CHOST&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;arm-linux &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;./configure &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/install
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./configure &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/install
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ul&gt;
@@ -1616,12 +1616,12 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;CC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;arm-linux-gcc &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;./configure &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--host&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;arm-linux &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--with-libs &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--with-zlib&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/zlib/install &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--with-ssl-dir&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/openssl/install &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--disable-etc-default-login 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./configure &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--host&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;arm-linux &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--with-libs &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--with-zlib&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/zlib/install &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--with-ssl-dir&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/openssl/install &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--disable-etc-default-login 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ul&gt;
@@ -1769,13 +1769,13 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /usr/bin
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ln -s ../local/bin/sshd &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;ln -s ../local/bin/ssh &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;ln -s ../local/bin/scp &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;ln -s ../local/bin/sftp &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;ln -s ../local/bin/ssh-add &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;ln -s ../local/bin/ssh-agent &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;ln -s ../local/bin/ssh-keygen &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;ln -s ../local/bin/ssh-keyscan
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ln -s ../local/bin/ssh &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ln -s ../local/bin/scp &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ln -s ../local/bin/sftp &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ln -s ../local/bin/ssh-add &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ln -s ../local/bin/ssh-agent &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ln -s ../local/bin/ssh-keygen &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ln -s ../local/bin/ssh-keyscan
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
@@ -1883,10 +1883,10 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
         </item>
         <item>
         <title>移植 Paho MQTT</title>
-        <link>https://kcode.cc/post/2021/07/porting-paho-mqtt.html</link>
+        <link>https://voidfox.cc/post/2021/07/porting-paho-mqtt.html</link>
         <pubDate>Tue, 13 Jul 2021 14:24:40 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2021/07/porting-paho-mqtt.html</guid>
+        <guid>https://voidfox.cc/post/2021/07/porting-paho-mqtt.html</guid>
         <description>&lt;h2 id=&#34;1-准备工作&#34;&gt;1. 准备工作
 &lt;/h2&gt;&lt;h3 id=&#34;11-下载源码&#34;&gt;1.1. 下载源码
 &lt;/h3&gt;&lt;p&gt;两种方式下载源码:&lt;/p&gt;
@@ -1941,13 +1941,13 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cmake &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-DPAHO_WITH_SSL&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-DPAHO_BUILD_SAMPLES&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-DPAHO_BUILD_DOCUMENTATION&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-DPAHO_HIGH_PERFORMANCE&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-DOPENSSL_ROOT_DIR&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/openssl/install/root &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-DCMAKE_TOOLCHAIN_FILE&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/toolchain.linux-arm11.cmake &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;/path/to/paho.mqtt.c/source
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-DPAHO_WITH_SSL&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-DPAHO_BUILD_SAMPLES&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-DPAHO_BUILD_DOCUMENTATION&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-DPAHO_HIGH_PERFORMANCE&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;TRUE &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-DOPENSSL_ROOT_DIR&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/openssl/install/root &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-DCMAKE_TOOLCHAIN_FILE&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/toolchain.linux-arm11.cmake &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/path/to/paho.mqtt.c/source
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;table&gt;
@@ -2016,9 +2016,9 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmake&#34; data-lang=&#34;cmake&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;FIND_LIBRARY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;LIB_ANL&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;anl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;IF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;LIB_ANL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;LIBS_SYSTEM&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;${LIBS_SYSTEM}&amp;#34;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;anl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ENDIF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;IF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;LIB_ANL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;LIBS_SYSTEM&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;${LIBS_SYSTEM}&amp;#34;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;anl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;ENDIF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;然后重新生成一次 Makefile。原因是 &lt;code&gt;libanl&lt;/code&gt; 只支持 &lt;code&gt;glibc&lt;/code&gt;。&lt;/p&gt;
@@ -2035,10 +2035,10 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
         </item>
         <item>
         <title>移植 OpenSSL</title>
-        <link>https://kcode.cc/post/2021/07/porting-openssl.html</link>
+        <link>https://voidfox.cc/post/2021/07/porting-openssl.html</link>
         <pubDate>Tue, 13 Jul 2021 10:11:05 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2021/07/porting-openssl.html</guid>
+        <guid>https://voidfox.cc/post/2021/07/porting-openssl.html</guid>
         <description>&lt;h2 id=&#34;1-源码&#34;&gt;1. 源码
 &lt;/h2&gt;&lt;p&gt;官网：&lt;a class=&#34;link&#34; href=&#34;https://www.openssl.org/source/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://www.openssl.org/source/&lt;/a&gt;&lt;/p&gt;
@@ -2052,9 +2052,9 @@ zlib 的 configure 使用此变量自动配置交叉编译工具的前缀，按�
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./Configure linux-armv4 &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--cross-compile-prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;arm-linux- &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/install &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;no-asm shared no-async
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--cross-compile-prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;arm-linux- &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/path/to/install &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no-asm shared no-async
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ul&gt;
@@ -2090,10 +2090,10 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
         </item>
         <item>
         <title>通过 KMS 激活 Windows 和 Office</title>
-        <link>https://kcode.cc/post/2019/06/activate-windows-and-office-by-kms.html</link>
+        <link>https://voidfox.cc/post/2019/06/activate-windows-and-office-by-kms.html</link>
         <pubDate>Sun, 30 Jun 2019 22:52:13 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2019/06/activate-windows-and-office-by-kms.html</guid>
+        <guid>https://voidfox.cc/post/2019/06/activate-windows-and-office-by-kms.html</guid>
         <description>&lt;h2 id=&#34;1-准备工作&#34;&gt;1. 准备工作
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
@@ -2101,7 +2101,7 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;找到对应版本（专业版、教育版等）的 VOL 密钥&lt;br&gt;
-可参考 &lt;a class=&#34;link&#34; href=&#34;https://kcode.cc/post/2017/03/gvlks-of-windows-and-office.html&#34; &gt;Windows 和 Office KMS 密钥&lt;/a&gt;&lt;/p&gt;
+可参考 &lt;a class=&#34;link&#34; href=&#34;https://voidfox.cc/post/2017/03/gvlks-of-windows-and-office.html&#34; &gt;Windows 和 Office KMS 密钥&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;2-激活-windows&#34;&gt;2. 激活 Windows
@@ -2210,10 +2210,10 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
         </item>
         <item>
         <title>自用 vim 配置文件</title>
-        <link>https://kcode.cc/post/2019/06/vim-configuration-for-self-use.html</link>
+        <link>https://voidfox.cc/post/2019/06/vim-configuration-for-self-use.html</link>
         <pubDate>Sun, 30 Jun 2019 21:51:18 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2019/06/vim-configuration-for-self-use.html</guid>
+        <guid>https://voidfox.cc/post/2019/06/vim-configuration-for-self-use.html</guid>
         <description>&lt;p&gt;自用的 vim 配置，方便以后新装系统使用。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;.vimrc&lt;/code&gt; 配置如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -2340,10 +2340,10 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
         </item>
         <item>
         <title>树莓派备忘</title>
-        <link>https://kcode.cc/post/2019/06/memo-of-raspberry-pi.html</link>
+        <link>https://voidfox.cc/post/2019/06/memo-of-raspberry-pi.html</link>
         <pubDate>Sun, 30 Jun 2019 21:27:10 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2019/06/memo-of-raspberry-pi.html</guid>
+        <guid>https://voidfox.cc/post/2019/06/memo-of-raspberry-pi.html</guid>
         <description>&lt;h2 id=&#34;1-无显示器键鼠初始化配置&#34;&gt;1. 无显示器/键鼠初始化配置
 &lt;/h2&gt;&lt;h3 id=&#34;11-开启-sshd&#34;&gt;1.1. 开启 sshd
 &lt;/h3&gt;&lt;p&gt;在 PC 上部署完 Raspbian 系统至 TF 卡上后，在 boot 分区根目录新建一个名为 &lt;code&gt;ssh&lt;/code&gt; 的空文件即可在树莓派启动后开启 Raspbian 的 sshd 服务。&lt;br&gt;
@@ -2416,10 +2416,10 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
         </item>
         <item>
         <title>在树莓派上搭建 Samba 服务</title>
-        <link>https://kcode.cc/post/2019/05/set-up-samba-service-on-raspberry-pi.html</link>
+        <link>https://voidfox.cc/post/2019/05/set-up-samba-service-on-raspberry-pi.html</link>
         <pubDate>Thu, 23 May 2019 21:25:02 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2019/05/set-up-samba-service-on-raspberry-pi.html</guid>
+        <guid>https://voidfox.cc/post/2019/05/set-up-samba-service-on-raspberry-pi.html</guid>
         <description>&lt;h2 id=&#34;1-安装-samba&#34;&gt;1. 安装 Samba
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -2563,10 +2563,10 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
         </item>
         <item>
         <title>Windows 环境下通过 Vagrant 安装 Homestead</title>
-        <link>https://kcode.cc/post/2017/10/install-homestead-through-vagrant-in-windows.html</link>
+        <link>https://voidfox.cc/post/2017/10/install-homestead-through-vagrant-in-windows.html</link>
         <pubDate>Thu, 12 Oct 2017 12:00:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2017/10/install-homestead-through-vagrant-in-windows.html</guid>
+        <guid>https://voidfox.cc/post/2017/10/install-homestead-through-vagrant-in-windows.html</guid>
         <description>&lt;h2 id=&#34;1-简介&#34;&gt;1. 简介
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;Laravel 为开发者提供了一套完善的重量级本地开发环境  Laravel Homestead。&lt;/p&gt;
@@ -2589,7 +2589,8 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;li&gt;Beanstalkd&lt;/li&gt;
 &lt;li&gt;Mailhog&lt;/li&gt;
 &lt;li&gt;ngrok&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;引用自&lt;a class=&#34;link&#34; href=&#34;http://laravelacademy.org/post/7658.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;[ Laravel 5.5 文档 ] 快速入门  重量级开发环境：Homestead 安装使用详细教程&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;2-准备工作&#34;&gt;2. 准备工作
@@ -2758,9 +2759,9 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;ip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;192.168.10.10&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2048&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;cpus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;provider&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;virtualbox&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2048&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;cpus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;provider&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;virtualbox&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这几行配置的是：虚拟机 IP 、虚拟机可使用的内存大小、虚拟机可使用的 CPU 数量、使用的虚拟机环境。可根据实际情况修改。&lt;/p&gt;
@@ -2879,10 +2880,10 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
         </item>
         <item>
         <title>Windows 和 Office KMS 密钥</title>
-        <link>https://kcode.cc/post/2017/03/gvlks-of-windows-and-office.html</link>
+        <link>https://voidfox.cc/post/2017/03/gvlks-of-windows-and-office.html</link>
         <pubDate>Tue, 14 Mar 2017 12:00:00 +0800</pubDate>
         
-        <guid>https://kcode.cc/post/2017/03/gvlks-of-windows-and-office.html</guid>
+        <guid>https://voidfox.cc/post/2017/03/gvlks-of-windows-and-office.html</guid>
         <description>&lt;p&gt;GVLK (Generic Volume License Key) 是用于 KMS 客户端的通用序列号。
 这里提供部分微软官方公布的 Windows 10 / Windows 11 / Office 2013 / Office 2016 / Office 2019 / Office LTSC 2021 / Office LTSC 2024 的 GVLKs ，可用于 KMS 激活。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Office 的 GVLKs 只能用于 VOL 版!&lt;/em&gt;&lt;/p&gt;
@@ -3288,7 +3289,8 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;strong&gt;MD5:&lt;/strong&gt; 60DC8B1892F611E41140DD3631F39793&lt;br&gt;
 &lt;strong&gt;SHA1:&lt;/strong&gt; AEB58DE1BC97685F8BC6BFB0A614A8EF6903E318&lt;br&gt;
 &lt;strong&gt;CRC32:&lt;/strong&gt; 8D8AC6D1&lt;br&gt;
-&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Office_Professional_Plus_2016_64Bit_ChnSimp_MLF_X20-42426.ISO%7c1123452928%7c31087A00FF67D4F5B4CBF4AA07C3433B%7c/&#34; &gt;ed2k://|file|SW_DVD5_Office_Professional_Plus_2016_64Bit_ChnSimp_MLF_X20-42426.ISO|1123452928|31087A00FF67D4F5B4CBF4AA07C3433B|/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Office_Professional_Plus_2016_64Bit_ChnSimp_MLF_X20-42426.ISO%7c1123452928%7c31087A00FF67D4F5B4CBF4AA07C3433B%7c/&#34; &gt;ed2k://|file|SW_DVD5_Office_Professional_Plus_2016_64Bit_ChnSimp_MLF_X20-42426.ISO|1123452928|31087A00FF67D4F5B4CBF4AA07C3433B|/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;office-2016-pro-plus-32位&#34;&gt;Office 2016 Pro Plus 32位
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;文件名:&lt;/strong&gt; SW_DVD5_Office_Professional_Plus_2016_W32_ChnSimp_MLF_X20-41351.ISO
@@ -3296,7 +3298,8 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;strong&gt;MD5:&lt;/strong&gt; 49D97BD1B4DFEAAA6B45E3DD3803DAC1
 &lt;strong&gt;SHA1:&lt;/strong&gt; 0218F50774AAB63AF7755B0986CDB9972B853E44
 &lt;strong&gt;CRC32:&lt;/strong&gt; FF96B0B5
-&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Office_Professional_Plus_2016_W32_ChnSimp_MLF_X20-41351.ISO%7c986441728%7c2DE74581C10096137481873B3AD57D43%7c/&#34; &gt;ed2k://|file|SW_DVD5_Office_Professional_Plus_2016_W32_ChnSimp_MLF_X20-41351.ISO|986441728|2DE74581C10096137481873B3AD57D43|/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Office_Professional_Plus_2016_W32_ChnSimp_MLF_X20-41351.ISO%7c986441728%7c2DE74581C10096137481873B3AD57D43%7c/&#34; &gt;ed2k://|file|SW_DVD5_Office_Professional_Plus_2016_W32_ChnSimp_MLF_X20-41351.ISO|986441728|2DE74581C10096137481873B3AD57D43|/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;office-2016-project-pro-64位&#34;&gt;Office 2016 Project Pro 64位
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;文件名:&lt;/strong&gt; SW_DVD5_Project_Pro_2016_64Bit_ChnSimp_MLF_X20-42676.ISO
@@ -3304,7 +3307,8 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;strong&gt;MD5:&lt;/strong&gt; B872E55B8F4A8791D65BCF1DB46D1DCB
 &lt;strong&gt;SHA1:&lt;/strong&gt; 3C180FDAF91DBD0CB767BD040B42B0599FC53438
 &lt;strong&gt;CRC32:&lt;/strong&gt; 6AB6A570
-&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Project_Pro_2016_64Bit_ChnSimp_MLF_X20-42676.ISO%7c647157760%7c0BBBF20CA3A5F61A819586ADCE6E4DCB%7c/&#34; &gt;ed2k://|file|SW_DVD5_Project_Pro_2016_64Bit_ChnSimp_MLF_X20-42676.ISO|647157760|0BBBF20CA3A5F61A819586ADCE6E4DCB|/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Project_Pro_2016_64Bit_ChnSimp_MLF_X20-42676.ISO%7c647157760%7c0BBBF20CA3A5F61A819586ADCE6E4DCB%7c/&#34; &gt;ed2k://|file|SW_DVD5_Project_Pro_2016_64Bit_ChnSimp_MLF_X20-42676.ISO|647157760|0BBBF20CA3A5F61A819586ADCE6E4DCB|/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;office-2016-project-pro-32位&#34;&gt;Office 2016 Project Pro 32位
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;文件名:&lt;/strong&gt; SW_DVD5_Visio_Pro_2016_64Bit_ChnSimp_MLF_X20-42759.ISO
@@ -3312,7 +3316,8 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;strong&gt;MD5:&lt;/strong&gt; 93BEB874F5A5870D5854519856047103
 &lt;strong&gt;SHA1:&lt;/strong&gt; 71E082174812F748AB1A70CA33E6004E1E1AACA8
 &lt;strong&gt;CRC32:&lt;/strong&gt; F813794B
-&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Project_Pro_2016_W32_ChnSimp_MLF_X20-41511.ISO%7c555210752%7cCA3BD5F8C7B3E263105B041DDD4104AB%7c/&#34; &gt;ed2k://|file|SW_DVD5_Project_Pro_2016_W32_ChnSimp_MLF_X20-41511.ISO|555210752|CA3BD5F8C7B3E263105B041DDD4104AB|/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Project_Pro_2016_W32_ChnSimp_MLF_X20-41511.ISO%7c555210752%7cCA3BD5F8C7B3E263105B041DDD4104AB%7c/&#34; &gt;ed2k://|file|SW_DVD5_Project_Pro_2016_W32_ChnSimp_MLF_X20-41511.ISO|555210752|CA3BD5F8C7B3E263105B041DDD4104AB|/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;office-2016-visio-pro-64位&#34;&gt;Office 2016 Visio Pro 64位
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;文件名:&lt;/strong&gt; SW_DVD5_Visio_Pro_2016_64Bit_ChnSimp_MLF_X20-42759.ISO
@@ -3320,7 +3325,8 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;strong&gt;MD5:&lt;/strong&gt; 93BEB874F5A5870D5854519856047103
 &lt;strong&gt;SHA1:&lt;/strong&gt; 71E082174812F748AB1A70CA33E6004E1E1AACA8
 &lt;strong&gt;CRC32:&lt;/strong&gt; F813794B
-&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Visio_Pro_2016_64Bit_ChnSimp_MLF_X20-42759.ISO%7c714913792%7cFC930AB97B366B3595FC2F28ABAC2A6F%7c/&#34; &gt;ed2k://|file|SW_DVD5_Visio_Pro_2016_64Bit_ChnSimp_MLF_X20-42759.ISO|714913792|FC930AB97B366B3595FC2F28ABAC2A6F|/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Visio_Pro_2016_64Bit_ChnSimp_MLF_X20-42759.ISO%7c714913792%7cFC930AB97B366B3595FC2F28ABAC2A6F%7c/&#34; &gt;ed2k://|file|SW_DVD5_Visio_Pro_2016_64Bit_ChnSimp_MLF_X20-42759.ISO|714913792|FC930AB97B366B3595FC2F28ABAC2A6F|/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;office-2016-visio-pro-32位&#34;&gt;Office 2016 Visio Pro 32位
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;文件名:&lt;/strong&gt; SW_DVD5_Visio_Pro_2016_W32_ChnSimp_MLF_X20-41580.ISO
@@ -3328,7 +3334,8 @@ uclibc/musll-ibc 等库不提供 ucontext 库，所以无法使用异步操作�
 &lt;strong&gt;MD5:&lt;/strong&gt; 96E008B110F308F1E424D11964D82CE0
 &lt;strong&gt;SHA1:&lt;/strong&gt; 780046411EB18874AA2DA7E4A11322557EB00D92
 &lt;strong&gt;CRC32:&lt;/strong&gt; 42E1653D
-&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Visio_Pro_2016_W32_ChnSimp_MLF_X20-41580.ISO%7c609447936%7c91EB248558F236AA66D234EA03FAD9A9%7c/&#34; &gt;ed2k://|file|SW_DVD5_Visio_Pro_2016_W32_ChnSimp_MLF_X20-41580.ISO|609447936|91EB248558F236AA66D234EA03FAD9A9|/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;strong&gt;下载地址:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;ed2k://%7cfile%7cSW_DVD5_Visio_Pro_2016_W32_ChnSimp_MLF_X20-41580.ISO%7c609447936%7c91EB248558F236AA66D234EA03FAD9A9%7c/&#34; &gt;ed2k://|file|SW_DVD5_Visio_Pro_2016_W32_ChnSimp_MLF_X20-41580.ISO|609447936|91EB248558F236AA66D234EA03FAD9A9|/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;文章修订记录&#34;&gt;文章修订记录
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;2017-03-14

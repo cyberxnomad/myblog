@@ -2,145 +2,145 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://kcode.cc/categories/</loc>
-    <lastmod>2025-08-12T20:11:00+08:00</lastmod>
+    <loc>https://voidfox.cc/categories/</loc>
+    <lastmod>2025-08-12T20:17:24+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/debian/</loc>
+    <loc>https://voidfox.cc/tags/debian/</loc>
     <lastmod>2025-07-18T11:58:32+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/</loc>
-    <lastmod>2025-08-12T20:11:00+08:00</lastmod>
+    <loc>https://voidfox.cc/post/</loc>
+    <lastmod>2025-08-12T20:17:24+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/</loc>
-    <lastmod>2025-08-12T20:11:00+08:00</lastmod>
+    <loc>https://voidfox.cc/tags/</loc>
+    <lastmod>2025-08-12T20:17:24+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/</loc>
-    <lastmod>2025-08-12T20:11:00+08:00</lastmod>
+    <loc>https://voidfox.cc/</loc>
+    <lastmod>2025-08-12T20:17:24+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2025/03/automated-installation-of-debian.html</loc>
+    <loc>https://voidfox.cc/post/2025/03/automated-installation-of-debian.html</loc>
     <lastmod>2025-07-18T11:58:32+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/openocd/</loc>
+    <loc>https://voidfox.cc/tags/openocd/</loc>
     <lastmod>2025-07-18T14:00:50+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2024/04/cross-compile-openocd-to-windows.html</loc>
+    <loc>https://voidfox.cc/post/2024/04/cross-compile-openocd-to-windows.html</loc>
     <lastmod>2025-07-18T14:00:50+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/%E7%A7%BB%E6%A4%8D/</loc>
+    <loc>https://voidfox.cc/tags/%E7%A7%BB%E6%A4%8D/</loc>
     <lastmod>2025-07-18T14:00:50+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/git/</loc>
+    <loc>https://voidfox.cc/tags/git/</loc>
     <lastmod>2025-07-18T11:56:42+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2024/04/git-merge-and-patch.html</loc>
+    <loc>https://voidfox.cc/post/2024/04/git-merge-and-patch.html</loc>
     <lastmod>2025-07-18T11:56:42+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/buildroot/</loc>
+    <loc>https://voidfox.cc/tags/buildroot/</loc>
     <lastmod>2025-07-18T14:00:27+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2023/06/buildroot-note-1.html</loc>
+    <loc>https://voidfox.cc/post/2023/06/buildroot-note-1.html</loc>
     <lastmod>2025-07-18T14:00:27+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/erp/</loc>
+    <loc>https://voidfox.cc/tags/erp/</loc>
     <lastmod>2025-07-18T14:00:27+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/erpnext/</loc>
+    <loc>https://voidfox.cc/tags/erpnext/</loc>
     <lastmod>2025-07-18T14:00:27+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2023/06/erpnext-14-manual-installation.html</loc>
+    <loc>https://voidfox.cc/post/2023/06/erpnext-14-manual-installation.html</loc>
     <lastmod>2025-07-18T14:00:27+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</loc>
+    <loc>https://voidfox.cc/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2022/12/set-up-flypy-on-windows.html</loc>
+    <loc>https://voidfox.cc/post/2022/12/set-up-flypy-on-windows.html</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2022/12/annotation-of-linux-termios-structure.html</loc>
+    <loc>https://voidfox.cc/post/2022/12/annotation-of-linux-termios-structure.html</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/termios/</loc>
+    <loc>https://voidfox.cc/tags/termios/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/%E5%86%85%E6%A0%B8/</loc>
+    <loc>https://voidfox.cc/tags/%E5%86%85%E6%A0%B8/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/ssh/</loc>
+    <loc>https://voidfox.cc/tags/ssh/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/ssl/</loc>
+    <loc>https://voidfox.cc/tags/ssl/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/zlib/</loc>
+    <loc>https://voidfox.cc/tags/zlib/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2021/07/porting-openssh.html</loc>
+    <loc>https://voidfox.cc/post/2021/07/porting-openssh.html</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/mqtt/</loc>
+    <loc>https://voidfox.cc/tags/mqtt/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2021/07/porting-paho-mqtt.html</loc>
+    <loc>https://voidfox.cc/post/2021/07/porting-paho-mqtt.html</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2021/07/porting-openssl.html</loc>
+    <loc>https://voidfox.cc/post/2021/07/porting-openssl.html</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/kms/</loc>
-    <lastmod>2025-08-12T20:11:00+08:00</lastmod>
+    <loc>https://voidfox.cc/tags/kms/</loc>
+    <lastmod>2025-08-12T20:17:24+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2019/06/activate-windows-and-office-by-kms.html</loc>
+    <loc>https://voidfox.cc/post/2019/06/activate-windows-and-office-by-kms.html</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/vim/</loc>
+    <loc>https://voidfox.cc/tags/vim/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2019/06/vim-configuration-for-self-use.html</loc>
+    <loc>https://voidfox.cc/post/2019/06/vim-configuration-for-self-use.html</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2019/06/memo-of-raspberry-pi.html</loc>
+    <loc>https://voidfox.cc/post/2019/06/memo-of-raspberry-pi.html</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/tags/samba/</loc>
+    <loc>https://voidfox.cc/tags/samba/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2019/05/set-up-samba-service-on-raspberry-pi.html</loc>
+    <loc>https://voidfox.cc/post/2019/05/set-up-samba-service-on-raspberry-pi.html</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2017/10/install-homestead-through-vagrant-in-windows.html</loc>
+    <loc>https://voidfox.cc/post/2017/10/install-homestead-through-vagrant-in-windows.html</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/post/2017/03/gvlks-of-windows-and-office.html</loc>
-    <lastmod>2025-08-12T20:11:00+08:00</lastmod>
+    <loc>https://voidfox.cc/post/2017/03/gvlks-of-windows-and-office.html</loc>
+    <lastmod>2025-08-12T20:17:24+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/categories/git/</loc>
+    <loc>https://voidfox.cc/categories/git/</loc>
     <lastmod>2024-04-10T21:39:21+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/page/links/</loc>
+    <loc>https://voidfox.cc/page/links/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/categories/linux/</loc>
+    <loc>https://voidfox.cc/categories/linux/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/page/</loc>
+    <loc>https://voidfox.cc/page/</loc>
     <lastmod>2023-06-21T15:50:50+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/categories/php/</loc>
+    <loc>https://voidfox.cc/categories/php/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/categories/raspberrypi/</loc>
+    <loc>https://voidfox.cc/categories/raspberrypi/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/categories/windows/</loc>
+    <loc>https://voidfox.cc/categories/windows/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/about.html</loc>
+    <loc>https://voidfox.cc/about.html</loc>
     <lastmod>2023-06-21T15:50:50+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/archives.html</loc>
+    <loc>https://voidfox.cc/archives.html</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url><url>
-    <loc>https://kcode.cc/search/</loc>
+    <loc>https://voidfox.cc/search/</loc>
     <lastmod>2023-06-21T14:42:16+08:00</lastmod>
   </url>
 </urlset>

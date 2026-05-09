@@ -4,16 +4,16 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 原因\r之前 clone 可以一个大型开源项目，自己创建了一个分支进行修改。\n随着自己的分支和开源项目自身的迭代，自己每次都使用 merge 将远程的主分支合并到自己分支。最近由于隔了非常多版本没有合并，现在使用 merge 合并出现了大量冲突。\n于是使用 git merge -X theirs [other_branch] 进行合并，该命令是在合并遇到冲突时，保留 [other_branch] 的改动，删除自己的改动。\n合并过程顺利，但是实际出现了本不应该存在的文件，自己的分支没有创建过该文件，远程最新主分支也没有该文件，猜测可能是远程分支中途 commit 出现过该文件，但是在后续的迭代中又删除了该文件。\n由于文件太多，不好一一比较删除，遂另寻他法。\n2. 解决办法\r先使用 git diff 创建差异文件，具体用法：\n1 git diff [待合并的分支] [想要被合并的分支] -- &#39;:![排除的文件(夹)1，可使用通配符]&#39; &#39;:![排除的文件(夹)2，可使用通配符]&#39; &gt; /path/to/patch 然后使用 git apply 应用差异，具体用法：\n1 2 3 4 5 # 检查是否可以应用，无任何输出则表示可以应用 git apply --check /path/to/patch # 应用差异 (先修复空格) git apply --reject --whitespace=fix /path/to/patch 此时基本没太大问题，因为上面使用了 --whitespace=fix，有些末尾的空行等被删除了，此时再使用 git merge -X theirs [other_branch] 合并一次即可。\n">
 <title>大型项目使用 git merge 导致多文件混乱问题及解决</title>
 
-<link rel='canonical' href='https://kcode.cc/post/2024/04/git-merge-and-patch.html'>
+<link rel='canonical' href='https://voidfox.cc/post/2024/04/git-merge-and-patch.html'>
 
-<link rel="stylesheet" href="/scss/style.min.cfa5b1b0e78d61c00a14173992a1f3fa3b5c1b9fa34d023de959af564e7b19dd.css"><meta property='og:title' content="大型项目使用 git merge 导致多文件混乱问题及解决">
+<link rel="stylesheet" href="/scss/style.min.c141fa7f089dce101a8f37fe2e449c3f3179af78da35bef65eef05d9a75c80ed.css"><meta property='og:title' content="大型项目使用 git merge 导致多文件混乱问题及解决">
 <meta property='og:description' content="1. 原因\r之前 clone 可以一个大型开源项目，自己创建了一个分支进行修改。\n随着自己的分支和开源项目自身的迭代，自己每次都使用 merge 将远程的主分支合并到自己分支。最近由于隔了非常多版本没有合并，现在使用 merge 合并出现了大量冲突。\n于是使用 git merge -X theirs [other_branch] 进行合并，该命令是在合并遇到冲突时，保留 [other_branch] 的改动，删除自己的改动。\n合并过程顺利，但是实际出现了本不应该存在的文件，自己的分支没有创建过该文件，远程最新主分支也没有该文件，猜测可能是远程分支中途 commit 出现过该文件，但是在后续的迭代中又删除了该文件。\n由于文件太多，不好一一比较删除，遂另寻他法。\n2. 解决办法\r先使用 git diff 创建差异文件，具体用法：\n1 git diff [待合并的分支] [想要被合并的分支] -- &#39;:![排除的文件(夹)1，可使用通配符]&#39; &#39;:![排除的文件(夹)2，可使用通配符]&#39; &gt; /path/to/patch 然后使用 git apply 应用差异，具体用法：\n1 2 3 4 5 # 检查是否可以应用，无任何输出则表示可以应用 git apply --check /path/to/patch # 应用差异 (先修复空格) git apply --reject --whitespace=fix /path/to/patch 此时基本没太大问题，因为上面使用了 --whitespace=fix，有些末尾的空行等被删除了，此时再使用 git merge -X theirs [other_branch] 合并一次即可。\n">
-<meta property='og:url' content='https://kcode.cc/post/2024/04/git-merge-and-patch.html'>
-<meta property='og:site_name' content='K CODE'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='git' /><meta property='article:published_time' content='2024-04-10T20:57:00&#43;08:00'/><meta property='article:modified_time' content='2025-07-18T11:56:42&#43;08:00'/><meta property='og:image' content='https://kcode.cc/post/2024/04/git-merge-and-patch/cover.webp' />
+<meta property='og:url' content='https://voidfox.cc/post/2024/04/git-merge-and-patch.html'>
+<meta property='og:site_name' content='Void Fox'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='git' /><meta property='article:published_time' content='2024-04-10T20:57:00&#43;08:00'/><meta property='article:modified_time' content='2025-07-18T11:56:42&#43;08:00'/><meta property='og:image' content='https://voidfox.cc/post/2024/04/git-merge-and-patch/cover.webp' />
 <meta name="twitter:title" content="大型项目使用 git merge 导致多文件混乱问题及解决">
 <meta name="twitter:description" content="1. 原因\r之前 clone 可以一个大型开源项目，自己创建了一个分支进行修改。\n随着自己的分支和开源项目自身的迭代，自己每次都使用 merge 将远程的主分支合并到自己分支。最近由于隔了非常多版本没有合并，现在使用 merge 合并出现了大量冲突。\n于是使用 git merge -X theirs [other_branch] 进行合并，该命令是在合并遇到冲突时，保留 [other_branch] 的改动，删除自己的改动。\n合并过程顺利，但是实际出现了本不应该存在的文件，自己的分支没有创建过该文件，远程最新主分支也没有该文件，猜测可能是远程分支中途 commit 出现过该文件，但是在后续的迭代中又删除了该文件。\n由于文件太多，不好一一比较删除，遂另寻他法。\n2. 解决办法\r先使用 git diff 创建差异文件，具体用法：\n1 git diff [待合并的分支] [想要被合并的分支] -- &#39;:![排除的文件(夹)1，可使用通配符]&#39; &#39;:![排除的文件(夹)2，可使用通配符]&#39; &gt; /path/to/patch 然后使用 git apply 应用差异，具体用法：\n1 2 3 4 5 # 检查是否可以应用，无任何输出则表示可以应用 git apply --check /path/to/patch # 应用差异 (先修复空格) git apply --reject --whitespace=fix /path/to/patch 此时基本没太大问题，因为上面使用了 --whitespace=fix，有些末尾的空行等被删除了，此时再使用 git merge -X theirs [other_branch] 合并一次即可。\n"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://kcode.cc/post/2024/04/git-merge-and-patch/cover.webp' />
+    <meta name="twitter:image" content='https://voidfox.cc/post/2024/04/git-merge-and-patch/cover.webp' />
     <link rel="shortcut icon" href="/favicon.png" />
 
     </head>
@@ -59,7 +59,7 @@
                     
                     
                         
-                        <img src="/images/avatar_hu_74b419752b138555.jpg" width="300"
+                        <img src="/images/avatar_hu_6534c7386dde1f7d.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -72,7 +72,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">K CODE</a></h1>
+            <h1 class="site-name"><a href="/">Void Fox</a></h1>
             <h2 class="site-description">A Simple Blog</h2>
         </div>
     </header><ol class="menu" id="main-menu">
@@ -203,8 +203,8 @@
     <header class="article-header">
         <div class="article-image">
             <a href="/post/2024/04/git-merge-and-patch.html">
-                <img src="/post/2024/04/git-merge-and-patch/cover_hu_a3e7e7d3b881a145.webp"
-                        srcset="/post/2024/04/git-merge-and-patch/cover_hu_a3e7e7d3b881a145.webp 800w, /post/2024/04/git-merge-and-patch/cover_hu_fdbff7be279df544.webp 1600w"
+                <img src="/post/2024/04/git-merge-and-patch/cover_hu_fa349b6df53ec304.webp"
+                        srcset="/post/2024/04/git-merge-and-patch/cover_hu_fa349b6df53ec304.webp 800w, /post/2024/04/git-merge-and-patch/cover_hu_d60a8e18c55212bc.webp 1600w"
                         width="800" 
                         height="535" 
                         loading="lazy"
@@ -218,6 +218,9 @@
     
     <header class="article-category">
         
+            
+            
+            
             <a href="/categories/git/" style="background-color: #1F222B; color: #e6e6e6;">
                 Git
             </a>
@@ -249,7 +252,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2024/04/10</time>
+                <time class="article-time--published" datetime='2024-04-10T20:57:00&#43;08:00'>2024/04/10</time>
             </div>
         
 
@@ -371,12 +374,12 @@
         
             2017 - 
         
-        2025 K CODE
+        2026 Void Fox
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.34.2">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -458,6 +461,7 @@
                 rel="stylesheet" 
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
+    
 
             </main>
         </div>
@@ -465,7 +469,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

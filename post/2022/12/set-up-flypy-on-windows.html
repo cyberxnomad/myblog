@@ -4,12 +4,12 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="系统自带输入法对我而言已经完全足够了，但是没有内置“小鹤双拼”的方案，每次到新的电脑都要在输入法设置里一个一个按键绑定，较为繁琐。\n偶然的机会发现可以直接在注册表里添加键值，步骤如下：\n打开注册表编辑器 进入如下路径：HKEY_CURRENT_USER\\Software\\Microsoft\\InputMethod\\Settings\\CHS 新建 字符串值 名称为 UserDefinedDoublePinyinScheme{X}，其中 {X} 为数字，一般做序号用，如：UserDefinedDoublePinyinScheme0 数据值为 小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt，“小鹤双拼”为自定义方案的名称，“2”为零声母模式，后面的估计是按声韵母排序绑定到每个键的顺序。 在输入法里将“小鹤双拼”设为默认即可 ">
 <title>在 Windows 自带输入法上使用小鹤双拼</title>
 
-<link rel='canonical' href='https://kcode.cc/post/2022/12/set-up-flypy-on-windows.html'>
+<link rel='canonical' href='https://voidfox.cc/post/2022/12/set-up-flypy-on-windows.html'>
 
-<link rel="stylesheet" href="/scss/style.min.cfa5b1b0e78d61c00a14173992a1f3fa3b5c1b9fa34d023de959af564e7b19dd.css"><meta property='og:title' content="在 Windows 自带输入法上使用小鹤双拼">
+<link rel="stylesheet" href="/scss/style.min.c141fa7f089dce101a8f37fe2e449c3f3179af78da35bef65eef05d9a75c80ed.css"><meta property='og:title' content="在 Windows 自带输入法上使用小鹤双拼">
 <meta property='og:description' content="系统自带输入法对我而言已经完全足够了，但是没有内置“小鹤双拼”的方案，每次到新的电脑都要在输入法设置里一个一个按键绑定，较为繁琐。\n偶然的机会发现可以直接在注册表里添加键值，步骤如下：\n打开注册表编辑器 进入如下路径：HKEY_CURRENT_USER\\Software\\Microsoft\\InputMethod\\Settings\\CHS 新建 字符串值 名称为 UserDefinedDoublePinyinScheme{X}，其中 {X} 为数字，一般做序号用，如：UserDefinedDoublePinyinScheme0 数据值为 小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt，“小鹤双拼”为自定义方案的名称，“2”为零声母模式，后面的估计是按声韵母排序绑定到每个键的顺序。 在输入法里将“小鹤双拼”设为默认即可 ">
-<meta property='og:url' content='https://kcode.cc/post/2022/12/set-up-flypy-on-windows.html'>
-<meta property='og:site_name' content='K CODE'>
+<meta property='og:url' content='https://voidfox.cc/post/2022/12/set-up-flypy-on-windows.html'>
+<meta property='og:site_name' content='Void Fox'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='输入法' /><meta property='article:published_time' content='2022-12-29T17:36:00&#43;08:00'/><meta property='article:modified_time' content='2023-06-21T14:42:16&#43;08:00'/>
 <meta name="twitter:title" content="在 Windows 自带输入法上使用小鹤双拼">
 <meta name="twitter:description" content="系统自带输入法对我而言已经完全足够了，但是没有内置“小鹤双拼”的方案，每次到新的电脑都要在输入法设置里一个一个按键绑定，较为繁琐。\n偶然的机会发现可以直接在注册表里添加键值，步骤如下：\n打开注册表编辑器 进入如下路径：HKEY_CURRENT_USER\\Software\\Microsoft\\InputMethod\\Settings\\CHS 新建 字符串值 名称为 UserDefinedDoublePinyinScheme{X}，其中 {X} 为数字，一般做序号用，如：UserDefinedDoublePinyinScheme0 数据值为 小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt，“小鹤双拼”为自定义方案的名称，“2”为零声母模式，后面的估计是按声韵母排序绑定到每个键的顺序。 在输入法里将“小鹤双拼”设为默认即可 ">
@@ -58,7 +58,7 @@
                     
                     
                         
-                        <img src="/images/avatar_hu_74b419752b138555.jpg" width="300"
+                        <img src="/images/avatar_hu_6534c7386dde1f7d.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -71,7 +71,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">K CODE</a></h1>
+            <h1 class="site-name"><a href="/">Void Fox</a></h1>
             <h2 class="site-description">A Simple Blog</h2>
         </div>
     </header><ol class="menu" id="main-menu">
@@ -173,6 +173,9 @@
     
     <header class="article-category">
         
+            
+            
+            
             <a href="/categories/windows/" style="background-color: #146AFF; color: #FFF;">
                 Windows
             </a>
@@ -204,7 +207,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2022/12/29</time>
+                <time class="article-time--published" datetime='2022-12-29T17:36:00&#43;08:00'>2022/12/29</time>
             </div>
         
 
@@ -340,12 +343,12 @@
         
             2017 - 
         
-        2025 K CODE
+        2026 Void Fox
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.34.2">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -427,6 +430,7 @@
                 rel="stylesheet" 
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
+    
 
             </main>
         </div>
@@ -434,7 +438,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
